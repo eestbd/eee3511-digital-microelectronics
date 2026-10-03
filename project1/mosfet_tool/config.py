@@ -4,9 +4,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 from pathlib import Path
 
 import yaml
+
+from .materials import canonical_gate_material
 
 
 @dataclass
@@ -29,6 +32,22 @@ class Device:
     # 두 값 모두 공간이나 전계에 따라 변하지 않는 상수이며 단위는 cm^2/(V s)다.
     mu_n: float = 400.0  # 전자 이동도로 전자 전류 계산에 사용한다.
     mu_p: float = 200.0  # 정공 이동도로 정공 전류 계산에 사용한다.
+
+    # 생략하면 HW1에서 이어진 기존 gate 조건을 유지한다.
+    gate_material: str | None = None
+    silicon_temperature_model: str = "legacy"
+    # 물리 도핑 길이는 메시 해상도와 독립이다. 기본값은 기존 half-mesh 값과 같다.
+    doping_decay_x_nm: float = 12.5
+    doping_decay_y_nm: float = 5.0
+
+    def __post_init__(self) -> None:
+        if self.gate_material is not None:
+            self.gate_material = canonical_gate_material(self.gate_material)
+        if self.silicon_temperature_model not in ("legacy", "varshni"):
+            raise ValueError("silicon_temperature_model must be legacy or varshni")
+        if any(not math.isfinite(v) or v <= 0
+               for v in (self.doping_decay_x_nm, self.doping_decay_y_nm)):
+            raise ValueError("Doping decay lengths must be finite and positive")
 
 
 def load_config(path: str | Path) -> tuple[Device, dict]:

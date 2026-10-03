@@ -8,6 +8,8 @@ Id-Vg와 Id-Vd는 전류를 계산하고, C-V는 전압별 게이트 전하를 �
 from __future__ import annotations
 
 import math
+from dataclasses import replace
+from pathlib import Path
 
 import devsim
 import numpy as np
@@ -22,11 +24,13 @@ from devsim.python_packages.simple_physics import (
     CreateSiliconPotentialOnly,
     CreateSiliconPotentialOnlyContact,
     GetContactBiasName,
+    GetContactNodeModelName,
     SetOxideParameters,
     SetSiliconParameters,
 )
 
 from .config import Device
+from .physics import gate_offset_v, silicon_properties
 
 # DEVSIM의 길이 단위는 cm이므로 입력 치수와 폭당 결과를 이 값으로 환산한다.
 UM = 1.0e-4  # 1 um를 cm로 나타낸 값
@@ -37,6 +41,8 @@ def voltage_points(start: float, stop: float, step: float) -> np.ndarray:
     """양수인 step을 기준으로 시작 전압부터 증가하거나 감소하는 배열을 만든다."""
     # 범위를 간격으로 나눈 값을 반올림해 이동 횟수를 정하고 시작점까지 포함한다.
     # 범위가 간격의 정수배가 아니면 마지막 전압이 stop과 정확히 일치하지 않을 수 있다.
+    if not all(math.isfinite(v) for v in (start, stop, step)) or step <= 0:
+        raise ValueError("Sweep endpoints must be finite and step must be positive")
     count = round(abs(stop - start) / step)
     signed_step = step if stop >= start else -step
     # 소수 계산 오차가 CSV의 전압 값에 길게 남지 않도록 소수점 아래 9자리로 맞춘다.
@@ -73,11 +79,38 @@ class MosfetSimulator:
         # 마지막으로 계산한 전압을 기억해 다음 전압까지 조금씩 이동할 때 사용한다.
         self.bias = {"gate": 0.0, "source": 0.0, "drain": 0.0, "body": 0.0}
 
-    def build(self) -> None:
+    def build(self, structure_path: str | Path | None = None) -> None:
         """이전 소자를 지운 뒤 메시, 도핑, 전위 방정식을 차례로 준비한다."""
         self._clear_session()
         self._build_mesh()
         self._build_doping()
+        if structure_path is not None:
+            path = Path(structure_path)
+            if path.exists():
+                raise FileExistsError(f"Refusing to overwrite structure: {path}")
+            path.parent.mkdir(parents=True, exist_ok=True)
+            # 채점 파일에는 physics, bias, 해 변수 없이 구조·도핑만 넣는다.
+            devsim.write_devices(file=str(path), device=self.name, type="devsim")
+        self._build_physics()
+
+    def load_structure(self, path: str | Path) -> None:
+        """구조-only 파일 하나를 불러온 뒤 현재 온도·모델의 physics를 붙인다."""
+        self._clear_session()
+        devsim.load_devices(file=str(path))
+        devices = tuple(devsim.get_device_list())
+        if len(devices) != 1:
+            raise ValueError("A structure file must contain exactly one device")
+        self.name = devices[0]
+        regions = set(devsim.get_region_list(device=self.name))
+        if not {"bulk", "oxide", "gate_metal"}.issubset(regions):
+            raise ValueError("Part 1 structure requires bulk, oxide and gate_metal")
+        for region in regions:
+            if devsim.get_equation_list(device=self.name, region=region):
+                raise ValueError("Load a structure saved before physics registration")
+        # 재료는 제출 구조에서 읽는다. 전달한 config의 라벨로 덮어쓰지 않는다.
+        self.dev = replace(self.dev, gate_material=devsim.get_material(
+            device=self.name, region="gate_metal"))
+        self.bias = {"gate": 0.0, "source": 0.0, "drain": 0.0, "body": 0.0}
         self._build_physics()
 
     def _clear_session(self) -> None:
@@ -94,7 +127,9 @@ class MosfetSimulator:
         # 소자 바깥에 작은 여유를 두어 최외곽 경계와 접점 범위를 잡는다.
         pad = 1.0e-8
         x_min, x_max = -pad, self.x_right + pad
-        y_min, y_max = self.y_oxide_top - pad, self.y_bottom + pad
+        metal_top = self.y_oxide_top - 10.0 * NM
+        y_top = metal_top if self.dev.gate_material is not None else self.y_oxide_top
+        y_min, y_max = y_top - pad, self.y_bottom + pad
 
         devsim.create_2d_mesh(mesh=self.mesh)
         # 재료와 접점의 경계 위치에 메시 선을 두고 주변 간격을 지정한다.
@@ -109,6 +144,8 @@ class MosfetSimulator:
             (y_max, self.DY_BULK),
         ):
             devsim.add_2d_mesh_line(mesh=self.mesh, dir="y", pos=pos, ps=spacing)
+        if self.dev.gate_material is not None:
+            devsim.add_2d_mesh_line(mesh=self.mesh, dir="y", pos=metal_top, ps=self.DY_OXIDE)
 
         # 전체 배경을 공기로 둔 뒤 실리콘과 게이트 아래 산화막의 범위를 지정한다.
         devsim.add_2d_region(mesh=self.mesh, material="Air", region="air")
@@ -117,6 +154,11 @@ class MosfetSimulator:
         devsim.add_2d_region(mesh=self.mesh, material="Oxide", region="oxide",
                              xl=self.x_gate_left, xh=self.x_gate_right,
                              yl=0.0, yh=self.y_oxide_top)
+        if self.dev.gate_material is not None:
+            # 방정식 없는 라벨이다. gate contact는 계속 oxide 윗면에 둔다.
+            devsim.add_2d_region(mesh=self.mesh, material=self.dev.gate_material,
+                                 region="gate_metal", xl=self.x_gate_left,
+                                 xh=self.x_gate_right, yl=self.y_oxide_top, yh=metal_top)
 
         # 게이트는 산화막 윗면, 소스와 드레인은 실리콘 윗면, 바디는 실리콘 아랫면이다.
         devsim.add_2d_contact(mesh=self.mesh, name="gate", region="oxide", material="metal",
@@ -139,8 +181,8 @@ class MosfetSimulator:
         """소스와 드레인의 도너 분포에서 바디의 억셉터 농도를 빼 순 도핑을 만든다."""
         # 접합에서 농도가 갑자기 끊기지 않도록 erfc 함수로 부드럽게 줄인다.
         nd, na = self.dev.sd_doping_cm3, self.dev.body_doping_cm3
-        decay_x = 0.5 * self.DX_CHANNEL
-        decay_y = 0.5 * self.DY_JUNCTION
+        decay_x = self.dev.doping_decay_x_nm * NM
+        decay_y = self.dev.doping_decay_y_nm * NM
         # 두 방향의 erfc가 각각 최대 2에 가까워지므로 0.25를 곱해 농도 크기를 맞춘다.
         # 소스는 게이트 왼쪽과 접합 깊이 위쪽에서 농도가 높다.
         devsim.node_model(
@@ -165,6 +207,12 @@ class MosfetSimulator:
         for region in ("bulk", "oxide"):
             CreateSolution(self.name, region, "Potential")
         SetSiliconParameters(self.name, "bulk", self.dev.temperature_k)
+        if self.dev.silicon_temperature_model == "varshni":
+            props = silicon_properties(self.dev.temperature_k)
+            # SRH와 equilibrium/contact 식에서 같은 ni(T)를 사용한다.
+            for parameter in ("n_i", "n1", "p1"):
+                devsim.set_parameter(device=self.name, region="bulk", name=parameter,
+                                     value=props["n_i_cm3"])
         # 기본 물성값을 등록한 다음 소자에 지정된 이동도로 덮어쓴다.
         # 이전의 클래스 상수 대신 Device 값을 읽어 GUI의 소자별 입력을 반영한다.
         # 이 이름들은 enable_transport에서 전류 모델을 만들 때 그대로 참조한다.
@@ -176,6 +224,15 @@ class MosfetSimulator:
         CreateOxidePotentialOnly(self.name, "oxide", "log_damp")
         # 모든 접점을 0 V에서 시작하며, 실제 스윕 전압은 set_bias에서 적용한다.
         CreateOxideContact(self.name, "oxide", "gate")
+        if self.dev.gate_material is not None:
+            offset = gate_offset_v(self.dev.gate_material, self.dev.temperature_k,
+                                   self.dev.silicon_temperature_model)
+            devsim.set_parameter(device=self.name, name="gate_work_function_offset_V",
+                                 value=offset)
+            # 기존 ohmic 접점의 body Fermi offset을 다시 gate에 더하지 않는다.
+            devsim.contact_node_model(
+                device=self.name, contact="gate", name=GetContactNodeModelName("gate"),
+                equation="Potential - gate_bias + gate_work_function_offset_V")
         devsim.set_parameter(device=self.name, name=GetContactBiasName("gate"), value=0.0)
         for contact in ("source", "drain", "body"):
             CreateSiliconPotentialOnlyContact(self.name, "bulk", contact)
@@ -231,6 +288,12 @@ class MosfetSimulator:
                                           equation="HoleContinuityEquation")
         # 2차원 해석의 전류는 폭 1 cm 기준이므로 1 um에 해당하는 비율을 곱한다.
         return (electron + hole) * UM
+
+    def contact_currents(self) -> dict[str, float]:
+        """수렴·작은 누설의 검증용으로 S/D/body signed 전류(A/µm)를 읽는다."""
+        return {c: sum(devsim.get_contact_current(device=self.name, contact=c, equation=e)
+                       for e in ("ElectronContinuityEquation", "HoleContinuityEquation")) * UM
+                for c in ("source", "drain", "body")}
 
     def gate_charge(self) -> float:
         """전위 방정식에서 얻은 게이트 접점 전하를 폭당 전하인 C/cm로 반환한다."""

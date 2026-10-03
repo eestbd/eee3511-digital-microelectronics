@@ -1,0 +1,19 @@
+{
+  "purpose": "Fresh-process double-precision low-drain off-state diagnosis",
+  "requested_bias": {
+    "T_K": 300,
+    "VD_V": 0.05,
+    "VB_V": 0,
+    "VG_V": 0
+  },
+  "precision": "double",
+  "sample": {
+    "Vg_V": 0,
+    "Id_A_per_um": 1.866238778213947e-15,
+    "Is_A_per_um": -1.872391065727454e-15,
+    "Ib_A_per_um": -1.2808782313682267e-17,
+    "current_balance_A_per_um": -1.896106982718904e-17,
+    "relative_current_balance": 0.010126661130922648
+  },
+  "status": "OK"
+}

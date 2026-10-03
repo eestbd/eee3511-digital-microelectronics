@@ -1,0 +1,8 @@
+{
+  "reference": "hw1/step1/simulator_practice.py SimpleMosfet, read-only import",
+  "k_A_per_V2_for_1um_width": 0.00013806,
+  "vth_input_V": 0.5503073084678041,
+  "ion_uA_per_um": 145.07406235884494,
+  "formula_check_matches": true,
+  "purpose": "Scale cross-check, not independent Vth/TA validation and not a new design"
+}

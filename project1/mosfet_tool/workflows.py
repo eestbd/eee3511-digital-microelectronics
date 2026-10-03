@@ -16,7 +16,7 @@ from .simulator import MosfetSimulator
 
 
 def run_idvg(device: Device, drain_v: float = 0.05, start_v: float = 0.0,
-             stop_v: float = 2.0, step_v: float = 0.1) -> pd.DataFrame:
+             stop_v: float = 2.0, step_v: float = 0.1, body_v: float = 0.0) -> pd.DataFrame:
     """드레인 전압을 고정한 상태에서 게이트 전압별 전류를 구한다."""
     sim = MosfetSimulator(device, name="idvg")
     # 구조를 만든 뒤 평형 해를 먼저 구해 전류 계산의 초기값으로 사용한다.
@@ -24,6 +24,8 @@ def run_idvg(device: Device, drain_v: float = 0.05, start_v: float = 0.0,
     sim.solve_equilibrium()
     # 전류를 구하려면 전위뿐 아니라 전자와 정공의 연속 방정식도 필요하다.
     sim.enable_transport()
+    if body_v != 0.0:
+        sim.set_bias("body", body_v)
     return sim.sweep_idvg(drain_v, start_v, stop_v, step_v)
 
 

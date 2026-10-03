@@ -1,0 +1,51 @@
+{
+  "purpose": "Append-only provenance supplement; original results are preserved",
+  "run_hash_capture_phase": "after_simulation (before the snapshot fix)",
+  "primary_start_sources": "Unchanged until this run completed",
+  "fine_start_sources_inferred_from_sequence": {
+    "part1.py": "ef8efd9fd14bc4c8395208c1bb702eb996caf9680bde4d1ff30482cd6e25350e",
+    "check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+    "mosfet_tool/config.py": "641ded0ba7a80fdc628f2565d829fa7727feb2aebed73fdeb83b11681860367f",
+    "mosfet_tool/materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "mosfet_tool/metrics.py": "6227c4b513741d276966126483af5145c507d5a7c38c58446930ab9ad9d6377a",
+    "mosfet_tool/physics.py": "3cc36b146174601124e6fb0cbd5b2e16ec607a256dec4e90877e55fcf597e8e4",
+    "mosfet_tool/simulator.py": "47cdf4da2d3f2400d3fa1f841ddb36b7c1896d2eb88b1126d8450f5660de3d53",
+    "mosfet_tool/workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b"
+  },
+  "fine_caveat": "Fine imported the original extractor before its review edit; metrics.json later recorded the edited on-disk extractor. This inferred loaded version is not a startup snapshot. Final extraction is independently rechecked in numerical_validation.json.",
+  "source_changes": {
+    "part1.py": {
+      "primary_recorded": "ef8efd9fd14bc4c8395208c1bb702eb996caf9680bde4d1ff30482cd6e25350e",
+      "fine_recorded": "ef8efd9fd14bc4c8395208c1bb702eb996caf9680bde4d1ff30482cd6e25350e",
+      "final_file": "d555d4cdd49045bea508b83fe1b0c31221f493fe79577eb64223915b17e87b16"
+    },
+    "mosfet_tool/metrics.py": {
+      "primary_recorded": "6227c4b513741d276966126483af5145c507d5a7c38c58446930ab9ad9d6377a",
+      "fine_recorded": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+      "final_file": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30"
+    }
+  },
+  "unchanged_physics_sources": [
+    "check_structure_file.py",
+    "mosfet_tool/__init__.py",
+    "mosfet_tool/config.py",
+    "mosfet_tool/materials.py",
+    "mosfet_tool/physics.py",
+    "mosfet_tool/simulator.py",
+    "mosfet_tool/workflows.py"
+  ],
+  "final_cli_change": "Capture source before simulation and preserve the configuration text read at startup; no PDE, bias, geometry, doping, mobility or solver changes",
+  "provenance_regression_test": "Mid-calculation source/config edit fixture, part of 14 passing tests",
+  "final_source_sha256": {
+    "part1.py": "d555d4cdd49045bea508b83fe1b0c31221f493fe79577eb64223915b17e87b16",
+    "check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+    "mosfet_tool/config.py": "641ded0ba7a80fdc628f2565d829fa7727feb2aebed73fdeb83b11681860367f",
+    "mosfet_tool/materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "mosfet_tool/metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+    "mosfet_tool/physics.py": "3cc36b146174601124e6fb0cbd5b2e16ec607a256dec4e90877e55fcf597e8e4",
+    "mosfet_tool/simulator.py": "47cdf4da2d3f2400d3fa1f841ddb36b7c1896d2eb88b1126d8450f5660de3d53",
+    "mosfet_tool/workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "comparison": "Original configuration, before/after changes",
+  "relative_tolerance": 1e-09,
+  "initial_overstrict_check": {
+    "relative_tolerance": 1e-09,
+    "absolute_tolerance": 1e-24,
+    "failure": "idvg VG=0, delta=2.25219e-23 A/um; relative=1.87918e-8"
+  },
+  "diagnosis": {
+    "fields_bit_equal": {
+      "x": true,
+      "y": true,
+      "NetDoping": true
+    },
+    "comparison": {
+      "original": {
+        "off_A_per_um": 1.1984953055343857e-15,
+        "max_delta_A_per_um": 0.0,
+        "off_delta_A_per_um": 0.0
+      },
+      "after": {
+        "off_A_per_um": 1.1984953280562437e-15,
+        "max_delta_A_per_um": 8.893845946170154e-21,
+        "off_delta_A_per_um": 2.2521857951126162e-23
+      },
+      "old_repeat": {
+        "off_A_per_um": 1.1984953057932577e-15,
+        "max_delta_A_per_um": 1.6940658945086007e-20,
+        "off_delta_A_per_um": 2.588720030116483e-25
+      },
+      "new_repeat": {
+        "off_A_per_um": 1.1984953280562437e-15,
+        "max_delta_A_per_um": 1.8634724839594607e-20,
+        "off_delta_A_per_um": 2.2521857951126162e-23
+      }
+    }
+  },
+  "criterion_reason": "Same preset 1e-17 A/um absolute floor as same-bias numerical validation; exact voltage columns and CV, relative 1e-9 for resolved currents",
+  "results": {
+    "idvg": {
+      "rows": 21,
+      "max_absolute_difference": 8.893845946170154e-21,
+      "values_equal": false,
+      "absolute_tolerance": 1e-17,
+      "passed": true
+    },
+    "idvd": {
+      "rows": 21,
+      "max_absolute_difference": 2.574980159653073e-19,
+      "values_equal": false,
+      "absolute_tolerance": 1e-17,
+      "passed": true
+    },
+    "cv": {
+      "rows": 31,
+      "max_absolute_difference": 0.0,
+      "values_equal": true,
+      "absolute_tolerance": 0,
+      "passed": true
+    }
+  }
+}

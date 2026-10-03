@@ -84,6 +84,9 @@
 | `project1/run_example.py` | simulator 직접 사용 예제 |
 | `project1/compare_tcad.py`, `compare_models.py` | 소자 비교와 간이 모델 비교 |
 | `project1/check_structure_file.py` | 제출 구조 self-check. 전기적 spec 검사기는 아님 |
+| `project1/part1.py`, `part1_baseline.yaml` | 동일 초기 소자의 8개 spec 측정과 raw CSV·JSON·구조 저장 |
+| `project1/validate_part1.py`, `tests/test_part1.py` | 측정 간격·전류 보존·정밀도·재로딩 및 독립 기대값 검증 |
+| `project1/PART1_BASELINE.md` | Part 1 모델 식·계수·근거·실행 명령·측정 정의·한계 |
 | `hw1/step1`, `step2`, `step3`, `demo` | 간이 모델, TCAD reference, GUI, 컴파일된 demo |
 | `README.md`, `hw1/MANUAL*.html`, `hw1/HW1.pdf` | 프로젝트 안내와 HW1 설명·요구사항 |
 | `project1/Project1_Assignment_0927.pdf` | Project 설계·제출 요구사항 |
@@ -133,6 +136,7 @@ try {
 - 제출 구조 변경은 새 Python 프로세스에서 `check_structure_file.py`로 실제 저장 파일을 다시 로드한다. 준비한 `$pythonExe`로 `& $pythonExe -B .\project1\check_structure_file.py .\project1\part1_[studentID].devsim`을 실행하며 실제 학번·파일 경로를 넣는다. 진단용 파일의 이름을 제출 파일로 오인하지 않는다.
 - GUI가 관련된 작업에는 첫 화면, 해석 선택, 입력 변경과 이전 결과 표시, 버튼 실행, 오류 처리·session state를 확인한다. 기존 GUI reference의 직접 실행은 `& $pythonExe -B -m streamlit run .\hw1\step3\my_app.py --server.headless true`다. 검증 때문에 `hw1/`이나 GUI 대상 범위를 바꾸지 않는다.
 - 구문/import 검사, simulation 정상 종료, 구조 checker 통과, 물리 정확성·spec 충족은 서로 다른 증거다. 필요한 검증이 불가능하면 정확한 원인과 미검증 범위를 PLAN에 남긴다.
+- Part 1의 8개 spec은 `part1.py`와 `PART1_BASELINE.md`의 경로로 측정한다. 기존 CLI 실행만으로 전체 spec을 측정했다고 판단하지 않는다. `measurement_complete`와 `all_specs_pass`를 구분하고 ERROR/FAIL을 숨기지 않는다. 원래 실행 source hash를 보존하며 후속 extractor 수정은 raw CSV 재추출과 별도 검증 기록으로 대조한다.
 - 문서만 바꾼 경우 링크·명령·내용·diff를 검증한다. 관련 코드가 바뀌지 않았다면 전체 TCAD/GUI 실행을 반복하지 않는다.
 
 `project1/STEP2_*.bat`는 루트 `.conda`를 가리킨다. HW1 launcher는 현재 없는 `hw1/.conda`를 기대하므로 보호된 배치 파일을 수정하지 않고 실제 interpreter 경로를 사용한다. `compare_models.py`는 import 경로 문제와 스크립트 폴더 고정 출력 경로가 있다. 실행 전 이를 확인하고 기존 결과물 보호 방법을 정한다.
