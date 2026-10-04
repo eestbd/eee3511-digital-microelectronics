@@ -1,0 +1,38 @@
+Adding 1376 nodes
+Adding 3508 edges with 0 duplicates removed
+Adding 2132 triangles  with 0 duplicate removed
+Adding 2142 nodes
+Adding 6181 edges with 0 duplicates removed
+Adding 4040 triangles  with 0 duplicate removed
+Adding 65 nodes
+Adding 160 edges with 0 duplicates removed
+Adding 96 triangles  with 0 duplicate removed
+Adding 63 nodes
+Adding 142 edges with 0 duplicates removed
+Adding 80 triangles  with 0 duplicate removed
+Adding 63 nodes
+Adding 142 edges with 0 duplicates removed
+Adding 80 triangles  with 0 duplicate removed
+Adding 1904 nodes
+Adding 5521 edges with 0 duplicates removed
+Adding 3618 triangles  with 0 duplicate removed
+Adding 39 nodes
+Adding 86 edges with 0 duplicates removed
+Adding 48 triangles  with 0 duplicate removed
+Contact body in region bulk with 102 nodes
+Contact drain in region bulk with 9 nodes
+Contact gate in region oxide with 13 nodes
+Contact plate_l in region hk_l with 21 nodes
+Contact plate_r in region hk_r with 21 nodes
+Contact source in region bulk with 82 nodes
+Contact storage_l in region hk_l with 21 nodes
+Contact storage_r in region hk_r with 21 nodes
+Adding interface bulk_oxide with 11, 11 nodes
+Replacing Node Model DrainDoping in region bulk of material Silicon
+Replacing Node Model NetDoping in region bulk of material Silicon
+Replacing Node Model SourceDoping in region bulk of material Silicon
+Replacing Node Model TapDoping in region bulk of material Silicon
+OK: project1\part2_2022142233.devsim
+  regions/materials: {'air': 'Air', 'bulk': 'Silicon', 'gate_metal': 'W', 'hk_l': 'ZrO2', 'hk_r': 'ZrO2', 'metal_storage': 'Metal', 'oxide': 'Oxide'}
+  contacts: ['body', 'drain', 'gate', 'plate_l', 'plate_r', 'source', 'storage_l', 'storage_r']
+  interfaces: ['bulk_oxide']
