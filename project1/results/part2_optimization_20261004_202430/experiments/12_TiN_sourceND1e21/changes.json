@@ -1,0 +1,11 @@
+{
+  "gate_material": "TiN",
+  "capacitor.height_um": 0.96,
+  "doping_profile": {
+    "source_side_na_cm3": 7e+16,
+    "drain_side_na_cm3": 7e+16,
+    "split_fraction": 0.5,
+    "source_nd_cm3": 1e+21,
+    "drain_nd_cm3": 1e+19
+  }
+}

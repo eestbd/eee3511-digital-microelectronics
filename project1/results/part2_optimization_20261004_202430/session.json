@@ -1,0 +1,13 @@
+{
+  "start_UTC": "2026-10-04T11:22:48+00:00",
+  "deadline_UTC": "2026-10-04T12:22:48+00:00",
+  "stop_new_exploration_UTC": "2026-10-04T12:07:48+00:00",
+  "created_UTC": "2026-10-04T11:24:30.453325+00:00",
+  "scope": "Part 2 only; Part 1/HW1/shared physics protected",
+  "baseline": "project1/results/part2_baseline_20261004_175214/primary",
+  "read_step_margin_sensitivity_limit_V": 0.002,
+  "retention_Vcell_sensitivity_limit_V": 0.003,
+  "retention_margin_sensitivity_limit_V": 0.002,
+  "retention_failure_relative_limit": 0.01,
+  "student_id": "2022142233"
+}

@@ -1,0 +1,8 @@
+{
+  "gate_material": "TiN",
+  "doping_profile": {
+    "source_side_na_cm3": 1000000000000000.0,
+    "drain_side_na_cm3": 7e+16,
+    "split_fraction": 0.5
+  }
+}

@@ -323,3 +323,140 @@
 ### 다음 작업
 
 - 이번 복구 요청 완료. 다음 실험 요청을 기다리며 추가 공식 Q&A와 Part 1/2 독립 설계 기준을 유지한다.
+
+## 2026-10-04 20:26:24 KST
+
+### 수행한 작업
+
+- 첨부한 약 60분 탐색 지침·추가 Q&A·baseline·한글을 확인하고 Part 2 실험을 시작했다. 최종 제출 학번 2022142233을 확인했다.
+
+### 현재 상태
+
+- W/TiN 게이트 단일 변수 screening을 독립 프로세스로 실행 중이다. 초기 READ/hard constraint를 먼저 확인하며 기존 Part 1/HW1/공용 physics·baseline은 보존한다.
+
+### 발견 / 이슈
+
+- 현재 한글 손상은 없다. 조기 제외/미측정과 전체 PASS를 구분하는 Part 2 전용 실험 경로를 준비했다. 기존 READ/retention·정밀도·ramp·물리 상수는 유지한다.
+- 세션과 보호 snapshot을 새 결과 폴더에 기록했다. 약 21:07 KST부터 새 탐색보다 검증을 우선하며 21:22:48 KST까지 종료를 목표로 한다.
+
+### 다음 작업
+
+- gate/NA/xj 단일 변수 결과로 유망 조합을 고르고 data1 retention을 실제 측정한다. 최종 후보는 두 상태 전체 검증과 fresh 구조 checker를 수행한다.
+
+## 2026-10-04 20:37:50 KST
+
+### 수행한 작업
+
+- W/TiN gate, NA=1e17, xj=0.03 µm의 네 단일 변수 READ/누설 screening을 완료했다. [후보 비교](project1/PART2_OPTIMIZATION_LOG.md)를 작성했다.
+
+### 현재 상태
+
+- 네 후보 초기 READ/용량/전계는 PASS다. W/TiN READ1=67.391/61.373 mV, 누설=0.106686/0.056593 pA로 감소했지만 전체 retention은 진행 중이다.
+
+### 발견 / 이슈
+
+- Gate의 누설 감소와 READ 저하가 함께 관측됐다. NA/xj 단일 변경의 누설은 0.632/1.725 pA라 gate/cap 및 공식 허용 비균일 채널 조합을 검토한다.
+- 시간 절약용 64 ms 끝점 screening은 최초 failure time을 측정하지 않는다고 표시한다. 최종 후보는 기존 공식 retention 경로로 전체 재실행한다.
+- Profile test 4개 PASS. #06은 입력 생성 오류로 native 측정 전 중단되어 실패 입력/log를 보존했고, 올바른 gate 값의 #07/#08을 새 경로에서 측정한다.
+
+### 다음 작업
+
+- 유망 조합의 실제 READ/누설·64 ms 끝점과 유지시간을 비교하고, 가장 좋은 후보를 선택해 전체 검증으로 전환한다.
+
+## 2026-10-04 20:58:26 KST
+
+### 수행한 작업
+
+- 단일 gate·cap/도핑 조합을 비교해 #11(W, h0.96, p+ body tap1e19/0.05 µm)을 전체 재검증 대상으로 선택했다. 새 탐색을 중단하고 기본/미세 간격 측정으로 전환했다.
+
+### 현재 상태
+
+- #11 초기 READ0/1=127.320/67.301 mV, CSTORE=19.824 fF, 전계 PASS다. 64 ms data1 끝점 마진60.418 mV로 통과했지만 전체/수치 검증은 아직 진행 중이다.
+
+### 발견 / 이슈
+
+- W/TiN 단일 data1 유지시간은 약 40.3/20.8 ms로 FAIL이다. #05/#09/#10은 64 ms 끝점 FAIL이고 강한 저농도 #07/#08은 body 누설 증가로 제외했다.
+- #11은 body 누설을 줄여 끝점을 통과했다. 공식 비대칭 ND 후보 #12는 READ1 67.914 mV/누설0.088449 pA이며 끝점을 비교한다. 기준/물리/solver/적분을 바꿔 PASS를 만들지 않는다.
+- 전체 35 tests PASS. Profile 경계 test의 기대값 오류는 decimal 경계에 맞춰 수정해 fresh NetDoping 검증 PASS이며 원 실패 로그를 보존했다. 새 sourceND 범위 test는 후속 검사한다.
+
+### 다음 작업
+
+- #11 두 상태 전체/미세 검증, #12 끝점, 제출 구조 fresh 검사와 보호/diff/한글 검증을 완료하고 약 60분 예산 안에 보고한다.
+
+## 2026-10-04 21:04:04 KST
+
+### 수행한 작업
+
+- #12 비대칭 S/D 후보의 64 ms 끝점을 확인하고 #11 선택을 유지했다. #11 data0 전체 실행과 동일 구조의 data1 retention 기본/미세 실행을 병행한다.
+
+### 현재 상태
+
+- #12 끝점 마진59.145 mV로 FAIL. #11의 READ10/5 ps 검증은 완료됐고 두 상태 retention 검증은 진행 중이다. 최종 profile 7 tests PASS.
+
+### 발견 / 이슈
+
+- 전체 순차 실행 시간이 남은 예산보다 길 수 있어 상태별 검증을 병행하도록 계획을 조정했다. 기존 cell.retention의 적분/READ checkpoint/판정 조건은 동일하며 실제 완료 결과만 provenance와 함께 종합한다. 원 미완료 로그와 상태를 보존한다.
+
+### 다음 작업
+
+- 동일 구조·source·입력과 raw 데이터를 대조해 실제 측정 완료 여부를 판단하고 최종 구조/표/검증 결과를 정리한다.
+
+## 2026-10-04 21:12:32 KST
+
+### 수행한 작업
+
+- 선택 #11의 초기 READ10/5 ps·data0 retention 기본/미세 검사와 학번 구조 fresh 검사를 완료했다.
+
+### 현재 상태
+
+- Data0 두 간격 모두≥64 ms PASS. 기본/미세 끝점 READ 마진117.214/117.304 mV. Data1 전체 검증은 진행 중이다.
+
+### 발견 / 이슈
+
+- 초기 READ 간격 차이0.439/0.092 mV, data0 끝점 전압/마진 차이0.636/0.090 mV다. 정한 수치 민감도 범위 안이다.
+- part2_2022142233.devsim fresh checker OK, 실제 NetDoping2,142 nodes PASS. 보호 파일402개·기존 log prefix·staged 상태·실제 한글 검증 PASS. 원 순차 실행은 data0 checkpoint를 보존한 뒤 중복 data1 계산을 종료했고 동일 조건 독립 data1 실행을 사용한다.
+
+### 다음 작업
+
+- Data1 완료 후 provenance를 대조해 종합하고 raw/최종 문서 검증을 마친다. 약60분 예산은 유지한다.
+
+## 2026-10-04 21:19:19 KST
+
+### 수행한 작업
+
+- 약56분 동안 Part 2 새 물리 후보11개를 측정하고 #11을 선택했다. 두 상태 전체 측정·기본/미세 간격·raw·학번 구조 검증과 최종 review를 완료했다.
+
+### 현재 상태
+
+- Local 전체 spec/validation PASS. W/h0.96/p+tap1e19·0.05 µm, CSTORE19.824 fF, gate/cap 전계5/3.333 MV/cm, 초기 READ0/1=127.320/67.301 mV. 양 상태 retention≥64 ms.
+- Data1 64 ms 기본/미세 마진60.417968/60.420969 mV. 두 간격 끝점 전압/마진 차이0.072691/0.003000 mV. Fresh part2_2022142233.devsim checker OK 및 NetDoping2,142 nodes 검사 PASS.
+
+### 발견 / 이슈
+
+- 초기 READ10/5 ps·전류/전하·Euler update·retention3/1.5 mV·선택/출력 구조 hash·보호 파일402개·staged/log prefix·실제 한글 검증 PASS. 전체 tests35개와 후속 profile7개 PASS(중복 포함).
+- 종합 결과는 같은 source/config/구조/조건의 상태별 완료 측정이다. 원 순차 실행은 data0 checkpoint 뒤 중복 계산을 종료했으며 미완료 기록과 원 로그를 보존했다. #06 입력 오류와 audit UTF-16 reader 오류도 원 로그를 남기고 원인을 바로잡았다.
+- 남은 한계: data1 마진이 기준60 mV에 가깝고 전계/용량도 상한에 가깝다. ≥64 ms는 관측 하한이며 mesh 민감도/조교 전체 evaluator는 미검증이다.
+
+### 다음 작업
+
+- 현재 요청 완료·다음 요청 대기. 최종 후보/parameter/기준별 표는 project1/PART2_OPTIMIZATION_SUMMARY.md, 후보 해석은 PART2_OPTIMIZATION_LOG.md, 원 데이터/검증은 results/part2_optimization_20261004_202430에 있다. Part 1/HW1은 보존했으며 commit/push는 하지 않았다.
+
+## 2026-10-04 21:39:10 KST
+
+### 수행한 작업
+
+- Project 1 PDF·공식 Q&A·source·최종 raw/구조·보고서를 대조해 Part 1/2 완료 상태 검토를 마쳤다. 상세 표는 project1/PART1_PART2_COMPLETION_AUDIT.md에 작성했다.
+
+### 현재 상태
+
+- 핵심 구현·로컬 조건 PASS: Part 1 8/8, Part 2 양 상태 READ·retention≥64 ms·CSTORE19.824 fF·전계5/3.333 MV/cm. 제출 준비는 미완료다.
+- 남은 필수 항목은 part1_2022142233.devsim 준비, Part 2 구조/I(t)/READ와 지정 section을 포함한 최종 PDF, 두 학번 파일의 실제 checker OK 화면이다. Part 2 학번 파일은 존재한다.
+
+### 발견 / 이슈
+
+- 새 verify_review.py/part1_geometry.py 검사 PASS: 두 fresh checker OK, raw 독립 재추출·전류/전하·적분·provenance/hash, NetDoping2,340/2,142노드·singleton·equation 부재 확인. 전체 TCAD는 실행 source/raw가 그대로여서 반복하지 않았다.
+- Data1 64 ms 마진60.418 mV로 여유 약0.418 mV다. Retention은 관측 하한이며 최초 실패 시각·mesh 민감도·조교 전체 evaluator는 미검증이다. 기존587개 보호 파일 hash·staged 상태·log prefix 보존을 확인했다.
+
+### 다음 작업
+
+- 현재 검토 요청 완료·다음 요청 대기. 후속 제출 준비에서는 검증 구조를 보존해 두 학번 파일·최종 보고서·OK 화면을 완성한다. 이번에는 코드/소자/과거 결과/PDF 변경, 재최적화·commit/push·제출을 하지 않았다.

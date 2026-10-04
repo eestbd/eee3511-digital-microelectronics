@@ -1,0 +1,8 @@
+{
+  "pid": 13848,
+  "phase": "final",
+  "terminated": true,
+  "reason": "data0 saved; identical data1 job already running independently",
+  "measurement_complete": false,
+  "time_UTC": "2026-10-04T12:09:55.501015+00:00"
+}

@@ -1,0 +1,8 @@
+{
+  "gate_material": "W",
+  "capacitor.height_um": 0.96,
+  "body_tap": {
+    "additional_acceptor_cm3": 1e+19,
+    "thickness_um": 0.05
+  }
+}

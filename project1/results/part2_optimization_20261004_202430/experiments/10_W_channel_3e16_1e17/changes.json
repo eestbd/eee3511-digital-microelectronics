@@ -1,0 +1,9 @@
+{
+  "gate_material": "W",
+  "capacitor.height_um": 0.96,
+  "doping_profile": {
+    "source_side_na_cm3": 3e+16,
+    "drain_side_na_cm3": 1e+17,
+    "split_fraction": 0.5
+  }
+}

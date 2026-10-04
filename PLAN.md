@@ -1,65 +1,66 @@
 # PLAN.md
 
-현재 작업: 추가 공식 Q&A 반영 문서의 한글 손상 복구.
-상태: 문서 내용을 복원해 UTF-8로 저장하고 확인했다. 실험과 코드·설계 입력 변경은 수행하지 않았다.
+현재 작업: Project 1 PDF 기준 Part 1·2 구현 및 완료 상태 검토.
+상태: 검토 완료. 두 Part의 핵심 구현·로컬 설계 조건 PASS, 과제 전체 제출 준비 미완료. 설계/parameter/physics는 변경하지 않았다.
 
 ## Goal
 
-추가 공식 Q&A를 반영한 PLAN과 최신 PROGRESS_LOG 기록에서 물음표로 손실된 한글을 확인 가능한 원문으로 복구하고, 앞으로 Part 1과 Part 2의 독립 설계 및 허용된 구조·doping 자유도를 정확히 참조할 수 있게 한다.
+Part 1과 Part 2가 과제에서 요구하는 구현·설계 조건·검증·보고서·제출물까지 완료됐는지 확인하고, 충족/미완료/미검증을 근거와 함께 구분한다.
 
 ## Current State
 
-- Part 1 공식 8/8 PASS 결과·입력·구조·source를 보존한다. 제출 준비는 마지막에 한다.
-- Part 2 baseline: CSTORE 18.585 fF, 초기 READ 0/1 128.264/84.102 mV, data0 ≥64 ms PASS; data1 약 2.64 ms FAIL. 이번 문서 복구는 전기적 판정을 바꾸지 않는다.
-- 현재 capacitor는 source contact 위 metal stem/두 slab 구조다. 추가 공식 답변은 이 배치의 허용성을 확인했다.
-- 이전 수정 제안은 gate TaN→W/TiN 비교 후 유망 후보에 capacitor h=0.96 µm 결합이다. 아직 실험하지 않았다.
-- 손상본은 ignored project1/tmp/encoding_repair_* 폴더에 원본 bytes로 백업했다. PLAN 전체와 2026-10-04 20:06:40 KST 로그 한 건만 한글 손상이 확인됐다.
+- Part 1 공식 모델 최종 #10은 8/8 specs PASS 및 numerical validation PASS로 기록돼 있다. 선택 구조는 `results/official_20261004_155839/part1/selected/part1_selected_diagnostic.devsim`이다.
+- Part 2 최종 #11은 READ0/1=127.320/67.301 mV, 양 상태 retention≥64 ms, CSTORE19.824 fF, 전계5/3.333 MV/cm. 기본/미세 raw 검증과 학번 구조 checker PASS다.
+- 학번은2022142233. Part 2 제출명 구조는 있고, Part 1 제출 준비는 이전 사용자 지시로 마지막에 하도록 유보했다.
+- Part 1 학번 파일은 없고 Part 2 학번 파일은 있다. 현재 PDF는 학번 미확인의7쪽 Part 1 초안이며 Part 2 최종 section·구조/전류/READ 그림·두 학번 파일의 실제 OK 화면을 포함한 최종 PDF가 필요하다.
+- 상세 판정과 다음 제출 준비 순서는 `project1/PART1_PART2_COMPLETION_AUDIT.md`에 기록했다. 이번 검토는 완료됐지만 제출 준비를 수행한 것은 아니다.
 
 ## Requirements
 
-- PLAN과 손상된 최신 로그의 한글을 복원한다. 손상되지 않은 과거 로그는 byte 단위로 보존한다.
-- 실제 한글 문자와 UTF-8 decoding을 검사한다. 이미 물음표로 손실된 내용은 단순 인코딩 변환으로 복구되지 않으므로 확인 가능한 이전 작성 내용을 사용한다.
-- 추가 공식 Q&A 3항을 유지한다: source contact 바로 위 capacitor 배치, 비균일/비대칭 doping, Part 1/2 독립 설계.
-- 최종 doping 분포는 bulk.NetDoping에 표현한다. 제출 구조가 미인식 LDDDoping/HaloDoping 등에 의존하지 않게 한다.
-- 이번에는 문서만 수정한다. 실험·코드·config·구조·기존 결과·Git staged 상태는 보존한다.
-- 복구 사실·범위·원인·검증을 PROGRESS_LOG에 실제 KST 시각으로 기록한다.
+- 최신 `Project1_Assignment_0927.pdf`의 Part 1·2와 저장·naming·보고서·제출 요구사항을 직접 읽는다.
+- 추가 공식 Q&A의 구조/모델/정밀도/설계 자유도를 함께 적용하고 PDF 그림을 필수 형상으로 오인하지 않는다.
+- 실제 source/최종 config·raw CSV·metrics·validation·저장 구조 hash로 이전 PASS 주장을 대조한다.
+- 최종 구조를 fresh checker로 다시 읽고 필수 명명·재료·도핑·구조만 저장됐는지 점검한다.
+- 리뷰 요청을 신규 최적화/feature/제출 준비/Part 1 변경으로 확대하지 않는다. 문서와 scratch 검토 자료만 작성한다.
 
 ## Assumptions
 
-- 사용자의 한글 복구 요청은 손상된 로그 한 건의 본문을 원래 내용으로 바로잡는 것을 포함한다. 시각을 유지하고 손상본 백업과 별도 정정 기록을 남긴다.
-- 사용자가 전달한 장이준 조교의 답변을 추가 공식 확인으로 기록한다. 수신 날짜는 2026-10-04이며 원 답변 시각은 알 수 없어 만들어내지 않는다.
-- Node 0개 bulk-hk interface 허용은 해당 배치의 구조 확인이다. 실제 접촉하지 않는 영역에 interface를 새로 만들라는 요구는 아니다.
-- 비균일/asymmetric profile 허용은 설계 자유도다. 현재 코드가 모든 profile을 지원한다거나 후보가 spec을 통과한다는 의미는 아니다.
-- 실험 중 참고하라는 지시는 앞으로의 설계 기준 반영이며 지금 탐색/구현을 시작하라는 승인이 아니다.
+- 측정과 physics source hash가 그대로라면 비싼 전체 TCAD를 반복하지 않고 기존 raw를 독립 재검토한다. 문제가 발견되면 재현 범위를 정하고 PLAN에 기록한다.
+- 전기적 조건 통과와 보고서/제출 준비 완료는 별도로 판정한다. TA evaluator 전체 재실행을 로컬 checker와 동일시하지 않는다.
+- 정확한 최대 retention이 아닌≥64 ms 관측 하한은 최소 조건 충족 근거다. 추가 점수/여유 여부는 따로 설명한다.
 
 ## Plan
 
-- [x] 문서 실제 bytes·UTF-8·한글/물음표 분포 조사, 손상 범위 확인.
-- [x] 손상본 백업과 문서 외 파일·Git staged 상태 보호 snapshot 확보.
-- [x] 확인 가능한 작성 원문으로 PLAN과 최신 로그 본문 복원, UTF-8로 저장.
-- [x] Windows 한글 전달 경로의 재발 방지 규칙을 AGENTS에 추가.
-- [x] Markdown 문서 인코딩·한글·링크·diff, 과거 로그 prefix와 문서 외 파일 보호 검증 및 최종 기록.
+- [x] 현재 규칙·PLAN·최근 log와 최종 선택 기록 확인, 보호 snapshot 준비.
+- [x] PDF 관련 페이지의 표·식·그림·제출 checklist 및 공식 Q&A 대조.
+- [x] Part 1/2 source·measurement·raw/간격·저장 구조/geometry 검토.
+- [x] 보고서 각 section·도표·학번 파일·실제 checker 화면 준비 여부 확인.
+- [x] 상세 audit 문서, 최종 PLAN/log, 보호·한글·diff 검증 및 완료 상태 정리.
 
 ## Validation
 
-- 문서 조사에서 PLAN은 UTF-8로 decoding되지만 한글 0개/물음표 1,052개였다. 최신 로그 한 건도 한글이 물음표로 바뀌었다. AGENTS/OFFICIAL_QA 및 다른 저장소 Markdown에는 연속 물음표/대체문자 손상이 없었다.
-- 복구 후 UTF-8 strict decoding·한글 포함·연속 물음표/대체문자 부재를 확인한다. 이전 정상 로그 byte prefix와 최신 원래 timestamp를 보존한다.
-- 문서 외 파일의 변경 전 hash와 Git staged name/status를 대조하고 git diff --check 및 로컬 문서 링크를 검사한다.
-- 새 실험/test는 실행하지 않는다. 문서 변경이므로 구조 checker나 전체 TCAD를 반복하지 않는다.
+- PDF 전체57쪽에서 관련40~57쪽을 추출하고 관련 한국어 페이지를 시각 검토한다. 기존 readable pypdf와 Windows PDF renderer를 사용하며 환경을 재설치하지 않는다.
+- Part 1의 `candidate_10/fine/metrics.json`·numerical validation·raw CSV·선택 구조 hash와 source를 대조한다.
+- Part 2의 `combined_final/combined_fine`와 원 checkpoint/provenance·raw CSV·최종 구조·validation을 대조한다.
+- root `.conda/python.exe -B project1/check_structure_file.py <선택/학번 구조>`를 각각 새 프로세스에서 실행해 stdout/stderr/exit code를 새 scratch 폴더에 보존한다.
+- 보고서 PDF/소자 파일 inventory, Part-1-(a)~(c)·Part-2-(a)~(d), 구조/READ·current 그래프·spec 표·OK 화면 요구사항을 실제 확인한다.
+- 작업 시작 snapshot 대비 기존 source/소자/config/결과/PDF hash·staged 상태·log prefix, UTF-8 실제 한글과 `git diff --check`를 확인한다.
+- 실제 새 실행: `.conda/python.exe -B project1/tmp/completion_review_20261004/verify_review.py` PASS. 두 fresh checker OK, Part 1 독립 raw8항목·Part 2 기본/미세 raw 적분·전류/전하·plate dQ/dV·provenance·source/구조 hash PASS. Part 2 NetDoping2,142노드와 singleton/equation 부재 PASS.
+- 같은 scratch의 `part1_geometry.py` fresh reload PASS: singleton/equation 부재·Lg/tox·접점 위치·NetDoping2,340노드. 이전 numerical validation의 공식 채점 조건 PASS를 확인했다. 전체 TCAD/unit/GUI는 변경된 실행 코드가 없어 반복하지 않았다.
+- PDF는57쪽 전체 추출, 관련50~57쪽 시각 검토와 현재 Part 1 초안1/4/7쪽 fresh render를 대조했다. source/report PDF를 수정·재출력하지 않았다.
 
 ## Progress / Discoveries
 
-- 한글 손상은 표시 설정이나 현재 UTF-8 decoding 오류가 아니라 이전 PowerShell→Python stdin 전달 중 문자 치환이었다. 이미 저장된 ?를 다른 encoding으로 읽는 것만으로 원문을 복원할 수 없다.
-- 한국어 본문은 UTF-8 파일로 직접 작성하고 Python은 파일 bytes/text를 읽어 사용한다. PowerShell pipeline에 한글 본문을 싣는 경로를 피한다.
-- 추가 공식 확인: source contact 전체 윗면 위 capacitor 배치 허용. Checker/naming/storage·plate 연결/plate dQ/dV가 핵심이며 bare n+ 배치나 contact 축소를 강제하지 않는다.
-- 추가 공식 확인: 허용 범위 내 위치별 doping·source/drain 비대칭이 가능하고 evaluator는 제출 NetDoping 분포를 그대로 읽는다.
-- 추가 공식 확인: Part 1 parameter를 Part 2에 강제하지 않는다. Part 1은 8개 nMOS spec, Part 2는 READ/retention 중심 pass transistor+capacitor co-design이다.
-- 후속 실험 선택지가 확대됐지만 이번에는 실험하지 않았다. 기존 gate/cap 제안은 유지하되 필요하면 비균일/비대칭 doping을 검토하고 fresh NetDoping·구조·READ/retention을 검증한다.
+- 기존 Part 1 audit는 spec/설계/수치 검증 완료와 학번 이름·실제 OK 화면 미완료를 구분했다. 현재 학번은 확인됐으므로 실제 제출명 파일 존재 여부를 재점검한다.
+- 기존 Part 2 최종 data1의64 ms 마진은60.417968/60.420969 mV로 여유가 작다. 원 순차 실행과 독립 상태 종합 결과를 구분해 검토한다.
+- 확인: 학번 파일 준비·최종 보고서·실제 OK 화면이 남은 필수 항목이다. Part 2 전류 raw는 있지만 최종 I(t) 그림은 아직 없다. 최종 구조 그림은 실제 bottom p+ tap을 표시해야 한다.
+- Part 2의 원 순차 실행 종료 후 동일 조건 상태별 완료 결과를 종합한 provenance와 원 데이터를 확인했다. 독립 wrapper는 공통 source 외 추가 hash 및 일부 조건만 기록하므로 metadata 전체 dict 동일성을 가정하지 않고 공통 필수 조건·추가 hash·실제 함수를 대조했다. 감사 helper의 과도한 동일성 가정을 수정했고 소자/측정 실패는 발견되지 않았다.
+- Part 1 실행 source는 그대로다. 넓게 수집한 hash 목록의 미사용 cell.py만 이후 Part 2 개발로 달라진다. 선택적 double 미실행에 따른 all_checks_pass=false를 공식 extended 채점 조건 실패로 오인하지 않는다.
+- PDF의 실제 과제는 Part 1/2이며 뒤의3~6은 설명 슬라이드 장 번호다. 64 ms 이상은 최소 조건 충족 하한이고 최초 실패 시각/추가 점수·조교 evaluator·mesh 민감도는 미검증이다.
 
 ## Final Review
 
-- 완료 범위: PLAN과 2026-10-04 20:06:40 KST 로그의 한글을 복원하고 UTF-8로 저장했다. 정상 과거 로그·원래 최신 기록 시각은 보존하고 복구 이력을 append했다.
-- 손상본 백업·실제 한글/UTF-8·Markdown 링크·diff·문서 외 파일과 Git staged 상태 보존을 검증했다.
-- 추가 공식 Q&A의 구조·NetDoping·독립 설계 기준을 유지했다. 코드/설계 입력 변경이나 실험은 수행하지 않았다.
-- 남은 목표: 이후 요청에서 Part 2 후보 설계·실행·전체 조건 검증. 문서 복구나 구조 허용 확인만으로 data1 retention FAIL을 PASS로 바꾸지 않는다.
-- 다음 작업: 실험 시작 요청을 기다린다. Part 1을 보존하면서 Part 2 고유 조건과 추가 설계 자유도를 적용한다.
+- 요청된 원문 대조·구현/결과 검토 완료. 추가 구현이나 parameter 수정이 필요한 필수 누락은 이번 검토에서 발견되지 않았다. 제출 준비 누락을 성능 PASS와 별도로 명시했다.
+- 기존 Part 1/HW1·source·config·소자·raw·PDF를 보존하고 검토 문서/PLAN/append log 및 새 ignored scratch만 작성했다. Commit/push·실제 제출·재최적화는 하지 않았다.
+- 남은 한계: data1 최소 마진 여유 약0.418 mV, retention≥64 ms 하한, 독립 mesh/조교 전체 재평가 미검증. Part 1 제출명·통합 보고서·실제 두 OK 화면은 후속 제출 준비 범위다.
+- 최종 보호587개 파일 hash·staged 상태·기존 log byte prefix·새 기록 날짜 순서·실제 UTF-8 한글·audit 링크·diff check PASS. 2026-10-04 21:39:10 KST 최종 log를 append했다. 검토 요청 완료·다음 요청 대기다.

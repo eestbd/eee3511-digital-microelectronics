@@ -1,0 +1,4 @@
+{
+  "exit_code": 1,
+  "error": "Candidate generation accidentally used the experiment name as gate material; no DEVSIM measurement started"
+}

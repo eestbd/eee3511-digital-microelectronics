@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "protected_files_unchanged": 402,
+  "old_log_prefix_preserved": true,
+  "staged_state_preserved": true,
+  "utf8_actual_Hangul_checked": [
+    "PLAN.md",
+    "PROGRESS_LOG.md",
+    "project1/PART2_OPTIMIZATION_LOG.md",
+    "project1/PART2_OPTIMIZATION_SUMMARY.md"
+  ],
+  "new_source_syntax_passed": true
+}

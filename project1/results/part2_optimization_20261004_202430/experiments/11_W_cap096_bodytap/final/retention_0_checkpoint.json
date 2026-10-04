@@ -1,0 +1,154 @@
+{
+  "purpose": "Part 2 characterization; diagnostic structure until final review",
+  "device": {
+    "gate_length_um": 0.3,
+    "source_length_um": 0.2,
+    "drain_length_um": 0.2,
+    "oxide_thickness_nm": 5.0,
+    "silicon_thickness_um": 0.3,
+    "junction_depth_um": 0.05,
+    "body_doping_cm3": 7e+16,
+    "sd_doping_cm3": 1e+19,
+    "temperature_k": 398.0,
+    "mu_n": 400.0,
+    "mu_p": 200.0,
+    "gate_material": "W",
+    "silicon_temperature_model": "varshni",
+    "doping_decay_x_nm": 12.5,
+    "doping_decay_y_nm": 5.0
+  },
+  "capacitor": {
+    "material": "ZrO2",
+    "height_um": 0.96,
+    "dielectric_nm": 3.0,
+    "pillar_width_um": 0.1,
+    "bottom_clearance_um": 0.05
+  },
+  "physics_model_id": "qa_varshni_midgap_mobility_v1",
+  "physics_398K": {
+    "bandgap_eV": 1.0975385957446808,
+    "n_i_cm3": 4757304128886.964,
+    "Nc_cm3": 4.278590843135502e+19,
+    "V_t_V": 0.0343436762125,
+    "intrinsic_work_function_eV": 4.59876929787234,
+    "mu_n_cm2_Vs": 202.9698962276924,
+    "mu_p_cm2_Vs": 107.38756563544702
+  },
+  "source_sha256": {
+    "part2.py": "9377c67e3d31728e58d27868c774455c551d6876bd2eeaef1a1a307b5521e4f0",
+    "check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+    "mosfet_tool/cell.py": "b389a55ffca9fafd81743b46da8f68c542e5467bb27e9a7bf009ef27424668ff",
+    "mosfet_tool/config.py": "d276cd4199c2ba26dbb4cc5967c874ad10aea2801cacdd5ebbf792983a2ef1a1",
+    "mosfet_tool/materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "mosfet_tool/metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+    "mosfet_tool/physics.py": "367d606041ce12f1516c3e2390eb8594638451f5aa35917eee951f7e6b970bae",
+    "mosfet_tool/simulator.py": "25c4607629ea93380691f040c08c2aebb8fd04f7edcd5ced7e454990d5bf9d45",
+    "mosfet_tool/workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b"
+  },
+  "source_snapshot_phase": "before_simulation",
+  "conditions": {
+    "T_K": 398,
+    "VB_V": -0.5,
+    "WL_high_V": 2.5,
+    "width_um": 0.1,
+    "CBL_F": 1e-13,
+    "READ_dt_s": 1e-11,
+    "READ_decision_s": 5e-10,
+    "READ_margin_requirement_V": 0.06,
+    "retention_BL_V": {
+      "0": 2,
+      "1": 0
+    },
+    "retention_requirement_s": 0.064,
+    "retention_max_delta_V": 0.003,
+    "retention_read_checkpoint_V": 0.03,
+    "retention_failure_time_relative_bracket": 0.01,
+    "ramp_step_V": 0.1
+  },
+  "measurement_complete": false,
+  "all_specs_pass": false,
+  "retention_executed": true,
+  "structure_sha256": "f2442ee257af6dfcb610db5928d0ff5d3b8e5bce1d2423d72e00c7fb099fe62e",
+  "structure_file": "C:\\Users\\super\\DEVSIM_PROJECT\\project1\\results\\part2_optimization_20261004_202430\\experiments\\11_W_cap096_bodytap\\screen\\part2_diagnostic.devsim",
+  "structure_check_passed": true,
+  "capacitance": {
+    "CSTORE_F": 1.9824000000000142e-14,
+    "fine_delta_CSTORE_F": 1.982399999999967e-14,
+    "parallel_plate_reference_F": 1.9824000000000003e-14,
+    "plate_bias_V": 1.0,
+    "plate_points": [
+      {
+        "plate_V": 0.99,
+        "plate_charge_C": 1.962576000000005e-14
+      },
+      {
+        "plate_V": 1,
+        "plate_charge_C": 1.9824000000000054e-14
+      },
+      {
+        "plate_V": 1.01,
+        "plate_charge_C": 2.0022240000000054e-14
+      }
+    ],
+    "fine_plate_points": [
+      {
+        "plate_V": 0.995,
+        "plate_charge_C": 1.9724880000000056e-14
+      },
+      {
+        "plate_V": 1,
+        "plate_charge_C": 1.9824000000000054e-14
+      },
+      {
+        "plate_V": 1.005,
+        "plate_charge_C": 1.9923120000000052e-14
+      }
+    ],
+    "difference_from_reference_relative": 7.003607713826576e-15,
+    "perturbation_checks_pass": true,
+    "reference_check_pass": true,
+    "passed": true
+  },
+  "fields": {
+    "gate_MV_cm": 5.0,
+    "capacitor_MV_cm": 3.3333333333333335
+  },
+  "field_checks_pass": true,
+  "read": {
+    "0": {
+      "initial_cell_V": 0.0,
+      "dt_s": 1e-11,
+      "decision_time_s": 5e-10,
+      "margin_V": 0.1273195348396634,
+      "passed": true,
+      "max_charge_residual_C": 2.4307201867423356e-29,
+      "fine_5ps_margin_V": 0.126880973204902,
+      "time_step_sensitivity_V": 0.0004385616347614141,
+      "step_validation_pass": true,
+      "charge_validation_pass": true
+    },
+    "1": {
+      "initial_cell_V": 2.0,
+      "dt_s": 1e-11,
+      "decision_time_s": 5e-10,
+      "margin_V": 0.06730090541859313,
+      "passed": true,
+      "max_charge_residual_C": 5.66962190392861e-29,
+      "fine_5ps_margin_V": 0.06720917270229942,
+      "time_step_sensitivity_V": 9.173271629370205e-05,
+      "step_validation_pass": true,
+      "charge_validation_pass": true
+    }
+  },
+  "retention": {
+    "0": {
+      "passed": true,
+      "failure_bracket_s": null,
+      "retention_lower_bound_s": 0.064,
+      "read_checkpoint_delta_V": 0.03,
+      "refinement_trace": [],
+      "reason": "No read-margin failure observed; lower bound only"
+    }
+  }
+}
