@@ -1,0 +1,68 @@
+{
+  "scope": "Existing initial Part 2 cell; no device optimization",
+  "measurement_complete": true,
+  "all_specs_pass": false,
+  "numerical_validation_pass": true,
+  "capacitance_fF": 18.585000000000125,
+  "fields_MV_cm": {
+    "gate_MV_cm": 5.0,
+    "capacitor_MV_cm": 3.3333333333333335
+  },
+  "read_margin_mV": {
+    "0": 128.26426855287153,
+    "1": 84.10155673301745
+  },
+  "retention": {
+    "0": {
+      "passed": true,
+      "lower_bound_ms": 64.0,
+      "failure_bracket_s": null,
+      "end_Vcell_V": 0.1862939552806604,
+      "endpoint_read_margin_mV": 102.5781927822472,
+      "last_sample_time_ms": 64.0
+    },
+    "1": {
+      "passed": false,
+      "lower_bound_ms": 2.627316720118263,
+      "failure_bracket_s": [
+        0.002627316720118263,
+        0.002642809433252009
+      ],
+      "end_Vcell_V": 1.6040000000000143,
+      "endpoint_read_margin_mV": 59.0950289092615,
+      "last_sample_time_ms": 2.7202729989207004
+    }
+  },
+  "retention_sensitivity": {
+    "0": {
+      "end_Vcell_difference_V": 0.0007164405684252917,
+      "end_read_margin_difference_V": 9.756132058420797e-05,
+      "spec_verdict_consistent": true,
+      "passed": true,
+      "endpoint_comparison_applies": true
+    },
+    "1": {
+      "end_Vcell_difference_V": 0.0059999999999709175,
+      "end_read_margin_difference_V": 0.0004730516320076983,
+      "spec_verdict_consistent": true,
+      "passed": true,
+      "failure_brackets_s": [
+        [
+          0.002627316720118263,
+          0.002642809433252009
+        ],
+        [
+          0.002633723900282023,
+          0.0026477814100548747
+        ]
+      ],
+      "endpoint_comparison_applies": false,
+      "failure_time_relative_difference": 0.002154529115847884
+    }
+  },
+  "remaining": [
+    "Part 1/2 student-ID filenames and actual checker OK screenshots",
+    "Final combined assignment report",
+    "Actual TA simulator and full mesh convergence remain unverified"
+  ]
+}

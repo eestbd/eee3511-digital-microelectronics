@@ -1,0 +1,16 @@
+{
+  "started_at_kst": "2026-10-04T17:52:14.635926+09:00",
+  "scope": "Existing Part 2 baseline and numerical validation only; defer Part 1 submission and design optimization",
+  "config": "project1/part2_initial.yaml",
+  "config_sha256": "361a632cf00ae6b7e75a90afff8619a648204daea4d1c5d3185842092d4c351b",
+  "primary_retention_delta_V": 0.003,
+  "fine_retention_delta_V": 0.0015,
+  "read_margin_sensitivity_limit_V": 0.002,
+  "retention_endpoint_Vcell_sensitivity_limit_V": 0.003,
+  "retention_endpoint_margin_sensitivity_limit_V": 0.002,
+  "retention_failure_time_sensitivity_relative_limit": 0.01,
+  "fresh_replay_current_atol_A_per_um": 1e-17,
+  "fresh_replay_current_rtol": 1e-06,
+  "fresh_replay_margin_limit_V": 0.002,
+  "structure_saved_before_physics": true
+}

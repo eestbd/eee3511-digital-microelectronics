@@ -2,11 +2,15 @@
 .conda/
 venv/
 .env/
+.env
+.env.*
+!.env.example
 
 # Python cache
 __pycache__/
 *.pyc
 *.pyo
+.pytest_cache/
 
 # VS Code
 .vscode/
@@ -15,5 +19,18 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-#tmp
+# Scratch files and local archives
 tmp/
+
+# Verbose TCAD output; retain concise structure-check evidence
+/project1/results/**/*.log
+!/project1/results/**/*checker*.log
+!/project1/results/**/final_structure_check.log
+
+# Standalone CLI output (measurement datasets in results/ stay tracked)
+/idvg.csv
+/idvd.csv
+/cv.csv
+/project1/idvg.csv
+/project1/idvd.csv
+/project1/cv.csv

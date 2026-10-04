@@ -1,0 +1,149 @@
+{
+  "structure_sha256": "5ef2b8270a2cd1ddf2d9330b594dd45d841d202ab519c4a9d633a8fe74cdce08",
+  "capacitance_F": 1.8585000000000124e-14,
+  "geometry_pass": true,
+  "native_physics": {
+    "mu_n": 202.9698962276924,
+    "mu_p": 107.38756563544702,
+    "n_i": 4757304128886.964,
+    "n1": 4757304128886.964,
+    "p1": 4757304128886.964,
+    "gate_work_function_offset_V": -0.14876929787233983,
+    "extended": {
+      "extended_solver": true,
+      "extended_model": true,
+      "extended_equation": true
+    }
+  },
+  "cases": [
+    {
+      "kind": "off_current",
+      "bit": "0",
+      "label": "initial",
+      "Vcell_V": 0.0,
+      "expected_A": -2.943647200183876e-12,
+      "actual_A": -2.9436472001838755e-12,
+      "terminal_currents_A_per_um": {
+        "source": -2.9436472001838754e-11,
+        "drain": 2.990749629963364e-11,
+        "body": -4.71024297794885e-13
+      },
+      "difference_A": 4.0389678347315804e-28,
+      "limit_A": 2.943647200183876e-18,
+      "balance_A_per_um": 5.048709793414476e-28,
+      "passed": true
+    },
+    {
+      "kind": "off_current",
+      "bit": "0",
+      "label": "last_integration_bias",
+      "Vcell_V": 0.1858167572245923,
+      "expected_A": -5.1657445534456066e-15,
+      "actual_A": -5.165744553445633e-15,
+      "terminal_currents_A_per_um": {
+        "source": -5.1657445534456334e-14,
+        "drain": 5.332751179279116e-13,
+        "body": -4.816176723934552e-13
+      },
+      "difference_A": 2.68212707775144e-29,
+      "limit_A": 1e-18,
+      "balance_A_per_um": 0.0,
+      "passed": true
+    },
+    {
+      "kind": "read",
+      "bit": "0",
+      "label": "initial",
+      "Vcell_V": 0.0,
+      "expected_margin_V": 0.12826426855287154,
+      "actual_margin_V": 0.12826426855287154,
+      "difference_V": 0.0,
+      "spec_verdict_consistent": true,
+      "max_charge_residual_C": 1.6509429581478316e-29,
+      "passed": true
+    },
+    {
+      "kind": "read",
+      "bit": "0",
+      "label": "retention_endpoint",
+      "Vcell_V": 0.1862939552806604,
+      "expected_margin_V": 0.1025781927822472,
+      "actual_margin_V": 0.10257819278224722,
+      "difference_V": 2.7755575615628914e-17,
+      "spec_verdict_consistent": true,
+      "max_charge_residual_C": 5.615070583260449e-29,
+      "passed": true
+    },
+    {
+      "kind": "off_current",
+      "bit": "1",
+      "label": "initial",
+      "Vcell_V": 2.0,
+      "expected_A": 2.9876972274247773e-12,
+      "actual_A": 2.9876972274247773e-12,
+      "terminal_currents_A_per_um": {
+        "source": 2.987697227424777e-11,
+        "drain": -2.940588958732791e-11,
+        "body": -4.710826869198638e-13
+      },
+      "difference_A": 0.0,
+      "limit_A": 2.987697227424777e-18,
+      "balance_A_per_um": 1.0097419586828951e-27,
+      "passed": true
+    },
+    {
+      "kind": "off_current",
+      "bit": "1",
+      "label": "last_integration_bias",
+      "Vcell_V": 1.6070000000000142,
+      "expected_A": 2.4554464770473948e-12,
+      "actual_A": 2.455446477047395e-12,
+      "terminal_currents_A_per_um": {
+        "source": 2.455446477047395e-11,
+        "drain": -2.4167213043614328e-11,
+        "body": -3.8725172685961655e-13
+      },
+      "difference_A": 4.0389678347315804e-28,
+      "limit_A": 2.4554464770473952e-18,
+      "balance_A_per_um": 5.604067870690068e-27,
+      "passed": true
+    },
+    {
+      "kind": "read",
+      "bit": "1",
+      "label": "initial",
+      "Vcell_V": 2.0,
+      "expected_margin_V": 0.08410155673301745,
+      "actual_margin_V": 0.08410155673301745,
+      "difference_V": 0.0,
+      "spec_verdict_consistent": true,
+      "max_charge_residual_C": 9.602440498361714e-29,
+      "passed": true
+    },
+    {
+      "kind": "read",
+      "bit": "1",
+      "label": "failure_lower",
+      "Vcell_V": 1.6163114949192088,
+      "expected_margin_V": 0.060062780672448746,
+      "actual_margin_V": 0.060062780672448746,
+      "difference_V": 0.0,
+      "spec_verdict_consistent": true,
+      "max_charge_residual_C": 1.1027631337335389e-28,
+      "passed": true
+    },
+    {
+      "kind": "read",
+      "bit": "1",
+      "label": "failure_upper",
+      "Vcell_V": 1.614254906846295,
+      "expected_margin_V": 0.059901912254305856,
+      "actual_margin_V": 0.059901912254305856,
+      "difference_V": 0.0,
+      "spec_verdict_consistent": true,
+      "max_charge_residual_C": 5.200825958493422e-29,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

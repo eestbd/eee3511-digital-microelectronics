@@ -42,13 +42,14 @@
 
 ## PROGRESS_LOG.md 운영
 
-- Non-trivial task의 의미 있는 milestone 완료, 중요한 발견·문제, 계획 변경, 작업 종료 때 루트 `PROGRESS_LOG.md`의 맨 아래에 새 기록을 추가한다. 사소한 한 줄 수정마다 기록하지 않으며, 같은 시점의 관련 사건은 한 기록으로 묶을 수 있다.
-- Append-only: 기존 기록과 표제를 수정·삭제·덮어쓰거나 순서를 바꾸지 않는다. 로그 전체를 재작성하거나 formatter로 과거 내용을 변경하지 않는다. 오류 정정은 원래 기록 시각·정정 내용·이유를 포함한 새 기록으로 남긴다.
+- Non-trivial task의 중요한 milestone 완료, 문제·계획 변경, 작업 종료 때만 루트 `PROGRESS_LOG.md`에 간결하게 기록한다. 같은 작업의 조사·구현·일상 검증은 하나의 기록으로 묶고, 사소한 수정·진행 시작·반복 검증은 별도 기록하지 않는다.
+- 각 기록은 기본 네 항목에 총 4~8개 bullet 정도로 작성한다. 핵심 결과·변경 이유·실패·남은 작업을 우선하고, 긴 표·실험별 수치·명령 출력·hash 목록은 결과 파일에 두고 경로를 연결한다. 상세 명령과 검증은 PLAN/관련 문서에 기록하며 로그에 반복하지 않는다.
+- 평소에는 append-only로 운영한다. 기존 기록 수정·삭제·재정렬과 formatter 재작성은 하지 않으며 정정은 원 기록 시각과 이유를 담은 새 기록으로 남긴다. 단, 사용자가 이력 정리·삭제를 명시적으로 요청하면 예외로 원본을 ignored `project1/tmp/`에 백업한 뒤 중요 기록만 요약할 수 있다. 이 경우 원래 시각·중요 결정·FAIL·미완료 상태를 보존하고 정리 사실과 백업 경로를 남긴다.
 - 기록 시각은 실제 현재 시각을 확인해 `Asia/Seoul (KST, UTC+9)`로 변환한다. 실행 호스트의 로컬 시간대에 의존하거나 과거 시각을 추측하지 않는다. 표제에는 날짜·시·분·초와 KST를 명시한다.
 - 각 기록은 수행한 작업, 현재까지 완료된 내용과 남은 범위, 중요한 발견/문제, 다음 작업을 포함한다. 이슈가 없으면 없다고 명시한다. 작업을 구분할 수 있는 목표나 milestone 이름을 넣는다.
 - 계획 변경 기록에는 변경 이유와 영향, 중요한 test/validation에는 명령·조건·결과 또는 미실행 이유를 남긴다. 완료되지 않은 검증을 통과한 것으로 기록하지 않는다.
 - 작업 종료의 최종 기록에는 완료 범위, 실제 검증 결과, 남은 한계·미완료 사항, 다음 작업을 명시한다. 다음 작업이 없다면 현재 요청이 완료되었고 다음 요청을 기다리는 상태라고 기록한다.
-- 기록 전 최신 PLAN과 로그의 끝을 확인하고, 기록 후 이전 byte prefix가 보존되었는지와 날짜 순서·현재 상태의 일치를 검토한다. 현재 상태가 바뀌면 PLAN도 갱신한다. 과거 당시의 상태와 새로운 상태가 다른 것은 모순이 아니다.
+- 기록 전 최신 PLAN과 로그의 끝을 확인한다. 평소 append 후에는 이전 byte prefix 보존을 확인하고, 사용자 요청에 따른 요약 시에는 원본 백업 hash·중요 내용 보존을 확인한 뒤 요약본을 이후 append의 기준으로 삼는다. 날짜 순서·현재 상태의 일치를 검토하고 상태가 바뀌면 PLAN도 갱신한다. 과거 당시의 상태와 새로운 상태가 다른 것은 모순이 아니다.
 - 로그는 이번 도입부터 누적한다. 이전 이력을 회고할 경우 회고임을 밝히고 확인된 사실만 쓰며, 정확한 수행 시각을 알 수 없는 과거 작업의 timestamp를 만들어내지 않는다.
 
 기본 기록 형식은 다음과 같다. 실제 로그에는 확인한 시각과 작업 내용으로 채운다.
@@ -75,6 +76,8 @@
 
 ## 저장소 탐색과 convention
 
+Git에는 source·설정·과제 문서·보고서·재현 가능한 CSV/JSON/소자·간결한 checker 결과를 유지한다. 상세 TCAD solver/probe `.log`, 환경·cache·`tmp/`와 단독 CLI 출력은 `.gitignore`로 제외하며 로컬 파일은 보존한다. 이미 추적된 제외 파일은 해당 파일만 `git rm --cached`로 index에서 제거한다. HW1 reference와 중요한 결과를 광범위한 `*.csv`/`*.json`/`*.devsim`/`*.pdf` 규칙으로 숨기지 않는다.
+
 | 경로 | 역할 |
 |---|---|
 | `project1/mosfet.py` | CLI: `idvg`, `idvd`, `cv`, `--config` |
@@ -93,6 +96,8 @@
 | `project1/Project1_Assignment_0927.pdf` | Project 설계·제출 요구사항 |
 
 Python은 4-space indentation, `snake_case` 함수·변수, `PascalCase` 클래스, 단위가 드러나는 식별자, dataclass·type hint·`pathlib.Path`를 사용하는 기존 패턴을 따른다. UTF-8과 기존 한국어 docstring·주석 스타일을 유지한다. 주석은 동작 이유·물리 가정·단위 변환을 설명한다.
+
+Windows에서 한글 문서 본문을 PowerShell pipeline으로 Python stdin에 전달하지 않는다. 본문은 `apply_patch` 등 UTF-8을 보존하는 경로로 파일에 직접 작성하고, Python은 해당 파일을 `encoding="utf-8"` 또는 bytes로 읽어 사용한다. 저장 후 strict UTF-8 decoding뿐 아니라 실제 한글 포함 여부와 예상하지 않은 `??`/대체문자도 확인한다. 이미 물음표로 치환된 원문은 인코딩 재해석만으로 복구되지 않는다.
 
 기존 CLI mode, config 기본값, workflow API와 DataFrame 열 이름(`Vg_V`, `Vd_V`, `Id_A_per_um`, `Cgg_F_per_um`)을 보존한다. 호환성을 바꾸는 작업이면 영향과 이유를 계획·검증에 명시한다. 저장소에는 formatter/linter/test framework 설정이 없으므로 작업과 무관한 도구 도입을 기본 변경에 섞지 않는다.
 
@@ -157,6 +162,9 @@ Project 1은 루트 `.conda` interpreter로 직접 실행한다. HW1에서 복�
 - Part 1 고정 이름: `bulk`/`Silicon`, `oxide`/`Oxide` 또는 `SiO2`, `gate_metal`/과제 gate 재료 이름, `gate/source/drain/body`, `bulk_oxide`, `bulk.NetDoping`. `gate` contact는 oxide에 둔다. Material은 숫자가 아니라 이름이며 허용 이름은 checker `GATE_TABLE`과 PDF를 대조한다.
 - Part 1 파일은 `part1_[studentID].devsim`, device는 하나다. 학번을 추측하지 않는다. Part 1에는 capacitor 항목이 필요 없다. Part 2는 요청된 경우 해당 PDF의 별도 규칙을 조사한다.
 - Part 1 범위: Lg≥0.3 µm, tox≥4 nm(SiO2), xj=0.02…0.25 µm, tSi=0.3…2 µm, source/drain 각각 0.2…1 µm, NA=1e14…1e17, ND=1e18…1e21 cm⁻³.
+- Part 1/Part 2는 독립 device optimization 문제다. Part 1은 8개 spec, Part 2는 pass transistor+capacitor의 READ/retention을 목표로 한다. 공용 physics/code를 재사용하되 두 parameter의 동일성을 강제하지 않고 완료된 Part 1을 보존한다. Part 2는 Lg=0.3 µm, gate 전계=2.5 V/tox 등 고유 조건을 적용한다.
+- 추가 공식 Q&A에 따라 capacitor를 source contact 바로 위에 배치할 수 있다. Bulk와 hk가 직접 닿지 않아 bulk_hk interface가 node 0개인 배치도 허용됐으며, bare silicon 배치/source contact 축소/임의 interface 생성을 강제하지 않는다. 실제 구조 checker·naming·storage/plate 연결·plate dQ/dV를 각각 확인한다.
+- Part 2의 허용 범위 내 비균일 doping·source/drain 비대칭 profile은 가능하다. 최종 분포는 bulk.NetDoping에 표현하고 제출 구조가 미인식 LDDDoping/HaloDoping 등에 의존하지 않게 한다. 구현 변경 시 저장 구조 fresh reload의 위치별 NetDoping 값도 검증한다. 공식 근거는 project1/OFFICIAL_QA.md의 추가 Q&A에 기록한다.
 
 VDD=2 V, 기본 T=300 K, VS=VB=0 V이며 같은 구조·doping·gate 재료로 아래 항목을 평가한다. 고온·body effect 항목은 표의 조건으로 변경한다.
 
@@ -182,6 +190,6 @@ DEVSIM은 프로세스 전체 상태를 공유하며 현재 `build()`는 이전 
 - 불필요한 복잡성·refactoring·인프라·의존성이 추가되었는가?
 - 기존 구조와 convention, 변경 범위·reference 보호·제출 규약을 지켰는가?
 - 필요한 validation/test를 실행했는가? 미실행 항목·불확실성·한계가 정확히 기록되었는가?
-- PLAN의 최종 상태와 최신 PROGRESS_LOG 기록이 일치하고, 이전 로그 보존과 작업 종료 기록을 확인했는가?
+- PLAN의 최종 상태와 최신 PROGRESS_LOG 기록이 일치하고, 이전 로그 보존(사용자가 요약을 요청한 경우 원본 백업·핵심 내용 보존)과 작업 종료 기록을 확인했는가?
 
 문제를 발견하면 수정하고 관련 검증을 다시 수행한다. 완료 보고는 실제 요구사항 충족과 검증 결과를 기준으로 하며, 미검증 physics나 제출용 spec을 PASS로 주장하지 않는다.

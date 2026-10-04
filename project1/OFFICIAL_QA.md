@@ -2,7 +2,7 @@
 
 수신일: 2026-10-04, Asia/Seoul. 사용자가 제공한 교수·조교 수업 톡방 공식 답변 정리본을 근거로 한다. 원래 답변별 날짜는 미제공이며 아래는 당시 작업 이력을 재구성한 것이 아니다.
 
-조건 우선순위: [최신 PDF](Project1_Assignment_0927.pdf) > 공식 Q&A > 이전 assignment > HW1/manual. 특히 9월 27일 개정 Part 2 조건을 사용한다. 이 문서는 공식 조건의 지속 참조 자료이며 현재 작업 상태는 [PLAN](../PLAN.md), 시간순 이력은 [PROGRESS_LOG](../PROGRESS_LOG.md)에서 관리한다.
+조건 기준은 [최신 PDF](Project1_Assignment_0927.pdf)와 이후 교수·조교의 공식 확인이다. 후속 공식 답변이 명확히 확인한 구조·설계 자유도는 PDF 예시의 해석을 보완한다. 이전 assignment/HW1/manual보다 9월 27일 개정 Part 2 조건을 사용한다. 이 문서는 공식 조건의 지속 참조 자료이며 현재 작업 상태는 [PLAN](../PLAN.md), 시간순 이력은 [PROGRESS_LOG](../PROGRESS_LOG.md)에서 관리한다.
 
 ## 공통·제출
 
@@ -43,6 +43,29 @@
 - Retention은 storage-node charge 변화에 해당하는 전류로 Vcell을 추적한다. READ와 달리 큰/adaptive dt를 사용하되 step당 Vcell 변화가 수 mV 이하가 되도록 제한한다.
 - Retention failure는 임의 Vcell threshold가 아니다. **열화된 Vcell에서 BL=1 V로 다시 0.5 ns READ하여 |ΔVBL|<60 mV가 되는 최초 시각**이다. 두 저장 상태를 각각 검사한다. 64 ms 이상이 필수이며 길수록 좋다.
 - Vth↓는 READ 전류/속도 개선과 leakage/retention 악화를 함께 만들 수 있다. CSTORE↑는 margin·retention에 유리하지만 ≤20 fF 제약이 있다. TR과 capacitor를 함께 설계한다.
+
+## 추가 공식 Q&A: Part 2 구조·설계 자유도
+
+수신일: 2026-10-04, Asia/Seoul. 사용자가 전달한 장이준 조교의 추가 공식 확인을 근거로 한다. 답변 자체의 시각은 미제공이다. 아래 내용은 허용 범위이며 새 후보의 spec PASS 또는 현재 코드의 비균일/asymmetric profile 지원 완료를 뜻하지 않는다.
+
+### Capacitor 배치
+
+- Source n+ 윗면 전체의 source contact 바로 위에 metal pillar와 hk_l/hk_r slab을 배치해도 된다. Bare n+ silicon 위 배치나 source contact 축소를 강제하지 않는다.
+- 이 배치에서 hk 바닥이 bulk silicon에 직접 닿지 않아 bulk_hk_l/bulk_hk_r interface가 node 0개여도 조교 테스트상 문제가 없다고 확인됐다. 이 확인 때문에 접하지 않는 영역에 interface를 새로 만들 필요는 없다.
+- 판정의 핵심은 self-checker 통과, naming rule, storage=source/plate=VDD/2 연결, plate 전체 dQ/dV로 정상 CSTORE 추출이다. 구조 허용과 READ/retention 충족은 따로 검증한다.
+
+### 비균일·비대칭 doping
+
+- 허용 범위 안의 spatially nonuniform doping과 source/drain asymmetric design이 가능하다.
+- 채점기는 제출 구조의 bulk.NetDoping spatial distribution을 그대로 읽는다. Source/drain별 profile, 국소 도핑 등의 실제 최종 분포를 NetDoping에 반영한다.
+- 제출 구조는 조교가 인식하지 못하는 LDDDoping/HaloDoping 등 새로운 node-model 이름에 의존하면 안 된다. 새 profile 도입 시 저장·fresh reload한 NetDoping의 위치별 값과 구조 checker를 검증한다.
+
+### Part 1과 Part 2의 독립 설계
+
+- Part 1은 해당 8개 electrical spec을 만족하는 nMOS, Part 2는 DRAM READ/retention에 맞춘 pass transistor+capacitor co-design이다. 두 transistor parameter가 같을 필요는 없다.
+- Part 1 physics/code/simulation infrastructure/설계 경험은 재사용할 수 있지만 Part 2 최종 parameter는 독립적으로 정한다.
+- Part 2는 Lg=0.3 µm 고정, gate 전계=2.5 V/tox 등 고유 조건으로 최적화한다. 완료된 Part 1 결과는 보존한다.
+- 후속 실험에서 gate/cap 조정과 함께 비균일·비대칭 doping도 후보로 검토할 수 있다. 이번 Q&A 반영에서는 코드/입력 변경이나 실험을 수행하지 않는다.
 
 ## 2026-10-04 15:25 최초 구현 대조 결과
 
