@@ -1,5 +1,7 @@
 # Part 1 초기 소자 측정 — 1~5번
 
+> 이 문서의 모델 설명·`results/part1_baseline/` 수치는 공식 Q&A 수신 전 baseline 기록이다. 2026-10-04부터 현재 varshni 경로는 공식 온도 의존 mobility·midgap gate 기준을 적용한다. 최신 조건은 [OFFICIAL_QA.md](OFFICIAL_QA.md), 현재 실행·결과는 [README.md](README.md)와 루트 PLAN/log를 참조한다. 과거 raw·FAIL·source hash는 그대로 보존한다.
+
 이 경로는 동일한 초기 nMOS에서 8개 spec을 측정한다. **6번 설계 변수·조합 탐색은 수행하지 않는다.** Spec FAIL은 측정 실패와 다르며, 측정할 수 없는 항목은 ERROR다. 로컬 모델의 결과이지 조교 채점 통과나 실험 정확성을 보장하는 결과가 아니다.
 
 ## 초기 설정과 결과 파일

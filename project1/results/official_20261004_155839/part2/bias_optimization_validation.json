@@ -1,0 +1,9 @@
+{
+  "same_input_structure": true,
+  "reference": "initial/read_0.csv",
+  "joint": "initial_joint_bias/read_0.csv",
+  "same_times": true,
+  "max_VBL_difference_V": 0.0,
+  "max_Vcell_difference_V": 0.0,
+  "passed": true
+}

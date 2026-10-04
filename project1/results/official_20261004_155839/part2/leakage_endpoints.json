@@ -1,0 +1,29 @@
+{
+  "purpose": "Independent initial leakage diagnostic, not retention pass/fail",
+  "physics_model_id": "qa_varshni_midgap_mobility_v1",
+  "structure_sha256": "5ef2b8270a2cd1ddf2d9330b594dd45d841d202ab519c4a9d633a8fe74cdce08",
+  "rows": [
+    {
+      "bit": "0",
+      "Vcell_V": 0.0,
+      "BL_V": 2.0,
+      "current_A_per_um": {
+        "source": -2.9436472001838754e-11,
+        "drain": 2.990749629963364e-11,
+        "body": -4.71024297794885e-13
+      },
+      "Istorage_A": -2.9436472001838755e-12
+    },
+    {
+      "bit": "1",
+      "Vcell_V": 2.0,
+      "BL_V": 0.0,
+      "current_A_per_um": {
+        "source": 2.987697227424777e-11,
+        "drain": -2.940588958732791e-11,
+        "body": -4.710826869198638e-13
+      },
+      "Istorage_A": 2.9876972274247773e-12
+    }
+  ]
+}

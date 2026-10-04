@@ -19,7 +19,7 @@ import yaml
 
 from mosfet_tool.config import Device
 from mosfet_tool.metrics import evaluate_specs
-from mosfet_tool.physics import silicon_properties
+from mosfet_tool.physics import OFFICIAL_MODEL_ID, silicon_mobility, silicon_properties
 from mosfet_tool.simulator import MosfetSimulator, voltage_points
 
 ROOT = Path(__file__).resolve().parent
@@ -41,7 +41,7 @@ def validate_device(device: Device) -> None:
     if device.gate_material is None or device.silicon_temperature_model != "varshni":
         raise ValueError("Part 1 requires an explicit gate material and varshni temperature model")
     if (device.mu_n, device.mu_p) != (400.0, 200.0):
-        raise ValueError("Part 1 baseline keeps the original mu_n=400 and mu_p=200")
+        raise ValueError("Part 1 requires the official 300 K anchors mu_n=400 and mu_p=200")
     if device.temperature_k != 300.0:
         raise ValueError("Base configuration temperature must be 300 K; hot case is separate")
 
@@ -126,7 +126,9 @@ def run_evaluation(device: Device, voltages: np.ndarray, output_dir: Path,
                        "idvg_high": {"T_K": 300, "VD_V": 2, "VB_V": 0},
                        "idvg_body": {"T_K": 300, "VD_V": 0.05, "VB_V": -0.5},
                        "off_398K": {"T_K": 398, "VD_V": 2, "VB_V": 0, "VG_V": 0}},
-        "physics": {str(t): silicon_properties(t) for t in (300.0, 398.0)},
+        "physics_model_id": OFFICIAL_MODEL_ID,
+        "physics": {str(t): {**silicon_properties(t), **silicon_mobility(t)}
+                    for t in (300.0, 398.0)},
         "metrics": [m.to_dict() for m in metrics],
         "measurement_complete": all(m.status != "ERROR" for m in metrics),
         "all_specs_pass": all(m.status == "PASS" for m in metrics),

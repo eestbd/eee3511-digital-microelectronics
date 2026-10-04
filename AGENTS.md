@@ -144,6 +144,12 @@ Project 1은 루트 `.conda` interpreter로 직접 실행한다. HW1에서 복�
 
 ## 물리·제출 제약
 
+- Project 1 조건 우선순위는 최신 `project1/Project1_Assignment_0927.pdf` > 교수·조교 공식 Q&A > 이전 assignment > HW1/manual이다. 공식 Q&A는 `project1/OFFICIAL_QA.md`에서 참조한다. 새 분석·구현·실험·보고서 작업 전에 관련 조건을 대조하고 충돌을 발견하면 사용자와 PLAN/log에 알린다.
+- 공식 채점 조건은 128비트(`extended_solver/model/equation=true`)·ramp 0.1 V다. 개발 수렴을 위한 작은 ramp는 허용되지만 최종 소자는 채점 조건에서 검증한다. Double 실패는 진단 결과로 보존하며 그 자체를 필수 채점 탈락으로 해석하지 않는다. 구조 검사·spec·전류 보존·정밀도 진단을 구분하고, FAIL이나 기존 JSON을 PASS로 덮어쓰지 않는다.
+- 공식 모델은 ni(300)=1e10 anchor의 Varshni ni(T), 일관된 SRH n1/p1, `mu_n=400*(T/300)^(-2.4)`, `mu_p=200*(T/300)^(-2.2)`, `Potential=VG−{Phi_m−[4.05+Eg(T)/2]}`다. 채점기에 없는 velocity saturation·doping-dependent mobility를 임의 추가하지 않는다. 현재 varshni 경로에 두 식을 적용했으며 legacy 동작은 보존했다. 공지 수신 전 8 PASS는 당시 모델 결과로 보존하고 공식 재측정은 새 output 경로에서 수행한다.
+- P-body background 농도와 별도 p+ body tap은 구분한다. 공식 Q&A가 허용한 고농도 tap을 구현할 경우 실제 NetDoping·접점·구조 검증에 반영하며 예제 농도/형상을 의무값으로 추측하지 않는다. 보고서 1(b)의 optimization 이력과 1(c)의 최종 소자 one-knob ablation도 구분한다.
+- Part 2는 9월 27일 PDF 기준이다. Lg=0.3 µm, W=0.1 µm, tox≥5 nm, T=398 K, VB=−0.5 V, WL high=2.5 V, CBL=100 fF, CSTORE≤20 fF. READ는 BL=1 V·dt=10 ps·0.5 ns·양 상태 |VBL−1|≥60 mV다. A/µm 전류에 폭을 한 번만 적용하고 부호·전하 보존을 검증한다. Retention은 WL=0, data 0 BL=2 V/data 1 BL=0 V, adaptive dt와 열화 상태의 재READ margin으로 판정하며 ≥64 ms를 확인한다. 구버전 BL=1 V retention·1 ns·40 mV 및 임의 Vcell failure threshold는 사용하지 않는다.
+- CSTORE는 plate bias 1 V에서 전체 plate charge의 dQ/dV로 검증한다. 보고서에는 두 구조의 fresh self-check OK 화면과 분석→설계→검증→재설계 근거를 포함한다. 마감은 2026-10-07 23:59 KST이며 약 12쪽 기준에서 조금 초과는 허용된다. 세부 capacitor 치수·재료·전계·naming은 최신 PDF와 공식 Q&A를 확인한다.
 - Mobility 상수나 ramp/solver setting을 spec 통과 목적으로 임의 조정하지 않는다. 근거 있는 physical model로 대체하는 작업은 모델·계수·검증 결과를 명시한다.
 - 설계 탐색·최종 소자 설계는 해당 요청 범위에서 수행한다. 원본 baseline과 실제 실행 조건을 보존하고 변경한 변수를 기록한다.
 - 내부 길이는 cm이며 `UM=1e-4`, `NM=1e-7`이다. 실리콘 표면 y=0, bulk는 y>0, oxide는 y<0, source는 왼쪽, drain은 오른쪽, gate는 planar 배치를 지킨다.

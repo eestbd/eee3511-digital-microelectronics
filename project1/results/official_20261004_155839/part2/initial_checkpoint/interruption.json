@@ -1,0 +1,32 @@
+{
+  "status": "INTERRUPTED_BY_USER_SCOPE_CHANGE",
+  "stopped_at_kst": "2026-10-04T16:49:06.968012+09:00",
+  "reason": "User requested Part 1 only; no further Part 2 execution.",
+  "measurement_complete": false,
+  "all_specs_pass": false,
+  "preserved_completed_checkpoints": [
+    "capacitance",
+    "read_0",
+    "read_1",
+    "retention_0"
+  ],
+  "retention_1_complete": false,
+  "last_completed_retention_1_read": {
+    "Vcell_V": 1.967,
+    "margin_V": 0.0825156311
+  },
+  "process_session": 87704,
+  "exit_code_after_ctrl_c": 1,
+  "source_sha256": {
+    "part2.py": "9377c67e3d31728e58d27868c774455c551d6876bd2eeaef1a1a307b5521e4f0",
+    "check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+    "mosfet_tool/cell.py": "b389a55ffca9fafd81743b46da8f68c542e5467bb27e9a7bf009ef27424668ff",
+    "mosfet_tool/config.py": "d276cd4199c2ba26dbb4cc5967c874ad10aea2801cacdd5ebbf792983a2ef1a1",
+    "mosfet_tool/materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "mosfet_tool/metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+    "mosfet_tool/physics.py": "367d606041ce12f1516c3e2390eb8594638451f5aa35917eee951f7e6b970bae",
+    "mosfet_tool/simulator.py": "25c4607629ea93380691f040c08c2aebb8fd04f7edcd5ced7e454990d5bf9d45",
+    "mosfet_tool/workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b"
+  }
+}

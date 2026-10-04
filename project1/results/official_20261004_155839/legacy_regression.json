@@ -1,0 +1,23 @@
+{
+  "idvg": {
+    "points": 21,
+    "columns_pass": true,
+    "finite_pass": true,
+    "passed": true,
+    "max_absolute_difference": 8.893845946170154e-21
+  },
+  "idvd": {
+    "points": 21,
+    "columns_pass": true,
+    "finite_pass": true,
+    "passed": true,
+    "max_absolute_difference": 0.0
+  },
+  "cv": {
+    "points": 31,
+    "columns_pass": true,
+    "finite_pass": true,
+    "passed": true,
+    "max_absolute_difference": 0.0
+  }
+}

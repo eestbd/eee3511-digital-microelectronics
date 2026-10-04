@@ -18,6 +18,7 @@ import yaml
 
 from mosfet_tool.config import Device
 from mosfet_tool.metrics import evaluate_specs
+from mosfet_tool.physics import OFFICIAL_MODEL_ID
 from mosfet_tool.simulator import MosfetSimulator
 from part1 import current_sample, prepared_simulator
 
@@ -55,13 +56,20 @@ def probe(device: dict, structure: str, temperature: float, vd: float, vb: float
         return {"status": "ERROR", "error": str(error), "failed_biases_V": biases}
 
 
-def validate(primary: Path, fine: Path, probe_log_dir: Path) -> dict:
+def validate(primary: Path, fine: Path, probe_log_dir: Path, double_diagnostic: bool = False) -> dict:
     coarse_result = json.loads((primary / "metrics.json").read_text(encoding="utf-8"))
     fine_result = json.loads((fine / "metrics.json").read_text(encoding="utf-8"))
     if coarse_result["device"] != fine_result["device"]:
         raise ValueError("Compare measurement resolution for the same device only")
     if coarse_result["structure_sha256"] != fine_result["structure_sha256"]:
         raise ValueError("Resolution comparison requires identical saved structure")
+    # Part 2 개발은 Part 1의 호출 경로에 없다. 독립 cell module은 대조 범위에서 제외한다.
+    coarse_sources = {p: h for p, h in coarse_result["source_sha256"].items()
+                      if p != "mosfet_tool/cell.py"}
+    fine_sources = {p: h for p, h in fine_result["source_sha256"].items()
+                    if p != "mosfet_tool/cell.py"}
+    if coarse_sources != fine_sources:
+        raise ValueError("Resolution comparison requires the same simulation source")
     if coarse_result["precision"] != "extended" or fine_result["precision"] != "extended":
         raise ValueError("The resolution comparison uses extended precision")
     if not (coarse_result["measurement_complete"] and fine_result["measurement_complete"]):
@@ -137,9 +145,10 @@ print("PROBE_RESULT="+json.dumps(result,allow_nan=False))
     for name, temperature, vd, vb, vg in cases:
         reference = float(curves[name].loc[np.isclose(curves[name].Vg_V, vg), "Id_A_per_um"].iloc[0])
         records = {}
-        for label, extended, loaded in (("reload_extended", True, True),
-                                       ("reload_double", False, True),
-                                       ("live_extended", True, False)):
+        replay_modes = [("reload_extended", True, True), ("live_extended", True, False)]
+        if double_diagnostic:
+            replay_modes.append(("reload_double", False, True))
+        for label, extended, loaded in replay_modes:
             log = probe_log_dir / f"{len(replays)}_{name}_{label}.log"
             if log.exists():
                 raise FileExistsError(f"Preserve prior probe log: {log}")
@@ -174,8 +183,13 @@ print("PROBE_RESULT="+json.dumps(result,allow_nan=False))
                      all(x["passed"] for x in reextraction.values()) and
                      all(r["replays"][label]["passed"] for r in replays
                          for label in ("reload_extended", "live_extended")))
-    double_complete = all(r["replays"]["reload_double"]["status"] == "OK" for r in replays)
-    double_pass = all(r["replays"]["reload_double"]["passed"] for r in replays)
+    double_complete = (all(r["replays"]["reload_double"]["status"] == "OK" for r in replays)
+                       if double_diagnostic else None)
+    double_pass = (all(r["replays"]["reload_double"]["passed"] for r in replays)
+                   if double_diagnostic else None)
+    grading_conditions_match = all(r.get("physics_model_id") == OFFICIAL_MODEL_ID and
+                                   r["solver"]["ramp_step_V"] == 0.1
+                                   for r in (coarse_result, fine_result))
     return {"purpose": "Same-device numerical validation; no design-variable search",
             "primary": str(primary), "fine": str(fine),
             "current_tolerances": {"absolute_A_per_um": ABS_CURRENT_TOL, "relative": REL_CURRENT_TOL},
@@ -187,8 +201,11 @@ print("PROBE_RESULT="+json.dumps(result,allow_nan=False))
             "validation_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
             "probe_isolation": "Fresh Python process for each precision and point",
             "probe_log_dir": str(probe_log_dir), "extended_baseline_checks_pass": extended_pass,
+            "grading_conditions_match": grading_conditions_match,
+            "grading_condition_checks_pass": extended_pass and grading_conditions_match,
+            "double_precision_executed": double_diagnostic,
             "double_precision_complete": double_complete, "double_precision_checks_pass": double_pass,
-            "all_checks_pass": extended_pass and double_complete and double_pass}
+            "all_checks_pass": bool(extended_pass and double_complete and double_pass)}
 
 
 def main() -> int:
@@ -198,14 +215,18 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--probe-log-dir", type=Path, required=True,
                         help="New directory for native solver logs; project1/tmp is recommended")
+    parser.add_argument("--double-diagnostic", action="store_true",
+                        help="Optional double precision diagnostic; never a grading prerequisite")
     args = parser.parse_args()
     if args.output.exists():
         raise FileExistsError("Preserve prior validation; choose a new output path")
-    result = validate(args.primary, args.fine, args.probe_log_dir)
+    result = validate(args.primary, args.fine, args.probe_log_dir, args.double_diagnostic)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n", encoding="utf-8")
-    print(f"All numerical checks pass: {result['all_checks_pass']}")
-    return 0 if result["all_checks_pass"] else 1
+    print(f"Official-condition numerical checks pass: {result['grading_condition_checks_pass']}")
+    print(f"Optional double executed: {result['double_precision_executed']}; "
+          f"passed: {result['double_precision_checks_pass']}")
+    return 0 if result["grading_condition_checks_pass"] else 1
 
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@ import pandas as pd
 from mosfet_tool.config import Device
 from mosfet_tool.materials import canonical_gate_material
 from mosfet_tool.metrics import MeasurementError, crossing_voltage, evaluate_specs
-from mosfet_tool.physics import gate_offset_v, silicon_bandgap_ev, silicon_properties
+from mosfet_tool.physics import gate_offset_v, silicon_bandgap_ev, silicon_mobility, silicon_properties
 from mosfet_tool.simulator import MosfetSimulator, voltage_points
 from part1 import validate_device
 import part1
@@ -99,6 +99,25 @@ class MeasurementTests(unittest.TestCase):
 
 
 class PhysicsTests(unittest.TestCase):
+    def test_official_midgap_and_mobility_independent_anchors(self):
+        for t, offset, mu_n, mu_p in ((300, -0.012259615384615, 400, 200),
+                                      (398, 0.001230702127660, 202.9698962276924,
+                                       107.38756563544702)):
+            with self.subTest(T=t):
+                self.assertAlmostEqual(gate_offset_v("W", t, "varshni"), offset, places=12)
+                mobility = silicon_mobility(t)
+                self.assertAlmostEqual(mobility["mu_n_cm2_Vs"], mu_n, places=10)
+                self.assertAlmostEqual(mobility["mu_p_cm2_Vs"], mu_p, places=10)
+        self.assertEqual(silicon_mobility(398, "legacy"),
+                         {"mu_n_cm2_Vs": 400, "mu_p_cm2_Vs": 200})
+        self.assertAlmostEqual(gate_offset_v("W", 300, "legacy"), -0.013121141599565,
+                               places=12)
+        for change in ((0, "varshni", 400, 200), (398, "bad", 400, 200),
+                       (398, "varshni", float("nan"), 200),
+                       (398, "varshni", 400, -1)):
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                silicon_mobility(*change)
+
     def test_reference_and_temperature_dependence(self):
         self.assertEqual(silicon_properties(300)["n_i_cm3"], 1e10)
         self.assertAlmostEqual(silicon_bandgap_ev(300), 1.12452, places=5)
@@ -201,6 +220,11 @@ class NativePhysicsTests(unittest.TestCase):
                 ni = props["n_i_cm3"]
                 for parameter in ("n_i", "n1", "p1"):
                     self.assertEqual(devsim.get_parameter(device=sim.name, region="bulk", name=parameter), ni)
+                expected_mu = {300.0: (400, 200), 398.0: (202.9698962276924,
+                                                       107.38756563544702)}[t]
+                for parameter, expected in zip(("mu_n", "mu_p"), expected_mu):
+                    self.assertAlmostEqual(devsim.get_parameter(device=sim.name, region="bulk",
+                                                               name=parameter), expected, places=10)
                 # Charge-neutral p-type semiconductor: p−n=NA, pn=ni².
                 holes = 0.5 * (1e16 + math.hypot(1e16, 2 * ni))
                 psi_bulk = -props["V_t_V"] * math.log(holes / ni)

@@ -1,0 +1,57 @@
+{
+  "structure_sha256": "41c6f8f6ff5782c8ec3ecbc98d39bd264149ec076630f8bad0c9c98d6f06d07c",
+  "one_device": true,
+  "structure_only_no_equations": true,
+  "gate_length_um": 0.6000000000000001,
+  "oxide_thickness_nm": 4.75,
+  "regions": {
+    "air": {
+      "material": "Air",
+      "x_bounds_um": [
+        -0.0001,
+        1.6001
+      ],
+      "y_bounds_um": [
+        -0.01485,
+        0.5001
+      ],
+      "physics_equations": []
+    },
+    "bulk": {
+      "material": "Silicon",
+      "x_bounds_um": [
+        0.0,
+        1.6
+      ],
+      "y_bounds_um": [
+        0.0,
+        0.5
+      ],
+      "physics_equations": []
+    },
+    "gate_metal": {
+      "material": "W",
+      "x_bounds_um": [
+        0.5,
+        1.1
+      ],
+      "y_bounds_um": [
+        -0.014750000000000001,
+        -0.00475
+      ],
+      "physics_equations": []
+    },
+    "oxide": {
+      "material": "Oxide",
+      "x_bounds_um": [
+        0.5,
+        1.1
+      ],
+      "y_bounds_um": [
+        -0.00475,
+        0.0
+      ],
+      "physics_equations": []
+    }
+  }
+}

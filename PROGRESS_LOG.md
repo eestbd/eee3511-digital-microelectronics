@@ -831,3 +831,227 @@
 
 - **현재 폴더 정리 요청은 완료됐으며 다음 요청을 기다린다.** 이후 개발에서는 project1 README의 진입점과 results의 기존 증거를 사용한다.
 - 수치 안정성 조사나 추가 설계 실험은 해당 요청을 받은 뒤 진행한다.
+
+## 2026-10-04 15:24:31 KST
+
+### 수행한 작업
+
+- [공식 Q&A 대조] 사용자 첨부 전문과 현재 source·tests·실험 결과를 읽고 최신 PDF의 Part 1/2·제출 관련 7개 physical page를 직접 렌더링해 확인했다.
+- PLAN을 이번 조사·문서 작업으로 갱신하고 `project1/OFFICIAL_QA.md`를 작성했다. AGENTS에 공식 조건을 추가하고 project1 README의 double 판정 설명을 정정했다. 구현 코드는 수정하지 않았다.
+
+### 현재 상태
+
+- Part 1 동일 구조 8개 측정·10회 탐색·후보 #10/#8의 기존 8 PASS/extended PASS 증거는 보존되어 있다. 공식 모델에서의 재측정은 아직 하지 않았다.
+- Part 2는 checker naming 검사만 있으며 구조·CSTORE·READ·retention 구현은 없다.
+- 사용자 첨부 §7의 계획 확인 후 구현 지시를 따른다. 문서·파일 보호 최종 검증이 남았다.
+
+### 발견 / 이슈
+
+- 공식 채점은 extended 128비트·ramp 0.1 V다. 이전 14:20:18 탐색 종료 및 14:39:46 정리 종료 기록의 double 전체 실패는 실제 진단 결과로 유지하되, **double 실패만으로 채점 탈락이라고 해석하지 않도록 정정**한다. 기존 validator는 extended와 double을 AND하므로 전체 false는 유지된다.
+- 현재 고온 mobility는 400/200 고정인데 공식값은 398 K 약 202.970/107.388 cm²/(V·s)다. Gate 기준은 기존 χ+Vt ln(Nc/ni)와 공식 χ+Eg(T)/2가 다르다. Algebra 비교에서 공식 offset−기존 offset은 300 K +0.8615 mV, 398 K +1.1430 mV다. 전류 영향은 새 simulation 없이 추정하지 않는다.
+- Eg/ni/SRH 구현은 공지 식·anchor와 부합한다. 별도 p+ body tap은 없으며 PDF 그림과 차이를 검토할 필요가 있다. Q&A는 tap을 허용하며 예제 농도를 의무값으로 지정하지 않는다.
+- **계획 변경 이유:** 채점 정밀도 공식 확인과 물리 식 차이 발견으로 첫 우선순위를 double 통과 강제/추가 탐색에서 물리 정합화→기존 소자 재측정으로 바꿨다.
+- Part 2는 최신 Lg=0.3 µm·tox≥5 nm·READ 0.5 ns/60 mV·retention BL 2/0 V를 사용한다. 기존 Part 1 후보를 그대로 적용할 수 없고 임의 Vcell failure threshold도 사용할 수 없다.
+- 새 TCAD·tests는 실행하지 않았다. 기존 PASS를 공식 채점 모델의 PASS로 재명명하지 않았다. PDF SHA256과 원 공지 SHA256은 `project1/tmp/qa_review_20261004/start_snapshot.json`에 보존했다.
+
+### 다음 작업
+
+- 문서 diff·링크·공식 수치·source/results/HW1 보호 hash·append-only prefix를 최종 검증하고 조사 결과와 Part 1→Part 2 계획을 보고한다. 구현은 사용자 계획 확인 후 별도 범위에서 시작한다.
+
+## 2026-10-04 15:25:39 KST
+
+### 수행한 작업
+
+- [공식 Q&A 대조 — 종료] 최신 PDF·공식 공지·현재 source/결과의 대조와 Part 1→Part 2 단계별 제안을 완료했다.
+- 변경 파일: `AGENTS.md`, `PLAN.md`, `PROGRESS_LOG.md`, `project1/README.md`. 공식 조건·구현 대조 자료 `project1/OFFICIAL_QA.md` 한 개를 추가했다. 설계 parameter·source·tests·기존 결과는 변경하지 않았다.
+
+### 현재 상태
+
+- 이번 조사·문서 요청은 완료됐다. 첫 구현 제안은 T 의존 mobility·gate offset 정합화와 독립 test이며 사용자 계획 확인을 기다린다.
+- 기존 후보 #10/#8의 당시 8 PASS와 extended PASS, double 전체 실패는 실제 기록 그대로다. **공식 모델에서의 spec 재측정은 미실행이며 제출 확정 상태가 아니다.**
+- Part 2 전용 구조·CSTORE·READ·retention은 미구현이다. 최신 fixed Lg/tox와 READ·retention 조건을 향후 계획에 반영했다.
+
+### 발견 / 이슈
+
+- 새 공지로 double 실패가 곧 채점 탈락이라는 해석을 정정했다. 공식 128비트·ramp 0.1 V 기준으로 검증하되 전류 보존·해상도·구조 재로딩 검증은 유지하도록 제안했다. 기존 FAIL이나 JSON은 덮어쓰지 않았다.
+- 실제 validation: `git diff --check` exit 0. 문서 링크·Markdown 표·PLAN 필수 8개 section·전체 diff·공식 수치를 확인했다. 시작 snapshot 중 의도한 문서 수정 4개 외 **기존 269개 파일 hash 모두 일치**하며 HW1·source/tests·results·과제 PDF 보존을 포함한다. 원 첨부·PDF hash도 일치한다.
+- 이전 PROGRESS_LOG 57,635 byte prefix 및 이번 milestone까지의 prefix가 보존됐고 새 기록은 실제 UTC를 KST로 변환한 timestamp로 append했다. PLAN과 최종 로그의 완료 범위·남은 작업이 일치한다.
+- 검증 자료: `project1/tmp/qa_review_20261004/start_snapshot.json`, `documentation_validation.json`, `pdf_pages/`. TCAD·GUI·unittest는 문서 작업이므로 새로 실행하지 않았다. 식의 수치 비교는 algebra validation이며 물리 simulation 통과 증거가 아니다.
+- 남은 한계: 공식 모델 재측정, mesh 검증, 실제 채점기 세부 오차·설정, body tap 요구 해석, 실제 학번, 향후 추가 탐색 예산. 새 blocker나 문서 검증 실패는 없다.
+
+### 다음 작업
+
+- 첨부 §7의 “계획을 확인한 뒤 작업”에 따라 사용자 확인을 기다린다. 승인 후 먼저 공식 physics 정합화·독립 test를 수행하고 별도 실행 경로에서 기존 baseline·후보를 재검증한다. 추가 설계 탐색과 Part 2 전체 구현을 이번 요청으로 자동 착수하지 않는다.
+
+## 2026-10-04 16:00:34 KST
+
+### 수행한 작업
+
+- [기존 후보 보존·공식 물리 정합화] 사용자 재개 승인으로 두 물리 계산을 최소 수정했다. Varshni 경로 μ(T)와 χ+Eg(T)/2 gate 기준을 적용했으며 legacy의 상수 μ·기존 gate 기준은 유지했다.
+- physics.py·simulator.py·config.py의 anchor 설명·part1.py의 model ID/실제 μ metadata·독립/native test를 갱신했다. Validator는 필수 extended 판정과 선택적 double 진단을 분리했다.
+
+### 현재 상태
+
+- `.conda/python.exe -B -m unittest discover -s project1/tests -v`: 21 tests PASS, exit 0. 공식 300/398 K numeric anchor·legacy·실제 native parameter·flatband·기존 측정/구조/실험 보호를 포함한다.
+- 후보 #10/#8의 기존 입력 YAML로 coarse0.02/fine0.01 V 재측정을 순차 시작했다. 결과는 새 official run 경로에 저장한다. 도핑·치수·mesh·gate 재료·solver·tolerance를 변경하지 않았다.
+- PLAN은 세 묶음 A(Part1 정합화/재검증), B(Part2 구현/검증), C(보고서/최종검증)로 갱신했다.
+
+### 발견 / 이슈
+
+- 과거 10회 탐색·raw·FAIL·source hashes와 HW1은 보존한다. 기존 후보가 새 모델에서 통과한다고 아직 판단하지 않는다.
+- Double 미실행은 None으로 표시하며 PASS로 만들지 않는다. 기존 all_checks_pass 의미도 유지하고 공식 조건의 별도 필드를 추가했다. 옛 JSON은 수정하지 않는다.
+- 학번·추가 설계 탐색 예산 답변은 미확인이다. 기존 후보 재측정부터 진행하고 임의로 대규모 탐색을 재개하지 않는다.
+
+### 다음 작업
+
+- 기존 후보·baseline 재측정과 legacy CLI 회귀, extended 수치 validation. Part2는 공유 simulator를 활용하며 결과에 근거해 다음 결정을 기록한다.
+
+## 2026-10-04 16:23:05 KST
+
+### 수행한 작업
+
+- [공식 재검증·Part2 구현] 후보 #10 coarse/fine의 8개 spec PASS를 확인했고 fresh numerical probe를 실행 중이다. 후보 #8·baseline 및 Lg/NA one-knob ablation도 진행한다. 기존 10회 탐색을 재실행하지 않았다.
+- Legacy idvg/idvd/cv 실제 회귀는 21/21/31점·열·bias·유한값·기존 수치 기준 PASS. Current 최대 차이 8.89385e-21 A/µm, idvd/cv는 bit-exact다.
+- CellSimulator는 기존 TR physics/transport를 상속한다. Source 위 ideal metal stem과 ZrO2 두 slab, storage/plate contact를 추가하고 실제 plate dQ/dV를 구현했다. Signed two-terminal READ·body charge·폭0.1µm·adaptive retention을 구현했다.
+
+### 현재 상태
+
+- 전체 29개 tests PASS, 실제 native individual/joint maximum0.1V ramp current 비교 포함(115.636s). 중간 indentation 오류는 test import에서 발견해 수정했고 실패 로그도 보존했다.
+- Part2 첫 구조의 10ps READ0=128.264 mV, READ1=84.102 mV로 두 초기 READ는 PASS다. Joint bias optimization 후 READ0 전체 VBL/Vcell trace는 원 진단과 bit-exact다. 아직 retention 전체 PASS는 확인하지 않았다.
+- 추가 탐색 예산·학번 답변은 미확인이다. 기존 후보 유지와 현재 첫 cell 검증을 우선한다.
+
+### 발견 / 이슈
+
+- 순차 set_bias가 같은 bias에도 solve해 매 READ step 최대4회 DC를 수행했다. 최종 DC 조건과 접점당 최대0.1V를 유지한 공동 갱신은 결과가 일치했다. Native tolerance는 변경하지 않았다.
+- Retention에서 3mV accepted step마다 0.5ns READ를 반복하면 시간이 매우 길다. **계획 수정:** 누설 적분 ΔV≤3mV는 유지하되 30mV/8ms checkpoint 및 64ms 끝점에서 READ, 첫 sampled failure 구간은 재적분+READ bisection으로 시간1% bracket까지 좁힌다. Checkpoint 사이 단일 failure crossing 가정과 시간 불확실성을 숨기지 않는다.
+- 초기/중복 계산 진단은 incomplete로 구분하고 원 READ·log를 보존했다. 시작 manifest가 종료 시에만 저장되는 약점을 확인해 새 Part2 run에서는 input/cap/READ/retention별 checkpoint JSON을 즉시 저장한다.
+- 구조 checker OK는 electrical PASS와 별개다. CSTORE의 independent parallel-plate/native extraction 및 전계 검증은 통과했지만 전체 Part2 결과는 새 final metrics를 기다린다.
+
+### 다음 작업
+
+- 기존 후보 numerical validation·ablation 완료, Part2 checkpoint/refinement 검증과 64ms 판정. 실제 결과에 근거해 필요한 최소 재설계를 판단하고 보고서 초안과 최종 review를 진행한다.
+
+## 2026-10-04 16:45:18 KST
+
+### 수행한 작업
+
+- 묶음 A 완료: 공식 mobility·gate 기준 최소 수정 후 baseline와 기존 #10/#8 재측정, 두 후보 coarse/fine·extended 검증, 최종 후보 one-knob ablation을 완료했다.
+
+### 현재 상태
+
+- Part 1 최종 후보 #10 유지. fine 8/8 PASS: Vth 0.484848 V, Ion 516.138 µA/µm, Ioff 0.012637 pA/µm, SS 66.222 mV/dec, 고온 Ioff 10.376 pA/µm, DIBL 13.042 mV/V, body effect 0.026622 V, Eox 4.211 MV/cm.
+- #8도 8/8 및 필수 수치 검증 PASS. Part 2 CSTORE·READ0/1은 PASS이며 retention은 진행 중이다. 전체 완료로 판단하지 않는다.
+
+### 발견 / 이슈
+
+- `validate_part1.py`를 각 후보 coarse/fine 결과에 실행해 공식 extended 3종·ramp 0.1 V, 전류 보존, 간격 비교, raw 재추출, fresh 구조 replay를 통과했다. Double는 선택 진단으로 미실행이며 과거 double FAIL은 그대로 보존한다.
+- Legacy CLI idvg/idvd/cv 회귀 21/21/31점 PASS. 29 tests PASS 후 retention checkpoint·실패 bracket 로직을 수정하고 Part 2 8 tests를 다시 통과했다.
+- #10의 최악 정규화 여유 0.11704가 #8의 0.11111보다 커 기존 선택을 유지했다. Lg만 늘리면 Ion 감소, NA만 늘리면 coarse Vth 0.500344 V로 상한 경계에 걸린다. 후자는 fine 경계 검증을 완료한 것으로 주장하지 않는다.
+- 기존 10회 탐색 및 과거 결과는 변경하지 않았다. 이번 결과는 `project1/results/official_20261004_155839/part1/`에 별도로 저장했다.
+
+### 다음 작업
+
+- 진행 중인 Part 2 degraded READ 기반 retention을 완료하고 실제 실패가 확인될 경우에만 필요한 설계를 조정한다. 이후 최종 구조 재검증·보고서·전체 review를 진행한다.
+
+## 2026-10-04 16:48:21 KST
+
+### 수행한 작업
+
+- 사용자의 “일단 part1까지만 하자” 지시에 따라 작업 범위를 Part 1 최종 정리로 변경하고 Part 2 native 계산에 Ctrl+C를 전달해 종료했다.
+
+### 현재 상태
+
+- Part 1 후보 #10/#8 공식 재측정·필수 수치 검증 완료, 최종 #10 유지. Part 1 보고서 초안과 최종 review만 정리한다.
+- Part 2 중간 코드·raw·checkpoint·log를 보존한다. 추가 실행·탐색은 중단하며 전체 PASS 또는 완료로 표시하지 않는다.
+
+### 발견 / 이슈
+
+- Part 2 data0는 64 ms에서 degraded READ margin 102.578 mV를 확인했다. Data1은 마지막 완료된 READ checkpoint Vcell=1.967 V / margin=82.516 mV이며 retention 미완료다. 실행 session 87704는 중단 후 exit 1을 반환했다.
+- 계획 변경 이유는 최신 사용자 범위 지시다. Part 2의 실패 판정이나 설계 변경을 근거로 한 중단이 아니다.
+- 실제 학번은 미확인이다. Part 1 결과를 진단 구조·보고서 초안으로 보존하며 제출 이름을 추측하지 않는다.
+
+### 다음 작업
+
+- Part 1만 최종 결과·검증·한계·재현 명령으로 정리하고 diff 및 기존 파일/log 보존을 검토한다. Part 2 재개는 별도 사용자 지시를 기다린다.
+
+## 2026-10-04 16:53:54 KST
+
+### 수행한 작업
+
+- Part 1 공식 재검증·최종 review·결과 정리를 완료했다. 기존 10회 탐색과 후보 #10/#8을 재사용했고 최종 #10을 유지했다.
+- `project1/results/official_20261004_155839/part1/selected/`에 재현 config·최종 진단 구조·fresh checker·결과 요약을 저장했다. `output/pdf/part1_report_draft.pdf` 7쪽 초안을 생성해 렌더링·검토했다.
+
+### 현재 상태
+
+**Part 1은 공식 모델에서 8/8 PASS이며 필수 수치 검증도 PASS다.** 최종 소자는 gate W, Lg 0.6 µm, tox 4.75 nm, NA 2e16 / ND 1e19 cm⁻³다. 같은 저장 구조로 아래 항목을 평가했다.
+
+| 항목 | 최종 fine 결과 | 요구 기준 | 판정 |
+|---|---:|---:|---|
+| Vth | 0.484848 V | 0.40…0.50 V | PASS |
+| Ion | 516.138 µA/µm | ≥450 | PASS |
+| Ioff | 0.012637 pA/µm | ≤1 | PASS |
+| SS | 66.222 mV/dec | ≤75 | PASS |
+| 고온 Ioff (398 K) | 10.376 pA/µm | ≤100 | PASS |
+| DIBL | 13.042 mV/V | ≤30 | PASS |
+| Body effect | 0.026622 V | ≤0.08 | PASS |
+| Eox | 4.211 MV/cm | ≤5 | PASS |
+
+- 관련 테스트 21개·기존 3 CLI 회귀·fresh 구조 checker도 PASS. Part 2는 사용자 지시에 따라 중단·미완료 상태로 보존했다. 전체 과제 제출 준비가 끝났다는 뜻은 아니다.
+
+### 발견 / 이슈
+
+- 최종 테스트 명령: `.conda/python.exe -B -m unittest discover -s project1/tests -p "test_part1*.py" -v` — 21 tests PASS(2.294 s).
+- 수치 검증은 두 후보의 coarse 0.02 / fine 0.01 V, extended 3종·ramp 0.1 V에서 간격·raw 재추출·전류 보존·새 프로세스 live/reload critical bias를 통과했다. `grading_condition_checks_pass=true`; double는 이번 필수 검사에서 미실행이며 과거 FAIL을 보존한다.
+- `check_structure_file.py`로 selected 최종 구조를 새 프로세스에서 검사해 OK. 실제 저장 geometry는 Lg 0.6 µm / tox 4.75 nm, 단일 device, physics equation 없는 structure-only임을 확인했다. `git diff --check` PASS.
+- 원 파일 274개 중 의도한 source/docs 12개 외 262개 hash 일치; HW1·기존 결과 및 이전 PROGRESS_LOG byte prefix 보존. 보고서의 긴 숫자 표시·그림 label·기준표를 review에서 개선했다.
+- Fine raw 폴더의 원 YAML은 0.02 V지만 실제 실행은 `--step-v 0.01` override였다. 원본은 보존하고 selected 재현 config만 실제 fine 간격으로 맞췄다.
+- 남은 한계: 실제 조교 시뮬레이터 전체 실행·완전한 mesh convergence 미검증, NA 경계 ablation은 coarse만 측정. 실제 학번·제출 이름·UI OK 화면이 미확정이므로 보고서는 초안이다.
+
+### 다음 작업
+
+- 현재 Part 1 정리 요청 완료·사용자 검토 및 다음 요청 대기. 학번이 확인되면 제출용 이름과 해당 OK 화면을 확정할 수 있다. Part 2는 별도 재개 지시 전까지 실행하지 않는다.
+
+## 2026-10-04 17:03:59 KST
+
+### 수행한 작업
+
+- 사용자의 “Part 1 확실히 마무리한 뒤에 넘어가자” 요청에 따라 최신 PDF·공식 Q&A·실제 결과를 다시 대조하고 제출 준비 점검을 시작했다.
+
+### 현재 상태
+
+- 전기적 8개 spec·설계 범위·필수 수치 검증은 충족한다. 제출용 학번과 해당 OK 화면은 미확정이므로 Part 1의 모든 제출 조건이 완료됐다고 판단하지 않는다.
+- Part 2는 계속 중단하며 소자 추가 최적화도 수행하지 않는다.
+
+### 발견 / 이슈
+
+- 앞선 완료 기록은 계산·검증·초안 정리의 완료였다. 전체 제출 준비까지 완료로 읽힐 수 있어 이번 계획에서 구분했다.
+- 보고서 (a)의 HW1 대비/필요성, (b)의 초기 설계와 판단, (c)의 실제 영향 설명을 보강한다. 결과값을 바꾸는 작업이 아니다.
+- 제출 파일 이름과 보고서에 사용할 실제 학번을 비동기로 질문했다. 답변 전 독립적으로 가능한 대조·문서 보강을 진행한다.
+
+### 다음 작업
+
+- 요구사항 근거표·보고서 설명·실제 OK 화면을 준비하고, 학번 확인 후 제출 이름·checker를 확정한다. 검증되지 않은 항목은 미완료로 남긴다.
+
+## 2026-10-04 17:24:23 KST
+
+### 수행한 작업
+
+- Part 1 과제 요구사항을 최신 PDF와 실제 산출물로 재대조했다. `part1/PART1_REQUIREMENTS_AUDIT.md`와 `submission_audit.json`에 조건별 근거 및 완료/미완료를 기록했다.
+- 보고서 (a)의 HW1 대비 물리 필요성·구현 식, (b)의 초기 소자와 시도→지표→판단, (c)의 실제 8개 ablation metric과 물리 trade-off를 보강했다. 최종 그림의 Lg/tox/xj 표시도 추가했다.
+
+### 현재 상태
+
+- 전기적 8 spec·설계 범위·동일 소자·공식 물리/수치 조건·구조 저장 규약 충족. 최종 후보 #10과 raw·진단 구조·소스는 그대로다.
+- 보고서 7쪽 보강 및 전 페이지 렌더 검토 완료. **전체 Part 1 제출 준비는 아직 미완료**이며 실제 학번의 제출 파일과 해당 self-check OK 화면이 남아 있다.
+- Part 2는 계속 중단했다. 추가 시뮬레이션·최적화·feature 구현은 하지 않았다.
+
+### 발견 / 이슈
+
+- 앞선 “완료”는 계산·검증·초안 정리를 뜻했다. 이번에는 제출 이름/OK 화면까지 충족했는지 분리해 `part1_submission_ready=false`를 유지한다.
+- 검증: 8개 과제 threshold·공식 numerical PASS·구조 hash 일치, tox/Lg/NA 비교에서 실제 하나의 field만 변경 및 같은 sweep 확인, 문서 링크·HW1/기존 결과 hash·원 로그 prefix PASS. `git diff --check` PASS. 소자/source 변경이 없어 기존 21 tests·legacy 3 CLI 증거를 사용하고 전체 TCAD를 반복하지 않았다.
+- 실제 화면 캡처 준비 중 computer-use `sky.launch_app`가 `Computer Use app approval timed out`을 반환해 UI 캡처를 완료하지 못했다. 검사 로그를 화면 캡처로 가장하지 않았다.
+- 학번을 비동기로 질문했으나 현재 답변은 미확인이다. 실제 채점기 전체 실행·완전한 mesh convergence는 여전히 미검증이며 공개된 공식 조건의 만족을 채점 통과 보장으로 표현하지 않는다.
+
+### 다음 작업
+
+- 실제 학번과 OK 화면 확보 후 제출 이름·fresh checker·보고서 화면을 확정한다. 현재 턴의 독립 점검/보강은 완료했으며 필수 입력·화면 확보를 기다린다. Part 1 제출 준비 확정 전 Part 2로 넘어가지 않는다.

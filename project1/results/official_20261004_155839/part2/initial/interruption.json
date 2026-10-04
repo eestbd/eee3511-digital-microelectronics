@@ -1,0 +1,15 @@
+{
+  "status": "INTERRUPTED_AFTER_READ0",
+  "reason": "Duplicate unchanged-bias DC solves; preserve reference READ0 and use equivalent joint maximum-0.1V ramp",
+  "completed": [
+    "structure_selfcheck",
+    "plate_dQ_dV",
+    "read_0_10ps"
+  ],
+  "incomplete": [
+    "read_0_5ps",
+    "read_1",
+    "retention"
+  ],
+  "read_0_margin_V": 0.12826426855287154
+}

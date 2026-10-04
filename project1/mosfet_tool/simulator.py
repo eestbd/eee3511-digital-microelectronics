@@ -30,7 +30,7 @@ from devsim.python_packages.simple_physics import (
 )
 
 from .config import Device
-from .physics import gate_offset_v, silicon_properties
+from .physics import gate_offset_v, silicon_mobility, silicon_properties
 
 # DEVSIM의 길이 단위는 cm이므로 입력 치수와 폭당 결과를 이 값으로 환산한다.
 UM = 1.0e-4  # 1 um를 cm로 나타낸 값
@@ -213,11 +213,13 @@ class MosfetSimulator:
             for parameter in ("n_i", "n1", "p1"):
                 devsim.set_parameter(device=self.name, region="bulk", name=parameter,
                                      value=props["n_i_cm3"])
-        # 기본 물성값을 등록한 다음 소자에 지정된 이동도로 덮어쓴다.
-        # 이전의 클래스 상수 대신 Device 값을 읽어 GUI의 소자별 입력을 반영한다.
-        # 이 이름들은 enable_transport에서 전류 모델을 만들 때 그대로 참조한다.
-        devsim.set_parameter(device=self.name, region="bulk", name="mu_n", value=self.dev.mu_n)
-        devsim.set_parameter(device=self.name, region="bulk", name="mu_p", value=self.dev.mu_p)
+        # 공식 모델은 300 K config anchor를 T 법칙으로 변환한다. Legacy는 기존 상수다.
+        mobility = silicon_mobility(self.dev.temperature_k, self.dev.silicon_temperature_model,
+                                    self.dev.mu_n, self.dev.mu_p)
+        devsim.set_parameter(device=self.name, region="bulk", name="mu_n",
+                             value=mobility["mu_n_cm2_Vs"])
+        devsim.set_parameter(device=self.name, region="bulk", name="mu_p",
+                             value=mobility["mu_p_cm2_Vs"])
         # 처음에는 전위를 미지수로 두고 평형 캐리어 분포를 사용해 해를 구한다.
         CreateSiliconPotentialOnly(self.name, "bulk")
         SetOxideParameters(self.name, "oxide", self.dev.temperature_k)
