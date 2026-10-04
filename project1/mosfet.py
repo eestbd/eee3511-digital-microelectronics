@@ -2,7 +2,7 @@
 """명령줄에서 해석 종류와 설정 파일을 받아 DEVSIM 계산을 실행한다.
 
 python mosfet.py 뒤에 idvg, idvd, cv 중 하나를 적으면 해당 해석을 실행한다.
-해석 종류를 생략하거나 STEP2_RUN.bat으로 실행하면 Id-Vg를 계산한다.
+해석 종류를 생략하면 Id-Vg를 계산한다.
 """
 
 from __future__ import annotations

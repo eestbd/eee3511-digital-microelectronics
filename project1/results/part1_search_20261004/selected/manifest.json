@@ -1,0 +1,56 @@
+{
+  "copied_at_utc": "2026-10-04T05:13:28.371081+00:00",
+  "selected": [
+    {
+      "index": 10,
+      "trial": "trial_10_lg06_tox475_w_na2e16",
+      "device": {
+        "gate_length_um": 0.6,
+        "source_length_um": 0.5,
+        "drain_length_um": 0.5,
+        "oxide_thickness_nm": 4.75,
+        "silicon_thickness_um": 0.5,
+        "junction_depth_um": 0.1,
+        "body_doping_cm3": 2e+16,
+        "sd_doping_cm3": 1e+19,
+        "temperature_k": 300.0,
+        "mu_n": 400.0,
+        "mu_p": 200.0,
+        "gate_material": "W",
+        "silicon_temperature_model": "varshni",
+        "doping_decay_x_nm": 12.5,
+        "doping_decay_y_nm": 5.0
+      },
+      "structure": "candidate_10_diagnostic.devsim",
+      "structure_sha256": "41c6f8f6ff5782c8ec3ecbc98d39bd264149ec076630f8bad0c9c98d6f06d07c",
+      "same_structure_coarse_and_fine": true,
+      "purpose": "Diagnostic only; student ID unknown; not a submission filename"
+    },
+    {
+      "index": 8,
+      "trial": "trial_08_lg06_tox45_w_na2e16",
+      "device": {
+        "gate_length_um": 0.6,
+        "source_length_um": 0.5,
+        "drain_length_um": 0.5,
+        "oxide_thickness_nm": 4.5,
+        "silicon_thickness_um": 0.5,
+        "junction_depth_um": 0.1,
+        "body_doping_cm3": 2e+16,
+        "sd_doping_cm3": 1e+19,
+        "temperature_k": 300.0,
+        "mu_n": 400.0,
+        "mu_p": 200.0,
+        "gate_material": "W",
+        "silicon_temperature_model": "varshni",
+        "doping_decay_x_nm": 12.5,
+        "doping_decay_y_nm": 5.0
+      },
+      "structure": "candidate_08_diagnostic.devsim",
+      "structure_sha256": "b1b840f61ccc384800c89daac9f97a8dfbf13379aa26accdd182753ceff378e0",
+      "same_structure_coarse_and_fine": true,
+      "purpose": "Diagnostic only; student ID unknown; not a submission filename"
+    }
+  ],
+  "checker_logs": "Each diagnostic is separately checked in a fresh Python process."
+}

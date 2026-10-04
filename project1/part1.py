@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""동일한 저장 구조에서 Part 1의 8개 spec을 측정한다. 설계 탐색은 하지 않는다."""
+"""입력 소자의 동일한 저장 구조에서 Part 1의 8개 spec을 측정한다."""
 
 from __future__ import annotations
 
@@ -111,7 +111,7 @@ def run_evaluation(device: Device, voltages: np.ndarray, output_dir: Path,
                    for values in [devsim.get_node_model_values(device=sim.name, region=r, name=axis)]}
                 for r in ("bulk", "oxide", "gate_metal")}
     result = {
-        "purpose": "Initial Part 1 baseline, not an optimized design or student submission",
+        "purpose": "Part 1 device characterization; diagnostic structure, not a student submission",
         "device": asdict(device), "structure_sha256": hashlib.sha256(structure.read_bytes()).hexdigest(),
         "geometry_cm": geometry, "gate_material_loaded": sim.dev.gate_material,
         "python": platform.python_version(), "devsim": devsim.get_parameter(name="info"),

@@ -1,0 +1,17 @@
+{
+  "git_head": "9f9532d47f7d88a6a92bdcbbc4871c3f11162280",
+  "source_sha256": {
+    "project1/check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "project1/mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+    "project1/mosfet_tool/config.py": "641ded0ba7a80fdc628f2565d829fa7727feb2aebed73fdeb83b11681860367f",
+    "project1/mosfet_tool/materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "project1/mosfet_tool/metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+    "project1/mosfet_tool/physics.py": "3cc36b146174601124e6fb0cbd5b2e16ec607a256dec4e90877e55fcf597e8e4",
+    "project1/mosfet_tool/simulator.py": "47cdf4da2d3f2400d3fa1f841ddb36b7c1896d2eb88b1126d8450f5660de3d53",
+    "project1/mosfet_tool/workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b",
+    "project1/part1.py": "d555d4cdd49045bea508b83fe1b0c31221f493fe79577eb64223915b17e87b16",
+    "project1/part1_baseline.yaml": "cd6149bae410dfd76f0b6d1cd7cfc0050f8a128aca30b9dec5056f5a52984438",
+    "project1/validate_part1.py": "ad02d9a3bff8d73d00164e15e7e05759b7113b1a255fd206933e00fbebe81bad"
+  },
+  "note": "Original evaluator/physics/validator retained; wrapper-only edits recorded per trial. Trial 1 predates wrapper failure-source-hash enhancement; its successful metrics.json captures actual evaluator hashes before simulation."
+}

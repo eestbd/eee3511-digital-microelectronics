@@ -57,6 +57,6 @@ def load_config(path: str | Path) -> tuple[Device, dict]:
         data = yaml.safe_load(handle) or {}
     # device에 적힌 항목만 생성자에 전달하고 나머지는 Device의 기본값을 쓴다.
     device = Device(**data.get("device", {}))
-    # 스윕 조건은 해석 함수에 전달한다. compare 항목은 compare_tcad.py가 따로 읽는다.
+    # 스윕 조건은 해석 함수에 전달한다.
     sweeps = data.get("sweeps", {})
     return device, sweeps

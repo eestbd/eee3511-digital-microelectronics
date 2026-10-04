@@ -81,11 +81,12 @@
 | `project1/mosfet_tool/config.py`, `config.yaml` | `Device` dataclass, YAML 설정 |
 | `project1/mosfet_tool/simulator.py` | mesh·doping·physics·bias·전류·전하·sweep |
 | `project1/mosfet_tool/workflows.py` | CLI와 소비자가 공유하는 `run_idvg/run_idvd/run_cv/save_csv` |
-| `project1/run_example.py` | simulator 직접 사용 예제 |
-| `project1/compare_tcad.py`, `compare_models.py` | 소자 비교와 간이 모델 비교 |
+| `project1/README.md` | 현재 구조·실행 경로·결과 위치 안내 |
 | `project1/check_structure_file.py` | 제출 구조 self-check. 전기적 spec 검사기는 아님 |
 | `project1/part1.py`, `part1_baseline.yaml` | 동일 초기 소자의 8개 spec 측정과 raw CSV·JSON·구조 저장 |
 | `project1/validate_part1.py`, `tests/test_part1.py` | 측정 간격·전류 보존·정밀도·재로딩 및 독립 기대값 검증 |
+| `project1/part1_experiment.py`, `tests/test_part1_experiment.py` | 순차 설계 실험의 입력·횟수·실패 보존과 보호 조건 검증 |
+| `project1/results/` | baseline·설계 탐색·진단 구조·실패 로그·validation 근거 |
 | `project1/PART1_BASELINE.md` | Part 1 모델 식·계수·근거·실행 명령·측정 정의·한계 |
 | `hw1/step1`, `step2`, `step3`, `demo` | 간이 모델, TCAD reference, GUI, 컴파일된 demo |
 | `README.md`, `hw1/MANUAL*.html`, `hw1/HW1.pdf` | 프로젝트 안내와 HW1 설명·요구사항 |
@@ -139,7 +140,7 @@ try {
 - Part 1의 8개 spec은 `part1.py`와 `PART1_BASELINE.md`의 경로로 측정한다. 기존 CLI 실행만으로 전체 spec을 측정했다고 판단하지 않는다. `measurement_complete`와 `all_specs_pass`를 구분하고 ERROR/FAIL을 숨기지 않는다. 원래 실행 source hash를 보존하며 후속 extractor 수정은 raw CSV 재추출과 별도 검증 기록으로 대조한다.
 - 문서만 바꾼 경우 링크·명령·내용·diff를 검증한다. 관련 코드가 바뀌지 않았다면 전체 TCAD/GUI 실행을 반복하지 않는다.
 
-`project1/STEP2_*.bat`는 루트 `.conda`를 가리킨다. HW1 launcher는 현재 없는 `hw1/.conda`를 기대하므로 보호된 배치 파일을 수정하지 않고 실제 interpreter 경로를 사용한다. `compare_models.py`는 import 경로 문제와 스크립트 폴더 고정 출력 경로가 있다. 실행 전 이를 확인하고 기존 결과물 보호 방법을 정한다.
+Project 1은 루트 `.conda` interpreter로 직접 실행한다. HW1에서 복사된 비교 예제·STEP2 launcher·옛 생성 결과는 정리했으며, 원본 reference는 `hw1/step2/`에 있다. HW1 launcher는 현재 없는 `hw1/.conda`를 기대하므로 보호된 배치 파일을 수정하지 않고 실제 interpreter 경로를 사용한다. 과거 실험의 source hash·raw 결과·실패 로그는 원래 실행 증거로 보존하고 현재 코드에 맞춰 덮어쓰지 않는다.
 
 ## 물리·제출 제약
 

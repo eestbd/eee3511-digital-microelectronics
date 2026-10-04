@@ -1,0 +1,151 @@
+{
+  "index": 10,
+  "label": "lg06_tox475_w_na2e16",
+  "phase": "local",
+  "reason": "#8 W/NA2e16 주변에서 tox만 4.5->4.75: Eox 여유 확대와 Ion 유지의 균형 확인; 마지막 10회째로 설계 탐색 종료 예정",
+  "status": "MEASURED",
+  "started_at_utc": "2026-10-04T04:54:17.733661+00:00",
+  "device": {
+    "gate_length_um": 0.6,
+    "source_length_um": 0.5,
+    "drain_length_um": 0.5,
+    "oxide_thickness_nm": 4.75,
+    "silicon_thickness_um": 0.5,
+    "junction_depth_um": 0.1,
+    "body_doping_cm3": 2e+16,
+    "sd_doping_cm3": 1e+19,
+    "temperature_k": 300.0,
+    "mu_n": 400.0,
+    "mu_p": 200.0,
+    "gate_material": "W",
+    "silicon_temperature_model": "varshni",
+    "doping_decay_x_nm": 12.5,
+    "doping_decay_y_nm": 5.0
+  },
+  "changed_from_baseline": {
+    "gate_length_um": {
+      "baseline": 1.0,
+      "candidate": 0.6
+    },
+    "oxide_thickness_nm": {
+      "baseline": 10.0,
+      "candidate": 4.75
+    },
+    "body_doping_cm3": {
+      "baseline": 1e+16,
+      "candidate": 2e+16
+    }
+  },
+  "input_sha256": "5856b603f80ed1b7f4098b4b4ab6f016425cc0b81e922d869292d65236bf09d2",
+  "runner_sha256": "ab45522f7eea8d8a083ff2331970819af2b72961ca5e4968c41ac2286258f9ac",
+  "source_sha256": {
+    "part1.py": "8e6564b56e637d5c6bc08dde880dff7bdae7b08f3515874e3a5e541687594c39",
+    "check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+    "mosfet_tool/config.py": "641ded0ba7a80fdc628f2565d829fa7727feb2aebed73fdeb83b11681860367f",
+    "mosfet_tool/materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "mosfet_tool/metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+    "mosfet_tool/physics.py": "3cc36b146174601124e6fb0cbd5b2e16ec607a256dec4e90877e55fcf597e8e4",
+    "mosfet_tool/simulator.py": "47cdf4da2d3f2400d3fa1f841ddb36b7c1896d2eb88b1126d8450f5660de3d53",
+    "mosfet_tool/workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b"
+  },
+  "command": [
+    "C:\\Users\\super\\DEVSIM_PROJECT\\.conda\\python.exe",
+    "-B",
+    "C:\\Users\\super\\DEVSIM_PROJECT\\project1\\part1.py",
+    "--config",
+    "C:\\Users\\super\\DEVSIM_PROJECT\\project1\\results\\part1_search_20261004\\trial_10_lg06_tox475_w_na2e16\\input.yaml",
+    "--output-dir",
+    "C:\\Users\\super\\DEVSIM_PROJECT\\project1\\results\\part1_search_20261004\\trial_10_lg06_tox475_w_na2e16\\primary"
+  ],
+  "purpose": "Bounded design search; diagnostic structure only",
+  "timeout_seconds": null,
+  "returncode": 0,
+  "measurement_complete": true,
+  "all_specs_pass": true,
+  "metrics": [
+    {
+      "name": "Vth",
+      "value": 0.4840718158699449,
+      "unit": "V",
+      "minimum": 0.4,
+      "maximum": 0.5,
+      "status": "PASS",
+      "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+      "error": null
+    },
+    {
+      "name": "Ion",
+      "value": 516.6970577716348,
+      "unit": "uA/um",
+      "minimum": 450,
+      "maximum": null,
+      "status": "PASS",
+      "condition": "300 K, VG=VD=2 V, VB=VS=0",
+      "error": null
+    },
+    {
+      "name": "Ioff",
+      "value": 0.013011250931461892,
+      "unit": "pA/um",
+      "minimum": null,
+      "maximum": 1,
+      "status": "PASS",
+      "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+      "error": null
+    },
+    {
+      "name": "SS",
+      "value": 66.23045352100546,
+      "unit": "mV/dec",
+      "minimum": null,
+      "maximum": 75,
+      "status": "PASS",
+      "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+      "error": null
+    },
+    {
+      "name": "Ioff_398K",
+      "value": 20.8587133753997,
+      "unit": "pA/um",
+      "minimum": null,
+      "maximum": 100,
+      "status": "PASS",
+      "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+      "error": null
+    },
+    {
+      "name": "DIBL",
+      "value": 13.075202706342509,
+      "unit": "mV/V",
+      "minimum": null,
+      "maximum": 30,
+      "status": "PASS",
+      "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+      "error": null
+    },
+    {
+      "name": "Body_effect",
+      "value": 0.026704714885549985,
+      "unit": "V",
+      "minimum": null,
+      "maximum": 0.08,
+      "status": "PASS",
+      "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+      "error": null
+    },
+    {
+      "name": "Eox",
+      "value": 4.2105263157894735,
+      "unit": "MV/cm",
+      "minimum": null,
+      "maximum": 5,
+      "status": "PASS",
+      "condition": "VDD=2 V / tox",
+      "error": null
+    }
+  ],
+  "duration_seconds": 288.3909999999996,
+  "finished_at_utc": "2026-10-04T04:59:06.118448+00:00",
+  "search_elapsed_seconds": 3587.61149
+}

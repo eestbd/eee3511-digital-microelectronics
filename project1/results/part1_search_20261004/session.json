@@ -1,0 +1,22 @@
+{
+  "max_trials": 10,
+  "budget_seconds": null,
+  "started_at_utc": "2026-10-04T03:59:18.506958+00:00",
+  "search_closed": true,
+  "baseline": "project1/results/part1_baseline/primary/metrics.json",
+  "note": "Final validation is separate. No student submission.",
+  "budget_changes": [
+    {
+      "changed_at_utc": "2026-10-04T04:13:29.845366+00:00",
+      "old_budget_seconds": 1800,
+      "new_budget_seconds": null,
+      "reason": "User removed time limit; total 10 search attempts, final up to 2 candidates unchanged",
+      "active_trial": "trial_03_na3e15 was launched with prior timeout (about 1098 s); expected to finish within it"
+    }
+  ],
+  "attempted_trials": 10,
+  "closed_at_utc": "2026-10-04T05:01:06.851319+00:00",
+  "last_trial_finished_at_utc": "2026-10-04T04:59:06.118448+00:00",
+  "sum_trial_duration_seconds": 3183.3419999999996,
+  "elapsed_until_last_trial_finished_seconds": 3587.61149
+}

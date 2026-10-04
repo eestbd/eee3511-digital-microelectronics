@@ -22,15 +22,3 @@ sweeps:
   # idvd와 cv를 생략하면 workflows.py에 정해 둔 기본 조건으로 계산한다.
   # Id-Vd 기본 조건은 게이트 2 V, 드레인 0 V부터 2 V까지 0.1 V 간격이다.
   # C-V 기본 조건은 게이트 -1 V부터 2 V까지 0.1 V 간격이다.
-
-# compare_tcad.py가 기본 device에서 바꿀 항목만 읽어 소자별 설정을 만든다.
-# 기존 산화막 두께 비교에서 게이트 길이 비교로 변경한 부분이다.
-# 산화막 두께와 도핑 등은 같게 두고 길이만 바꿔 Id-Vg의 차이를 확인한다.
-# 각 소자의 이름은 CSV와 그래프에서 곡선을 구분하는 데 사용한다.
-compare:
-  Lg 0.5 um:
-    gate_length_um: 0.5
-  Lg 1.0 um:
-    gate_length_um: 1.0
-  Lg 2.0 um:
-    gate_length_um: 2.0

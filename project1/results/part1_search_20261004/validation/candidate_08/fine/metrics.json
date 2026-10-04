@@ -1,0 +1,232 @@
+{
+  "purpose": "Part 1 device characterization; diagnostic structure, not a student submission",
+  "device": {
+    "gate_length_um": 0.6,
+    "source_length_um": 0.5,
+    "drain_length_um": 0.5,
+    "oxide_thickness_nm": 4.5,
+    "silicon_thickness_um": 0.5,
+    "junction_depth_um": 0.1,
+    "body_doping_cm3": 2e+16,
+    "sd_doping_cm3": 1e+19,
+    "temperature_k": 300.0,
+    "mu_n": 400.0,
+    "mu_p": 200.0,
+    "gate_material": "W",
+    "silicon_temperature_model": "varshni",
+    "doping_decay_x_nm": 12.5,
+    "doping_decay_y_nm": 5.0
+  },
+  "structure_sha256": "b1b840f61ccc384800c89daac9f97a8dfbf13379aa26accdd182753ceff378e0",
+  "geometry_cm": {
+    "bulk": {
+      "x": [
+        0.0,
+        0.00016
+      ],
+      "y": [
+        0.0,
+        5e-05
+      ]
+    },
+    "oxide": {
+      "x": [
+        5e-05,
+        0.00011
+      ],
+      "y": [
+        -4.5e-07,
+        0.0
+      ]
+    },
+    "gate_metal": {
+      "x": [
+        5e-05,
+        0.00011
+      ],
+      "y": [
+        -1.45e-06,
+        -4.5e-07
+      ]
+    }
+  },
+  "gate_material_loaded": "W",
+  "python": "3.11.16",
+  "devsim": {
+    "copyright": "Copyright © 2009-2025 DEVSIM LLC",
+    "direct_solver": [
+      "mkl_pardiso"
+    ],
+    "extended_precision": true,
+    "license": "Apache License, Version 2.0",
+    "math_libraries": [
+      "mkl_rt.2.dll"
+    ],
+    "mkl_version": "Intel(R) oneAPI Math Kernel Library Version 2025.0-Product Build 20241009 for Intel(R) 64 architecture applications",
+    "version": "2.10.0",
+    "website": "https://devsim.org"
+  },
+  "command_arguments": [
+    ".\\project1\\part1.py",
+    "--config",
+    ".\\project1\\results\\part1_search_20261004\\trial_08_lg06_tox45_w_na2e16\\input.yaml",
+    "--step-v",
+    "0.01",
+    "--output-dir",
+    "project1\\results\\part1_search_20261004\\validation\\candidate_08\\fine"
+  ],
+  "source_sha256": {
+    "part1.py": "8e6564b56e637d5c6bc08dde880dff7bdae7b08f3515874e3a5e541687594c39",
+    "check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+    "mosfet_tool/config.py": "641ded0ba7a80fdc628f2565d829fa7727feb2aebed73fdeb83b11681860367f",
+    "mosfet_tool/materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "mosfet_tool/metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+    "mosfet_tool/physics.py": "3cc36b146174601124e6fb0cbd5b2e16ec607a256dec4e90877e55fcf597e8e4",
+    "mosfet_tool/simulator.py": "47cdf4da2d3f2400d3fa1f841ddb36b7c1896d2eb88b1126d8450f5660de3d53",
+    "mosfet_tool/workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b"
+  },
+  "source_snapshot_phase": "before_simulation",
+  "precision": "extended",
+  "solver": {
+    "ramp_step_V": 0.1,
+    "relative_error": 1e-06,
+    "absolute_error": 1e+30,
+    "maximum_iterations": 80
+  },
+  "sweep": {
+    "start_V": 0.0,
+    "stop_V": 2.0,
+    "step_V": 0.01,
+    "points": 201
+  },
+  "conditions": {
+    "idvg_low": {
+      "T_K": 300,
+      "VD_V": 0.05,
+      "VB_V": 0
+    },
+    "idvg_high": {
+      "T_K": 300,
+      "VD_V": 2,
+      "VB_V": 0
+    },
+    "idvg_body": {
+      "T_K": 300,
+      "VD_V": 0.05,
+      "VB_V": -0.5
+    },
+    "off_398K": {
+      "T_K": 398,
+      "VD_V": 2,
+      "VB_V": 0,
+      "VG_V": 0
+    }
+  },
+  "physics": {
+    "300.0": {
+      "bandgap_eV": 1.1245192307692307,
+      "n_i_cm3": 10000000000.0,
+      "Nc_cm3": 2.8e+19,
+      "V_t_V": 0.025887193125000003,
+      "intrinsic_work_function_eV": 4.613121141599565
+    },
+    "398.0": {
+      "bandgap_eV": 1.0975385957446808,
+      "n_i_cm3": 4757304128886.964,
+      "Nc_cm3": 4.278590843135502e+19,
+      "V_t_V": 0.0343436762125,
+      "intrinsic_work_function_eV": 4.599912255984174
+    }
+  },
+  "metrics": [
+    {
+      "name": "Vth",
+      "value": 0.4793436879883737,
+      "unit": "V",
+      "minimum": 0.4,
+      "maximum": 0.5,
+      "status": "PASS",
+      "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+      "error": null
+    },
+    {
+      "name": "Ion",
+      "value": 544.8258559704906,
+      "unit": "uA/um",
+      "minimum": 450,
+      "maximum": null,
+      "status": "PASS",
+      "condition": "300 K, VG=VD=2 V, VB=VS=0",
+      "error": null
+    },
+    {
+      "name": "Ioff",
+      "value": 0.014048086662097696,
+      "unit": "pA/um",
+      "minimum": null,
+      "maximum": 1,
+      "status": "PASS",
+      "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+      "error": null
+    },
+    {
+      "name": "SS",
+      "value": 65.97498085030881,
+      "unit": "mV/dec",
+      "minimum": null,
+      "maximum": 75,
+      "status": "PASS",
+      "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+      "error": null
+    },
+    {
+      "name": "Ioff_398K",
+      "value": 21.546679047021122,
+      "unit": "pA/um",
+      "minimum": null,
+      "maximum": 100,
+      "status": "PASS",
+      "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+      "error": null
+    },
+    {
+      "name": "DIBL",
+      "value": 12.66400858972296,
+      "unit": "mV/V",
+      "minimum": null,
+      "maximum": 30,
+      "status": "PASS",
+      "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+      "error": null
+    },
+    {
+      "name": "Body_effect",
+      "value": 0.025537407450752614,
+      "unit": "V",
+      "minimum": null,
+      "maximum": 0.08,
+      "status": "PASS",
+      "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+      "error": null
+    },
+    {
+      "name": "Eox",
+      "value": 4.444444444444445,
+      "unit": "MV/cm",
+      "minimum": null,
+      "maximum": 5,
+      "status": "PASS",
+      "condition": "VDD=2 V / tox",
+      "error": null
+    }
+  ],
+  "measurement_complete": true,
+  "all_specs_pass": true,
+  "max_relative_current_balance": {
+    "idvg_low": 3.680670677908501e-16,
+    "idvg_high": 2.888793583438579e-16,
+    "idvg_body": 3.9117748604097606e-16
+  },
+  "hot_relative_current_balance": 7.498079543334502e-17
+}

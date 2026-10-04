@@ -1,0 +1,130 @@
+{
+  "checked_at_utc": "2026-10-04T05:10:23.158801+00:00",
+  "initial_strict_result_preserved": "legacy_regression.json",
+  "comparison_parser": "pandas read_csv(float_precision=round_trip)",
+  "original_source_verification": {
+    "mosfet.py": {
+      "git_lf_sha256": "d62fa747d886768f879bdc983bf55993917afa78e9c86d04bb061d46534c89ba",
+      "original_windows_sha256": "3d7e5dce2b6f08315fb1da78e0c5891bca3a8609143c92e87d12719fdce39cc7",
+      "original_bytes_match_after_crlf_restoration": true
+    },
+    "mosfet_tool/__init__.py": {
+      "git_lf_sha256": "a96d1ced1e5457f52e8e03ff0926f8875d16bd80b607224af79ee72709f01b5c",
+      "original_windows_sha256": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+      "original_bytes_match_after_crlf_restoration": true
+    },
+    "mosfet_tool/config.py": {
+      "git_lf_sha256": "a8fec1bd9dc4befb9561e8e44d0dabd0799b6fc56b3af863671d0468fe59aafa",
+      "original_windows_sha256": "7e3ff9a0aeae14801870abff7b64316c4dd184fe850d3f7b69316fc15883f63c",
+      "original_bytes_match_after_crlf_restoration": true
+    },
+    "mosfet_tool/simulator.py": {
+      "git_lf_sha256": "c5f9aa557bda8488f43cab7d17c8d9024778e7f6e00c5086ea0225b05acee167",
+      "original_windows_sha256": "049eb1a9b016451bcfdc1d0fe0d077d0f67e69a09f1d15a60e513b1f90195526",
+      "original_bytes_match_after_crlf_restoration": true
+    },
+    "mosfet_tool/workflows.py": {
+      "git_lf_sha256": "5e4c6b736851c12056e9466cd522654961bddb11e8ff181c55cc22dfebdeccbc",
+      "original_windows_sha256": "0e893214fbde23c970d6a3b645792632654616866f6167cab2b6c708c042d4c4",
+      "original_bytes_match_after_crlf_restoration": true
+    }
+  },
+  "repeat_comparisons": {
+    "baseline": {
+      "bit_exact": true,
+      "different_points": 0,
+      "maximum_absolute_difference_F_per_um": 0.0,
+      "maximum_relative_difference": 0.0,
+      "maximum_ulp_difference": 0.0
+    },
+    "current_first": {
+      "bit_exact": false,
+      "different_points": 3,
+      "maximum_absolute_difference_F_per_um": 2.9582283945787943e-31,
+      "maximum_relative_difference": 5.486366658716373e-16,
+      "maximum_ulp_difference": 3.0
+    },
+    "original_repeat": {
+      "bit_exact": false,
+      "different_points": 2,
+      "maximum_absolute_difference_F_per_um": 1.9721522630525295e-31,
+      "maximum_relative_difference": 2.644150881055662e-16,
+      "maximum_ulp_difference": 2.0
+    },
+    "current_repeat": {
+      "bit_exact": true,
+      "different_points": 0,
+      "maximum_absolute_difference_F_per_um": 0.0,
+      "maximum_relative_difference": 0.0,
+      "maximum_ulp_difference": 0.0
+    }
+  },
+  "strict_cv_bit_exact_initial_pass": false,
+  "current_repeat_bit_exact_to_baseline": true,
+  "original_repeat_also_not_bit_exact": true,
+  "conclusion": "Native floating-point repeat variation also occurs with the exact original source; current repeat matches baseline. No reproducible C-V behavior regression was found. Initial strict failure is retained; no solver, model, or spec tolerance was relaxed.",
+  "limitation": "The exact native operation producing the last-bit variation was not isolated.",
+  "iv_regression_result": {
+    "purpose": "Existing three CLI regression, original config and scratch outputs only",
+    "checked_at_utc": "2026-10-04T05:05:52.723693+00:00",
+    "reference": "project1\\results\\part1_baseline\\legacy",
+    "current": "project1\\tmp\\search_20261004\\legacy_after",
+    "IV_rtol": 1e-09,
+    "IV_atol_A_per_um": 1e-17,
+    "CV_comparison": "exact",
+    "checks": {
+      "idvg": {
+        "points": 21,
+        "expected_points": 21,
+        "columns": [
+          "Vg_V",
+          "Id_A_per_um"
+        ],
+        "same_columns": true,
+        "finite": true,
+        "voltage_exact": true,
+        "value_exact": false,
+        "max_absolute_difference": 8.470329472543003e-21,
+        "passed": true
+      },
+      "idvd": {
+        "points": 21,
+        "expected_points": 21,
+        "columns": [
+          "Vd_V",
+          "Id_A_per_um"
+        ],
+        "same_columns": true,
+        "finite": true,
+        "voltage_exact": true,
+        "value_exact": false,
+        "max_absolute_difference": 2.710505431213761e-20,
+        "passed": true
+      },
+      "cv": {
+        "points": 31,
+        "expected_points": 31,
+        "columns": [
+          "Vg_V",
+          "Cgg_F_per_um"
+        ],
+        "same_columns": true,
+        "finite": true,
+        "voltage_exact": true,
+        "value_exact": false,
+        "max_absolute_difference": 2.9582283945787943e-31,
+        "passed": false
+      }
+    },
+    "all_passed": false,
+    "source_sha256": {
+      "project1\\mosfet_tool\\config.py": "641ded0ba7a80fdc628f2565d829fa7727feb2aebed73fdeb83b11681860367f",
+      "project1\\mosfet_tool\\materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+      "project1\\mosfet_tool\\metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+      "project1\\mosfet_tool\\physics.py": "3cc36b146174601124e6fb0cbd5b2e16ec607a256dec4e90877e55fcf597e8e4",
+      "project1\\mosfet_tool\\simulator.py": "47cdf4da2d3f2400d3fa1f841ddb36b7c1896d2eb88b1126d8450f5660de3d53",
+      "project1\\mosfet_tool\\workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b",
+      "project1\\mosfet_tool\\__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277"
+    }
+  }
+}
