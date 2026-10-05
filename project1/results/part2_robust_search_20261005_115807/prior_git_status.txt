@@ -1,0 +1,5 @@
+ M PLAN.md
+ M PROGRESS_LOG.md
+?? project1/PART2_RETENTION_ESTIMATE.md
+?? project1/results/part2_robust_search_20261005_115807/
+?? project1/results/retention_estimate_20261005_111911/

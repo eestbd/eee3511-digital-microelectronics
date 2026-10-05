@@ -1,0 +1,177 @@
+{
+  "measurement_complete": true,
+  "baseline_all_specs_pass": false,
+  "fine_all_specs_pass": false,
+  "tests_pass": true,
+  "same_source": true,
+  "same_structure": true,
+  "same_input": true,
+  "config_copy_bytes_equal": true,
+  "config_copy_has_only_line_ending_difference": true,
+  "raw_checks": {
+    "primary": {
+      "read": {
+        "0": {
+          "passed": true,
+          "points": 51,
+          "dt_s": 1e-11,
+          "margin_V": 0.12826426855287154,
+          "max_current_balance_A": 1.358285182123528e-20,
+          "max_voltage_update_error_V": 2.6281060661048627e-16,
+          "max_charge_residual_C": 2.5237341253404714e-29
+        },
+        "0_5ps": {
+          "passed": true,
+          "points": 101,
+          "dt_s": 5e-12,
+          "margin_V": 0.12782808986062988,
+          "max_current_balance_A": 1.987766264573482e-20,
+          "max_voltage_update_error_V": 2.740863092043355e-16,
+          "max_charge_residual_C": 3.430902897978409e-29
+        },
+        "1": {
+          "passed": true,
+          "points": 51,
+          "dt_s": 1e-11,
+          "margin_V": 0.08410155673301745,
+          "max_current_balance_A": 3.066584782352578e-20,
+          "max_voltage_update_error_V": 4.440892098500626e-16,
+          "max_charge_residual_C": 1.0437823750430272e-28
+        },
+        "1_5ps": {
+          "passed": true,
+          "points": 101,
+          "dt_s": 5e-12,
+          "margin_V": 0.0839380514491459,
+          "max_current_balance_A": 1.2333236313843257e-20,
+          "max_voltage_update_error_V": 7.78023478975598e-16,
+          "max_charge_residual_C": 9.808588837562312e-29
+        }
+      },
+      "retention": {
+        "0": {
+          "passed": true,
+          "points": 64,
+          "read_checks": 11,
+          "end_time_s": 0.064,
+          "end_Vcell_V": 0.1862939552806604,
+          "end_read_margin_V": 0.1025781927822472,
+          "max_step_s": 0.008,
+          "max_voltage_step_V": 0.0030000000000001,
+          "max_voltage_update_error_V": 6.905500476994675e-15,
+          "observed_margin_monotonically_decreasing": true
+        },
+        "1": {
+          "passed": true,
+          "points": 133,
+          "read_checks": 13,
+          "end_time_s": 0.0027202729989207,
+          "end_Vcell_V": 1.6040000000000143,
+          "end_read_margin_V": 0.0590950289092615,
+          "max_step_s": 2.2706664763900118e-05,
+          "max_voltage_step_V": 0.0030000000000003357,
+          "max_voltage_update_error_V": 1.3207750865218415e-14,
+          "observed_margin_monotonically_decreasing": true
+        }
+      }
+    },
+    "retention_fine": {
+      "read": {
+        "0": {
+          "passed": true,
+          "points": 51,
+          "dt_s": 1e-11,
+          "margin_V": 0.12826426855287154,
+          "max_current_balance_A": 1.358285182123528e-20,
+          "max_voltage_update_error_V": 2.6281060661048627e-16,
+          "max_charge_residual_C": 2.5237341253404714e-29
+        },
+        "0_5ps": {
+          "passed": true,
+          "points": 101,
+          "dt_s": 5e-12,
+          "margin_V": 0.12782808986062988,
+          "max_current_balance_A": 1.987766264573482e-20,
+          "max_voltage_update_error_V": 2.740863092043355e-16,
+          "max_charge_residual_C": 3.430902897978409e-29
+        },
+        "1": {
+          "passed": true,
+          "points": 51,
+          "dt_s": 1e-11,
+          "margin_V": 0.08410155673301745,
+          "max_current_balance_A": 3.066584782352578e-20,
+          "max_voltage_update_error_V": 4.440892098500626e-16,
+          "max_charge_residual_C": 1.0437823750430272e-28
+        },
+        "1_5ps": {
+          "passed": true,
+          "points": 101,
+          "dt_s": 5e-12,
+          "margin_V": 0.0839380514491459,
+          "max_current_balance_A": 1.2333236313843257e-20,
+          "max_voltage_update_error_V": 7.78023478975598e-16,
+          "max_charge_residual_C": 9.808588837562312e-29
+        }
+      },
+      "retention": {
+        "0": {
+          "passed": true,
+          "points": 125,
+          "read_checks": 12,
+          "end_time_s": 0.064,
+          "end_Vcell_V": 0.1855775147122351,
+          "end_read_margin_V": 0.1026757541028314,
+          "max_step_s": 0.004260218060410596,
+          "max_voltage_step_V": 0.0015000000000000985,
+          "max_voltage_update_error_V": 6.3050693138722025e-15,
+          "observed_margin_monotonically_decreasing": true
+        },
+        "1": {
+          "passed": true,
+          "points": 261,
+          "read_checks": 14,
+          "end_time_s": 0.0026758964296005,
+          "end_Vcell_V": 1.6099999999999852,
+          "end_read_margin_V": 0.0595680805412692,
+          "max_step_s": 1.1327432324199655e-05,
+          "max_voltage_step_V": 0.001500000000000501,
+          "max_voltage_update_error_V": 1.429628984639386e-14,
+          "observed_margin_monotonically_decreasing": true
+        }
+      }
+    }
+  },
+  "retention_sensitivity": {
+    "0": {
+      "end_Vcell_difference_V": 0.0007164405684252917,
+      "end_read_margin_difference_V": 9.756132058420797e-05,
+      "spec_verdict_consistent": true,
+      "passed": true,
+      "endpoint_comparison_applies": true
+    },
+    "1": {
+      "end_Vcell_difference_V": 0.0059999999999709175,
+      "end_read_margin_difference_V": 0.0004730516320076983,
+      "spec_verdict_consistent": true,
+      "passed": true,
+      "failure_brackets_s": [
+        [
+          0.002627316720118263,
+          0.002642809433252009
+        ],
+        [
+          0.002633723900282023,
+          0.0026477814100548747
+        ]
+      ],
+      "endpoint_comparison_applies": false,
+      "failure_time_relative_difference": 0.002154529115847884
+    }
+  },
+  "fresh_replay_pass": true,
+  "protected_existing_files": 420,
+  "old_log_prefix_and_staged_changes_preserved": true,
+  "numerical_validation_pass": true,
+  "limitation": "Retention is a 64 ms lower bound when no failure is observed. Full mesh convergence and the actual TA simulator are not validated. Between-read-checkpoint failure crossing is assumed single."
+}

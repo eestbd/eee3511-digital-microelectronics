@@ -1,0 +1,8 @@
+{
+  "candidate": "19_balanced_ND20",
+  "status": "verified_recommendation",
+  "structure": "project1/results/part2_robust_search_20261005_115807/selected/part2_2022142233.devsim",
+  "config": "project1/part2_robust.yaml",
+  "structure_sha256": "376b392d2a81e9016f89c811f382a8f2d81e065dbeff9eef6072eab052753c11",
+  "baseline_root_structure_preserved": true
+}

@@ -1,0 +1,236 @@
+{
+  "purpose": "Part 1 device characterization; diagnostic structure, not a student submission",
+  "device": {
+    "gate_length_um": 0.65,
+    "source_length_um": 0.5,
+    "drain_length_um": 0.5,
+    "oxide_thickness_nm": 4.75,
+    "silicon_thickness_um": 0.5,
+    "junction_depth_um": 0.1,
+    "body_doping_cm3": 2e+16,
+    "sd_doping_cm3": 1e+19,
+    "temperature_k": 300.0,
+    "mu_n": 400.0,
+    "mu_p": 200.0,
+    "gate_material": "W",
+    "silicon_temperature_model": "varshni",
+    "doping_decay_x_nm": 12.5,
+    "doping_decay_y_nm": 5.0
+  },
+  "structure_sha256": "10276bfc62e4d7b8b63955dda0ff8bed252eb1b9938ff03fcafa4b34eb2c51a2",
+  "geometry_cm": {
+    "bulk": {
+      "x": [
+        0.0,
+        0.000165
+      ],
+      "y": [
+        0.0,
+        5e-05
+      ]
+    },
+    "oxide": {
+      "x": [
+        5e-05,
+        0.000115
+      ],
+      "y": [
+        -4.75e-07,
+        0.0
+      ]
+    },
+    "gate_metal": {
+      "x": [
+        5e-05,
+        0.000115
+      ],
+      "y": [
+        -1.475e-06,
+        -4.75e-07
+      ]
+    }
+  },
+  "gate_material_loaded": "W",
+  "python": "3.11.16",
+  "devsim": {
+    "copyright": "Copyright © 2009-2025 DEVSIM LLC",
+    "direct_solver": [
+      "mkl_pardiso"
+    ],
+    "extended_precision": true,
+    "license": "Apache License, Version 2.0",
+    "math_libraries": [
+      "mkl_rt.2.dll"
+    ],
+    "mkl_version": "Intel(R) oneAPI Math Kernel Library Version 2025.0-Product Build 20241009 for Intel(R) 64 architecture applications",
+    "version": "2.10.0",
+    "website": "https://devsim.org"
+  },
+  "command_arguments": [
+    ".\\project1\\part1.py",
+    "--config",
+    "project1\\results\\official_20261004_155839\\part1\\ablation_lg\\input.yaml",
+    "--output-dir",
+    "project1\\results\\official_20261004_155839\\part1\\ablation_lg\\primary"
+  ],
+  "source_sha256": {
+    "part1.py": "d9fdcd0b2ea3829d9645dc12330fa038b9319b7585c87c9d86abb6bab7acbca1",
+    "check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+    "mosfet_tool/cell.py": "3f2145b3341bea19971b08b6b06bf775d9361ba1aea5468b67f7ae46959c0ed5",
+    "mosfet_tool/config.py": "d276cd4199c2ba26dbb4cc5967c874ad10aea2801cacdd5ebbf792983a2ef1a1",
+    "mosfet_tool/materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "mosfet_tool/metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+    "mosfet_tool/physics.py": "367d606041ce12f1516c3e2390eb8594638451f5aa35917eee951f7e6b970bae",
+    "mosfet_tool/simulator.py": "25c4607629ea93380691f040c08c2aebb8fd04f7edcd5ced7e454990d5bf9d45",
+    "mosfet_tool/workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b"
+  },
+  "source_snapshot_phase": "before_simulation",
+  "precision": "extended",
+  "solver": {
+    "ramp_step_V": 0.1,
+    "relative_error": 1e-06,
+    "absolute_error": 1e+30,
+    "maximum_iterations": 80
+  },
+  "sweep": {
+    "start_V": 0.0,
+    "stop_V": 2.0,
+    "step_V": 0.02,
+    "points": 101
+  },
+  "conditions": {
+    "idvg_low": {
+      "T_K": 300,
+      "VD_V": 0.05,
+      "VB_V": 0
+    },
+    "idvg_high": {
+      "T_K": 300,
+      "VD_V": 2,
+      "VB_V": 0
+    },
+    "idvg_body": {
+      "T_K": 300,
+      "VD_V": 0.05,
+      "VB_V": -0.5
+    },
+    "off_398K": {
+      "T_K": 398,
+      "VD_V": 2,
+      "VB_V": 0,
+      "VG_V": 0
+    }
+  },
+  "physics_model_id": "qa_varshni_midgap_mobility_v1",
+  "physics": {
+    "300.0": {
+      "bandgap_eV": 1.1245192307692307,
+      "n_i_cm3": 10000000000.0,
+      "Nc_cm3": 2.8e+19,
+      "V_t_V": 0.025887193125000003,
+      "intrinsic_work_function_eV": 4.612259615384615,
+      "mu_n_cm2_Vs": 400.0,
+      "mu_p_cm2_Vs": 200.0
+    },
+    "398.0": {
+      "bandgap_eV": 1.0975385957446808,
+      "n_i_cm3": 4757304128886.964,
+      "Nc_cm3": 4.278590843135502e+19,
+      "V_t_V": 0.0343436762125,
+      "intrinsic_work_function_eV": 4.59876929787234,
+      "mu_n_cm2_Vs": 202.9698962276924,
+      "mu_p_cm2_Vs": 107.38756563544702
+    }
+  },
+  "metrics": [
+    {
+      "name": "Vth",
+      "value": 0.4902533421676159,
+      "unit": "V",
+      "minimum": 0.4,
+      "maximum": 0.5,
+      "status": "PASS",
+      "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+      "error": null
+    },
+    {
+      "name": "Ion",
+      "value": 470.97454916440455,
+      "unit": "uA/um",
+      "minimum": 450,
+      "maximum": null,
+      "status": "PASS",
+      "condition": "300 K, VG=VD=2 V, VB=VS=0",
+      "error": null
+    },
+    {
+      "name": "Ioff",
+      "value": 0.009289210018782447,
+      "unit": "pA/um",
+      "minimum": null,
+      "maximum": 1,
+      "status": "PASS",
+      "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+      "error": null
+    },
+    {
+      "name": "SS",
+      "value": 66.07785040140193,
+      "unit": "mV/dec",
+      "minimum": null,
+      "maximum": 75,
+      "status": "PASS",
+      "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+      "error": null
+    },
+    {
+      "name": "Ioff_398K",
+      "value": 8.583759060016671,
+      "unit": "pA/um",
+      "minimum": null,
+      "maximum": 100,
+      "status": "PASS",
+      "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+      "error": null
+    },
+    {
+      "name": "DIBL",
+      "value": 11.536142669512582,
+      "unit": "mV/V",
+      "minimum": null,
+      "maximum": 30,
+      "status": "PASS",
+      "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+      "error": null
+    },
+    {
+      "name": "Body_effect",
+      "value": 0.02731684613821389,
+      "unit": "V",
+      "minimum": null,
+      "maximum": 0.08,
+      "status": "PASS",
+      "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+      "error": null
+    },
+    {
+      "name": "Eox",
+      "value": 4.2105263157894735,
+      "unit": "MV/cm",
+      "minimum": null,
+      "maximum": 5,
+      "status": "PASS",
+      "condition": "VDD=2 V / tox",
+      "error": null
+    }
+  ],
+  "measurement_complete": true,
+  "all_specs_pass": true,
+  "max_relative_current_balance": {
+    "idvg_low": 2.987536865649e-16,
+    "idvg_high": 2.595479931935099e-16,
+    "idvg_body": 3.8712866625061564e-16
+  },
+  "hot_relative_current_balance": 1.4116080634923142e-16
+}

@@ -1,0 +1,15 @@
+{
+  "returncode": 0,
+  "elapsed_s": 172.71900000000005,
+  "command": [
+    "C:\\Users\\super\\DEVSIM_PROJECT\\.conda\\python.exe",
+    "-B",
+    "C:\\Users\\super\\DEVSIM_PROJECT\\project1\\part2_experiment.py",
+    "--config",
+    "C:\\Users\\super\\DEVSIM_PROJECT\\project1\\results\\part2_robust_search_20261005_115807\\experiments\\07_sourceND21\\input.yaml",
+    "--output-dir",
+    "C:\\Users\\super\\DEVSIM_PROJECT\\project1\\results\\part2_robust_search_20261005_115807\\experiments\\07_sourceND21\\screen",
+    "--stage",
+    "screen"
+  ]
+}

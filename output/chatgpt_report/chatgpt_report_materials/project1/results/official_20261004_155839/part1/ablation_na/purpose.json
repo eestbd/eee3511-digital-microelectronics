@@ -1,0 +1,7 @@
+{
+  "purpose": "One-knob causal ablation; not design search or candidate selection",
+  "reference": "candidate_10/primary",
+  "changed_field": "body_doping_cm3",
+  "before": 2e+16,
+  "after": 2.5e+16
+}

@@ -1,68 +1,63 @@
 # PLAN.md
 
-현재 작업: Project 1 구조 저장·학번 파일 준비·자가검사.
-상태: 두 학번 파일 준비·fresh checker·structure-only 검사 완료. 실제 OK 화면 캡처와 보고서 삽입은 사용자 terminal에서 진행한다.
+현재 작업: 2026-10-06 수신 추가 공식 Q&A와 최종 Part1·Part2 구현 대조.
+상태: 완료. 추가 Q&A와 부합하며 코드·소자 재설계가 필요한 불일치는 발견되지 않았다. 최종 소자·physics·과거 결과·HW1은 보존했다.
 
 ## Goal
 
-사용자가 제시한 저장/자가검사 절차를 기존 최종 설계에 적용해 두 학번 구조 파일을 준비하고 실제 checker 결과를 확인한다. 보고서용 실제 OK 화면을 얻는 실행 방법을 안내한다.
+사용자가 보낸 capacitor separation·ohmic contact·SRH 수명·Vg sweep·전체 길이 답변을 실제 코드/최종 입력/저장 구조/원시 결과와 대조하여 변경 필요 여부를 판단한다.
 
 ## Current State
 
-- simulator.py의 build는 mesh→doping→write_devices→physics 순서로 이미 저장한다. 재구현·HW1 수정·전체 시뮬레이션 재실행은 필요 없다.
-- Part 1 최종 #10 diagnostic SHA256은41c6f8f6ff5782c8ec3ecbc98d39bd264149ec076630f8bad0c9c98d6f06d07c, Part 2 최종 #11 학번 구조는f2442ee257af6dfcb610db5928d0ff5d3b8e5bce1d2423d72e00c7fb099fe62e다.
-- 이전 review에서 두 선택 구조의 singleton·physics equation 부재·실제 NetDoping 및 로컬 성능 PASS를 확인했다. Part 1 학번 파일 준비는 마지막에 하도록 유보됐으며 이번 요청에서 진행한다.
-- 최종 보고서 및 두 실제 OK 화면의 보고서 삽입은 아직 남아 있다.
-- project1/part1_2022142233.devsim을 최종 diagnostic과 byte 동일 복사했고 Part 2 파일은 그대로 보존했다. 두 파일의 fresh checker exit0/OK 및 singleton/equation 부재 PASS. 새 증거는 project1/results/submission_check_20261004_231707/validation.json이다.
+- Part1 공식 최종 #10은 fine0.01 V 측정에서 8 PASS. Part2 최종 #19는 로컬 필수 조건 PASS, data1/cell estimate95.198837 ms다.
+- 최종 파일은 `project1/part1_2022142233.devsim`과 robust run의 `selected/part2_2022142233.devsim`이다. 루트 Part2는 이전 #11이다.
+- 기존 코드에서 DEVSIM simple_physics의 silicon 접점을 재사용한다. 실제 SRH 수명은 helper 기본값인10 µs이며 온도별 변경이 없음을 확인했다.
+- Part2 입력과 실제 저장 좌표에서 bottom clearance0.05 µm/dielectric4 nm, Lg0.3/source0.2/drain0.2 µm 및 storage=source 연결을 대조했다.
+- 직전 보고서 컨텍스트 작업은 완료됐다. 이번 요청은 추가 Q&A 대조이며 보고서 제작·새 최적화로 확대하지 않는다.
 
 ## Requirements
 
-- 학번2022142233으로 project1/part1_2022142233.devsim, part2_2022142233.devsim을 준비한다.
-- 원 최종 구조를 byte 동일하게 보존한다. Part 1은 기존 structure-only diagnostic을 복사하며 원본을 이동·재저장하지 않는다.
-- 기존 destination이 다른 내용이면 덮어쓰지 않는다. 각 파일을 fresh Python에서 checker 및 singleton/equation 검증한다.
-- 사용자 terminal에서 두 검사 결과를 직접 표시하고 실제 OK 화면을 캡처할 수 있는 PowerShell 명령을 제공한다.
-- 코드/physics/parameter/raw/HW1·기존 보고서는 보존한다. 최종 보고서 작성·제출·commit/push는 이번 범위에 포함하지 않는다.
+- Source/drain/body ohmic boundary의 실제 호출과 식을 확인한다.
+- τn=τp=1e−5 s(10 µs)가300/398 K 모두 사용되는지 확인한다.
+- Si–hk separation과 dielectric thickness를 구분하고 storage=source·비접촉 계면 부재를 확인한다. 조교의 ‘테스트 가능’ 답변을 모든 separation의 무조건 허용으로 확대하지 않는다.
+- Vg measurement sweep와 bias ramp를 구분한다. 0.1 V보다 세밀한 간격은 허용되지만 추출값이 완전히 같다고 단정하지 않는다.
+- 전체 길이 변경 자유와 개별 Lg/W/S/D 제한을 구분한다.
+- 새 확인은 OFFICIAL_QA/PLAN/log에 남긴다. 코드·소자·원래 JSON/CSV·HW1·기존 자료 ZIP은 변경하지 않는다.
 
 ## Assumptions
 
-- 이미 physics 전에 저장했고 검증된 byte 동일 파일을 학번명으로 복사하는 것은 소자 재설계가 아니다. 동일 hash라면 기존 전기적 검증과 연결된다.
-- 현재 연결에는 Windows native terminal 화면 제어가 없으므로 실제 화면 캡처는 사용자의 VSCode terminal에서 검사 실행 후 수행한다. Text log를 실제 캡처로 표시하지 않는다.
+- 수신일은2026-10-06이며 인용 대화의 실제 날짜는 제공되지 않았다. 18:38/18:52/18:53은 제공된 답변 시각으로만 기록한다.
+- 사용자가 붙여넣은 교수/조교 답변을 공식 Q&A 근거로 취급한다. 실제 전체 평가기는 확보되지 않았다.
+- 새 DC/READ/retention을 실행하지 않는다. 필요하면 저장 구조의 physics 등록 후 parameter/boundary만 확인하고 기존 raw의0.1 V 표본으로 추출 민감도를 비교한다.
 
 ## Plan
 
-- [x] 최신 PLAN/log와 build 저장 위치, 최종 파일/hash 확인.
-- [x] 보호 snapshot 후 Part 1 학번명 파일을 byte 동일 복사하고 Part 2 hash 대조.
-- [x] 두 실제 학번 파일의 fresh checker·singleton/equation 검사 및 결과 보존.
-- [x] PLAN/log 최종 갱신, 보호/UTF-8/diff 확인, 사용자 화면 캡처 명령 정리.
+- [x] 최근 PLAN/log·새 Q&A·관련 코드/최종 입력 조사.
+- [x] 실제 contact/SRH parameter·저장 좌표/도핑/구조-only 확인.
+- [x] Part1 fine raw의0.1 V 표본 재추출과 최종 설계 범위 대조.
+- [x] 공식 Q&A 문서 갱신·전체 review·원본 보호/한글/diff 검증.
+- [x] 최종 PLAN/log 기록·결과 보고 준비.
 
 ## Validation
 
-- .conda/python.exe를 사용하고 .conda/Library/bin DLL PATH, PYTHONIOENCODING=utf-8을 준비한다.
-- 각 구조의 hash를 과거 최종 metrics와 대조하고 fresh process에서 check_structure_file.py의 exit0 및 OK를 확인한다.
-- 별도 fresh read에서 exactly one device·모든 region equation 부재를 확인한다. 물리 재등록이나 측정 결과 저장을 하지 않는다.
-- 기존 파일 hash·staged 상태·기존 log byte prefix·한글·git diff --check를 확인한다. 의미 있는 종료 기록은 현재 UTC→KST 시각으로 append한다.
-- 실제 실행: .conda/python.exe -B project1/tmp/submission_preparation_20261004_231707/prepare.py PASS. 기존 최종 측정 hash와 두 제출명 파일이 일치하고 새 프로세스마다 checker exit0/OK, singleton/equation 부재를 확인했다. Text log는 실제 UI 화면 캡처로 표시하지 않았다.
-
-사용자 화면 캡처용: 저장소 루트 VSCode PowerShell terminal에서 실행한다. Last4는 실제 checker 출력의 OK/재료/접점/계면 줄만 표시한다.
-
-```powershell
-$repoRoot = (Get-Location).Path
-$env:PATH = "$repoRoot\.conda\Library\bin;$repoRoot\.conda;$env:PATH"
-$env:PYTHONIOENCODING = 'utf-8'
-& .\.conda\python.exe -B .\project1\check_structure_file.py .\project1\part1_2022142233.devsim | Select-Object -Last 4
-& .\.conda\python.exe -B .\project1\check_structure_file.py .\project1\part2_2022142233.devsim | Select-Object -Last 4
-```
-
-두 OK와 파일명/재료/접점/계면이 보이도록 terminal을 넓히고 Win+Shift+S로 실제 화면을 캡처한다. 이 화면을 최종 보고서에 넣는다.
+- `& .\.conda\python.exe -B .\project1\tmp\qa_audit_20261006\audit.py`: parameter/geometry 검사 PASS. Part1의300/398 K·Part2의398 K에서 τn=τp=10 µs, ni=n1=p1, source/drain/body의 potential·전자·정공 contact 등록을 확인했다. Numerical solve를 차단하고 기존 파일을 읽기만 했다.
+- Fresh reload에서 두 파일의 equation 부재·NetDoping·실제 geometry·기존 hash 일치를 확인했다. Part2 separation50 nm/dielectric4 nm·storage=source·hk 접점 위치·bulk_oxide만 존재를 확인했다.
+- 기존 fine raw의0.1 V 표본21점으로8/8 PASS. Vth0.486363 V, SS66.683007 mV/dec, DIBL12.537776 mV/V, body0.028194 V. 새0.1 V DC sweep·조교 evaluator 결과가 아니며 fine 정본은 그대로다.
+- strict UTF-8/한글·필수 PLAN절·OFFICIAL_QA 내용·git diff --check·보호 snapshot1518파일 hash·staged/log prefix 검사 PASS. 최종 결과는 `project1/tmp/qa_audit_20261006/validation.json`, 상세 근거는 `audit_result.json`이다.
 
 ## Progress / Discoveries
 
-- 저장 코드는 project1/mosfet_tool/simulator.py build에서 doping 직후 physics 직전에 구현돼 있다. Part 2도 상속한 build를 사용한다.
-- 새로 만들 것은 Part 1 제출명 파일과 두 실제 학번 파일의 검사 증거다. 실험이나 code patch는 필요 없다.
-- 새 학번 파일은 최종 측정 당시 structure-only 파일과 같은 hash다. 저장 코드 수정이나 물리 등록 이후 재저장을 하지 않았다. 기존 소자·raw·code·PDF를 유지했다.
+- Vg sweep0.1 V는 이번에 알려진 추출 sampling 간격이다. 기존 공식 ramp0.1 V와 역할이 다르며, 답변은 더 세밀한 sweep을 허용한다.
+- Capacitor separation20 nm는 질문자의 예시값이지 의무값이 아니다. 우리 구조의50 nm separation과4 nm dielectric을 별도로 평가한다.
+- 이전 PLAN은 scratch에 백업했다. 사용자 추가 파일 `hw1/step2/check_structure_file.py`도 읽기 전용으로 보존한다.
+- 초기 감사 스크립트가 Part2를300 K에도 등록하려다 기존 ‘Part2는398 K’ guard에 거절됐다. 원인은 감사 범위 선택이며 소자 수렴 실패가 아니다. 기존 guard/physics는 유지하고 공식 조건398 K로 검사 범위를 바로잡았다. 첫 등록 로그도 보존했다.
+- Actual bulk 길이는 Part1의1.6 µm와 Part2의0.7 µm다. 새 답변과 기존 S/D 개별 범위를 모두 만족하며 Lg/W 변경은 없다.
+- 추가된 `hw1/step2/check_structure_file.py`와 사용한 `project1/check_structure_file.py`의 SHA256도 동일하다. 두 파일 모두 읽기 전용으로 보존했다.
+- 조교가 질문자의20 nm 분리 구조를 테스트 가능하다고 답한 것이 우리50 nm 구조의 직접 재평가 결과는 아니다. 기존 source-contact 위 구조 허용·현재 self-check/geometry/연결·CSTORE 근거와 함께 부합 여부를 판단했다.
 
 ## Final Review
 
-- 저장 절차 설명·두 제출명 파일 준비·두 fresh checker 및 structure-only 검증 완료. 코드/parameter/원본 구조·과거 결과·PDF를 변경하지 않았다. 재실험·commit/push·업로드는 수행하지 않았다.
-- 두 실제 UI OK 화면 캡처·최종 보고서 삽입/완성은 남은 항목이며 명령으로 안내한다. Checker 결과를 전기적 spec 새 측정으로 주장하지 않는다.
-- 최종 기존 파일 hash·staged 상태·log byte prefix·실제 UTF-8 한글·diff check PASS. 2026-10-04 23:19:02 KST 최종 기록을 append했다. 파일 준비/자가검사 요청 완료다.
+- 추가 Q&A의 ohmic contact·10 µs SRH 수명·더 세밀한 Vg sweep 허용·전체 길이 자유에 부합한다. 우리 Part2의50 nm separation/4 nm dielectric·storage 연결·계면은 기존 구조 허용 및 이번 설명과 충돌하지 않는다.
+- 측정 표본 변화에 따른 추출값 차이를 실제 raw로 확인했고0.1 V 표본도8 PASS였다. 이 결과를 조교 전체 evaluator의 PASS나 새 DC sweep으로 주장하지 않는다.
+- 추가 공식 답변과 실제 대조를 `project1/OFFICIAL_QA.md`에 기록했다. PLAN/log 외 변경은 이 문서와 ignored scratch 근거에 한정하며 source·최종 소자·config·기존 CSV/JSON·HW1·REPORT_CONTEXT/ZIP은 보존했다.
+- 새 numerical solve·READ/retention·전체 unittest·최적화·commit/push·제출은 없다. 이번 대조 요청은 완료하고 다음 요청을 기다린다. 조교 재평가 및 우리50 nm separation의 개별 공식 확인은 확보되지 않았다.

@@ -1,0 +1,60 @@
+{
+  "candidate": "19_balanced_ND20",
+  "completed_KST": "2026-10-05 13:15:26 KST",
+  "elapsed_min": 77.3229901,
+  "all_minimum_specs_pass": true,
+  "cell_limiting_state": "data1",
+  "cell_estimate_s": 0.09519883693041921,
+  "cell_failure_bracket_s": [
+    0.09493759358449438,
+    0.09546008027634403
+  ],
+  "primary_cell_estimate_s": 0.09519020654937135,
+  "primary_failure_bracket_s": [
+    0.09492903544341486,
+    0.09545137765532785
+  ],
+  "baseline_cell_estimate_s": 0.06720347876731442,
+  "cell_estimate_improvement_fraction": 0.4165760266672507,
+  "data0_retention_verified_lower_bound_s": 0.128,
+  "data0_128ms_margins_V": {
+    "verify": 0.10973013663819542,
+    "fine": 0.10982102647874592
+  },
+  "initial_read_margins_V": {
+    "verify": {
+      "0": 0.12780623944268166,
+      "1": 0.06946326590457863
+    },
+    "fine": {
+      "0": 0.12780623944268166,
+      "1": 0.06946326590457863
+    }
+  },
+  "margin64_V": {
+    "verify": {
+      "0": 0.11295570989831016,
+      "1": 0.06355720896602857
+    },
+    "fine": {
+      "0": 0.11305665584754176,
+      "1": 0.06355923473000402
+    }
+  },
+  "CSTORE_F": 1.9281937500000154e-14,
+  "fields": {
+    "gate_MV_cm": 4.716981132075472,
+    "capacitor_MV_cm": 2.5
+  },
+  "structure_sha256": "376b392d2a81e9016f89c811f382a8f2d81e065dbeff9eef6072eab052753c11",
+  "screened_candidates": 12,
+  "endpoint_compared_candidates": 2,
+  "extra_parameter_search_stopped": true,
+  "limitations": [
+    "local official model; grader and independent mesh unverified",
+    "data0 maximum retention not measured",
+    "finite failure bracket, not a statistical confidence interval",
+    "aspirational 75mV/64mV/96ms goals not all achieved",
+    "final submission report/screenshots remain separate"
+  ]
+}

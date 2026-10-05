@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "results": {
+    "verify0": {
+      "passed": true,
+      "rows": 36,
+      "end_time_s": 0.064,
+      "end_cell_V": 0.1047680302777823,
+      "max_Euler_error_V": 6.093216209368535e-16,
+      "observed_margin_monotonic": true,
+      "end_read_margin_V": 0.11295570989831016,
+      "first_Istorage_pA": -0.1894730562748713,
+      "last_Istorage_pA": -0.010334931112455623
+    },
+    "verify1": {
+      "passed": true,
+      "rows": 59,
+      "end_time_s": 0.064,
+      "end_cell_V": 1.8287935146818155,
+      "max_Euler_error_V": 6.4791921827733745e-16,
+      "observed_margin_monotonic": true,
+      "end_read_margin_V": 0.06355720896602857,
+      "first_Istorage_pA": 0.05333383398225704,
+      "last_Istorage_pA": 0.04985060541604643
+    }
+  }
+}

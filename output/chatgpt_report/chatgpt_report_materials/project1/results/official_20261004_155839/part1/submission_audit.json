@@ -1,0 +1,32 @@
+{
+  "checked_at_kst": "2026-10-04T17:23:21.849001+09:00",
+  "electrical_specs_pass": true,
+  "official_numerical_validation_pass": true,
+  "same_final_structure_hash": true,
+  "one_knob_same_sweep_checks": [
+    {
+      "case": "candidate_08",
+      "only_changed_field": "oxide_thickness_nm",
+      "same_sweep": true
+    },
+    {
+      "case": "ablation_lg",
+      "only_changed_field": "gate_length_um",
+      "same_sweep": true
+    },
+    {
+      "case": "ablation_na",
+      "only_changed_field": "body_doping_cm3",
+      "same_sweep": true
+    }
+  ],
+  "requirements_document_links_valid": true,
+  "protected_HW1_results_hashes_unchanged": true,
+  "original_log_prefix_preserved": true,
+  "part1_submission_ready": false,
+  "pending": [
+    "Actual student ID filename",
+    "Actual self-check OK screenshot in report"
+  ],
+  "part2_status": "STILL_STOPPED_BY_USER"
+}

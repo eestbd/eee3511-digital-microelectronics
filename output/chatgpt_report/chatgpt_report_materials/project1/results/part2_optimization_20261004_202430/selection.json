@@ -1,0 +1,11 @@
+{
+  "candidate": "11_W_cap096_bodytap",
+  "phase": "finalized/verified",
+  "reason": "Best measured candidate; full two-state measurements and fine sensitivity verified",
+  "student_id": "2022142233",
+  "provisional": false,
+  "all_specs_pass": true,
+  "final_validation_passed": true,
+  "completed_KST": "2026-10-04 21:18:40",
+  "evidence": "C:\\Users\\super\\DEVSIM_PROJECT\\project1\\results\\part2_optimization_20261004_202430\\experiments\\11_W_cap096_bodytap\\combined_final\\metrics.json"
+}

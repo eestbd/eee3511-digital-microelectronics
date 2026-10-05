@@ -1,0 +1,7 @@
+{
+  "purpose": "One-knob causal ablation; not design search or candidate selection",
+  "reference": "candidate_10/primary",
+  "changed_field": "gate_length_um",
+  "before": 0.6,
+  "after": 0.65
+}

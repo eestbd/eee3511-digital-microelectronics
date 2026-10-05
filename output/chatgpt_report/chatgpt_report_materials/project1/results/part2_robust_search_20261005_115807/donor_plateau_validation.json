@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "source_plateau_points": 399,
+  "drain_plateau_points": 42,
+  "source_plateau_cm3": [
+    9.999999979869753e+19,
+    1e+20
+  ],
+  "drain_plateau_cm3": [
+    9.999999999998917e+18,
+    1e+19
+  ],
+  "source_target_cm3": 1e+20,
+  "drain_target_cm3": 1e+19
+}

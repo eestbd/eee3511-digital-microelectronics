@@ -67,6 +67,24 @@
 - Part 2는 Lg=0.3 µm 고정, gate 전계=2.5 V/tox 등 고유 조건으로 최적화한다. 완료된 Part 1 결과는 보존한다.
 - 후속 실험에서 gate/cap 조정과 함께 비균일·비대칭 doping도 후보로 검토할 수 있다. 이번 Q&A 반영에서는 코드/입력 변경이나 실험을 수행하지 않는다.
 
+## 추가 공식 Q&A: separation·접점·수명·sampling·전체 길이
+
+수신일: 2026-10-06, Asia/Seoul. 사용자가 제공한 수업 톡방의 장이준 조교 답변을 근거로 한다. 대화의 실제 날짜는 미제공이며, 아래 시각은 인용된 답변 시각이다.
+
+- **18:38, capacitor separation:** 질문자는 Si–high-k separation 약20 nm, 실제 dielectric3~10 nm, storage=source, 직접 접촉하지 않는 Si–hk 계면 부재를 제시했다. 조교는 ‘해당 구조에서 테스트는 가능할 것 같습니다’라고 답하고 self-check 실행 여부를 물었으며 질문자는 OK를 확인했다고 답했다. 20 nm는 의무 치수나 t_diel이 아니다. 답변을 모든 separation의 무조건 허용·전기적 spec PASS로 확대하지 않는다.
+- **18:52, contact:** source/drain/body는 ohmic contact를 사용한다.
+- **18:52, SRH:** τn=τp=10 µs를 사용한다. 질문은300/398 K 모두에 관한 것이며 답변에 온도별 변경은 없다.
+- **18:52, Part1 Vg sweep:** 조교는0.1 V 간격을 사용했고 더 짧은 간격은 정확도가 좋아지는 대신 runtime이 길어진다고 답했다. 정확히0.1 V로 개발 측정을 강제한 조건이 아니다. 측정 표본 간격과 DC bias ramp를 구별하고, 서로 다른 표본에서 보간한 Vth/SS가 완전히 같다고 단정하지 않는다.
+- **18:53, Part2 전체 길이:** source/drain 조정으로 nMOS 전체 길이를 줄이는 것에 ‘제한 없습니다’라고 답했다. 총 길이를2 µm로 고정할 필요는 없다. 개별 Lg/W/S/D 등 PDF의 제한까지 없어진 것으로 해석하지 않는다.
+
+### 2026-10-06 현재 최종 소자 대조
+
+- 공용 simulator는 `CreateSiliconPotentialOnlyContact`와 `CreateSiliconDriftDiffusionAtContact`로 source/drain/body의 potential·전자·정공 ohmic boundary를 등록한다. 설치된 DEVSIM helper는 `taun=taup=1e−5 s`를 설정하고 프로젝트는 이를 덮어쓰지 않는다. 실제 parameter 등록에서 Part1의300/398 K와 Part2의398 K 모두10 µs를 확인했다. Part2는 과제상398 K 고정이다.
+- Part2 #19의 실제 저장 geometry는 Si–hk separation50 nm, dielectric4 nm다. 두 값은 다른 방향의 별도 치수이며 source 위 metal pillar와 연결된 storage bias가 source를 따른다. 직접 접촉하지 않아 계면은 `bulk_oxide`만 있다. 기존 source-contact 위 배치 허용 답변 및 이번 설명과 충돌하지 않는다. 이번20 nm 질문에 대한 답변만으로 우리50 nm 구조가 개별 재평가됐다고 주장하지 않는다.
+- 실제 bulk 전체 길이는 Part1 #10의1.6 µm(0.5+0.6+0.5), Part2 #19의0.7 µm(0.2+0.3+0.2)다. Part2 Lg0.3 µm·폭0.1 µm는 고정이며 S/D 각각0.2 µm도 PDF 범위다.
+- Part1 최종 측정은0.01 V/201점, control은0.02 V다. 기존 fine CSV의 실제0.1 V 표본21점을 골라 재추출해도8/8 PASS: Vth0.486363 V, SS66.683007 mV/dec, DIBL12.537776 mV/V, body effect0.028194 V. 이 값은 **새0.1 V DC sweep 또는 조교 evaluator 결과가 아닌 raw 표본 재추출**이며 최종 fine 정본을 덮어쓰지 않는다.
+- 검사 근거는 `project1/tmp/qa_audit_20261006/audit_result.json`이다. physics/transport를 등록해 boundary·parameter를 읽었고 numerical solve는 차단했다. 구조·입력·코드·기존 수치 결과를 변경하지 않았으며 이번 Q&A 때문에 재설계할 불일치는 발견되지 않았다.
+
 ## 2026-10-04 15:25 최초 구현 대조 결과
 
 이 표는 코드·기존 결과·최신 PDF를 직접 조사한 상태다. 이번에 모델을 수정하거나 새 simulation을 수행하지 않았다.

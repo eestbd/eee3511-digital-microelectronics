@@ -1,0 +1,699 @@
+{
+  "finished_at_utc": "2026-10-04T05:17:43.228432+00:00",
+  "purpose": "Steps 6, 7, 8 evidence summary; local model results, not a submitted device",
+  "requested_limits": {
+    "total_design_trials": 10,
+    "search_time_limit_seconds": null,
+    "maximum_final_candidates": 2
+  },
+  "attempted_design_trials": 10,
+  "search_closed": true,
+  "passing_design_indices": [
+    7,
+    8,
+    9,
+    10
+  ],
+  "design_measurement_error_count": 0,
+  "design_solver_minutes_sum": 53.055699999999995,
+  "design_wall_clock_minutes": 59.79352483333333,
+  "selected_candidates": [
+    {
+      "rank": 1,
+      "index": 10,
+      "trial": "trial_10_lg06_tox475_w_na2e16",
+      "device": {
+        "gate_length_um": 0.6,
+        "source_length_um": 0.5,
+        "drain_length_um": 0.5,
+        "oxide_thickness_nm": 4.75,
+        "silicon_thickness_um": 0.5,
+        "junction_depth_um": 0.1,
+        "body_doping_cm3": 2e+16,
+        "sd_doping_cm3": 1e+19,
+        "temperature_k": 300.0,
+        "mu_n": 400.0,
+        "mu_p": 200.0,
+        "gate_material": "W",
+        "silicon_temperature_model": "varshni",
+        "doping_decay_x_nm": 12.5,
+        "doping_decay_y_nm": 5.0
+      },
+      "coarse_metrics": [
+        {
+          "name": "Vth",
+          "value": 0.4840718158699449,
+          "unit": "V",
+          "minimum": 0.4,
+          "maximum": 0.5,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+          "error": null
+        },
+        {
+          "name": "Ion",
+          "value": 516.6970577716348,
+          "unit": "uA/um",
+          "minimum": 450,
+          "maximum": null,
+          "status": "PASS",
+          "condition": "300 K, VG=VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "Ioff",
+          "value": 0.013011250931461892,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 1,
+          "status": "PASS",
+          "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "SS",
+          "value": 66.23045352100546,
+          "unit": "mV/dec",
+          "minimum": null,
+          "maximum": 75,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+          "error": null
+        },
+        {
+          "name": "Ioff_398K",
+          "value": 20.8587133753997,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 100,
+          "status": "PASS",
+          "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "DIBL",
+          "value": 13.075202706342509,
+          "unit": "mV/V",
+          "minimum": null,
+          "maximum": 30,
+          "status": "PASS",
+          "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+          "error": null
+        },
+        {
+          "name": "Body_effect",
+          "value": 0.026704714885549985,
+          "unit": "V",
+          "minimum": null,
+          "maximum": 0.08,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+          "error": null
+        },
+        {
+          "name": "Eox",
+          "value": 4.2105263157894735,
+          "unit": "MV/cm",
+          "minimum": null,
+          "maximum": 5,
+          "status": "PASS",
+          "condition": "VDD=2 V / tox",
+          "error": null
+        }
+      ],
+      "fine_metrics": [
+        {
+          "name": "Vth",
+          "value": 0.4839852078668466,
+          "unit": "V",
+          "minimum": 0.4,
+          "maximum": 0.5,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+          "error": null
+        },
+        {
+          "name": "Ion",
+          "value": 516.6970577716348,
+          "unit": "uA/um",
+          "minimum": 450,
+          "maximum": null,
+          "status": "PASS",
+          "condition": "300 K, VG=VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "Ioff",
+          "value": 0.013011250931461892,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 1,
+          "status": "PASS",
+          "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "SS",
+          "value": 66.22163505837952,
+          "unit": "mV/dec",
+          "minimum": null,
+          "maximum": 75,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+          "error": null
+        },
+        {
+          "name": "Ioff_398K",
+          "value": 20.8587133753997,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 100,
+          "status": "PASS",
+          "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "DIBL",
+          "value": 13.037748900257494,
+          "unit": "mV/V",
+          "minimum": null,
+          "maximum": 30,
+          "status": "PASS",
+          "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+          "error": null
+        },
+        {
+          "name": "Body_effect",
+          "value": 0.02661006060755755,
+          "unit": "V",
+          "minimum": null,
+          "maximum": 0.08,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+          "error": null
+        },
+        {
+          "name": "Eox",
+          "value": 4.2105263157894735,
+          "unit": "MV/cm",
+          "minimum": null,
+          "maximum": 5,
+          "status": "PASS",
+          "condition": "VDD=2 V / tox",
+          "error": null
+        }
+      ],
+      "measurement_complete": true,
+      "all_specs_pass": true,
+      "extended_numerical_checks_pass": true,
+      "double_precision_complete": false,
+      "double_precision_checks_pass": false,
+      "all_numerical_checks_pass": false,
+      "double_failures": [
+        {
+          "case": "idvg_high",
+          "T_K": 300.0,
+          "target_VD_V": 2.0,
+          "target_VG_V": 0.0,
+          "status": "ERROR",
+          "error": "Convergence failure!\n",
+          "failed_biases_V": {
+            "gate": 0.0,
+            "source": 0.0,
+            "drain": 1.2,
+            "body": 0.0
+          },
+          "current_matches": null,
+          "conservation_passed": null,
+          "difference_from_sweep_A_per_um": null,
+          "current_balance_A_per_um": null,
+          "relative_current_balance": null
+        },
+        {
+          "case": "idvg_high",
+          "T_K": 300.0,
+          "target_VD_V": 2.0,
+          "target_VG_V": 2.0,
+          "status": "ERROR",
+          "error": "Convergence failure!\n",
+          "failed_biases_V": {
+            "gate": 0.0,
+            "source": 0.0,
+            "drain": 1.2,
+            "body": 0.0
+          },
+          "current_matches": null,
+          "conservation_passed": null,
+          "difference_from_sweep_A_per_um": null,
+          "current_balance_A_per_um": null,
+          "relative_current_balance": null
+        },
+        {
+          "case": "off_398K",
+          "T_K": 398.0,
+          "target_VD_V": 2.0,
+          "target_VG_V": 0.0,
+          "status": "ERROR",
+          "error": "Convergence failure!\n",
+          "failed_biases_V": {
+            "gate": 0.0,
+            "source": 0.0,
+            "drain": 0.8,
+            "body": 0.0
+          },
+          "current_matches": null,
+          "conservation_passed": null,
+          "difference_from_sweep_A_per_um": null,
+          "current_balance_A_per_um": null,
+          "relative_current_balance": null
+        }
+      ],
+      "numerical_artifact": "validation\\candidate_10\\numerical_validation.json",
+      "structure_artifact": "selected\\candidate_10_diagnostic.devsim",
+      "structure_sha256": "41c6f8f6ff5782c8ec3ecbc98d39bd264149ec076630f8bad0c9c98d6f06d07c",
+      "fresh_structure_checker_pass": true,
+      "resolution_differences": [
+        {
+          "name": "Vth",
+          "coarse": 0.4840718158699449,
+          "fine": 0.4839852078668466,
+          "unit": "V",
+          "difference": 8.660800309828742e-05,
+          "tolerance": 0.001,
+          "passed": true
+        },
+        {
+          "name": "Ion",
+          "coarse": 516.6970577716348,
+          "fine": 516.6970577716348,
+          "unit": "uA/um",
+          "difference": 0.0,
+          "tolerance": 0.0005166970577716348,
+          "passed": true
+        },
+        {
+          "name": "Ioff",
+          "coarse": 0.013011250931461892,
+          "fine": 0.013011250931461892,
+          "unit": "pA/um",
+          "difference": 0.0,
+          "tolerance": 1.3011250931461891e-08,
+          "passed": true
+        },
+        {
+          "name": "SS",
+          "coarse": 66.23045352100546,
+          "fine": 66.22163505837952,
+          "unit": "mV/dec",
+          "difference": 0.008818462625939105,
+          "tolerance": 0.2,
+          "passed": true
+        },
+        {
+          "name": "Ioff_398K",
+          "coarse": 20.8587133753997,
+          "fine": 20.8587133753997,
+          "unit": "pA/um",
+          "difference": 0.0,
+          "tolerance": 2.08587133753997e-05,
+          "passed": true
+        },
+        {
+          "name": "DIBL",
+          "coarse": 13.075202706342509,
+          "fine": 13.037748900257494,
+          "unit": "mV/V",
+          "difference": 0.03745380608501492,
+          "tolerance": 0.5,
+          "passed": true
+        },
+        {
+          "name": "Body_effect",
+          "coarse": 0.026704714885549985,
+          "fine": 0.02661006060755755,
+          "unit": "V",
+          "difference": 9.46542779924342e-05,
+          "tolerance": 0.001,
+          "passed": true
+        },
+        {
+          "name": "Eox",
+          "coarse": 4.2105263157894735,
+          "fine": 4.2105263157894735,
+          "unit": "MV/cm",
+          "difference": 0.0,
+          "tolerance": 4.210526315789473e-06,
+          "passed": true
+        }
+      ],
+      "fresh_replay_count": 15
+    },
+    {
+      "rank": 2,
+      "index": 8,
+      "trial": "trial_08_lg06_tox45_w_na2e16",
+      "device": {
+        "gate_length_um": 0.6,
+        "source_length_um": 0.5,
+        "drain_length_um": 0.5,
+        "oxide_thickness_nm": 4.5,
+        "silicon_thickness_um": 0.5,
+        "junction_depth_um": 0.1,
+        "body_doping_cm3": 2e+16,
+        "sd_doping_cm3": 1e+19,
+        "temperature_k": 300.0,
+        "mu_n": 400.0,
+        "mu_p": 200.0,
+        "gate_material": "W",
+        "silicon_temperature_model": "varshni",
+        "doping_decay_x_nm": 12.5,
+        "doping_decay_y_nm": 5.0
+      },
+      "coarse_metrics": [
+        {
+          "name": "Vth",
+          "value": 0.4793538870339957,
+          "unit": "V",
+          "minimum": 0.4,
+          "maximum": 0.5,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+          "error": null
+        },
+        {
+          "name": "Ion",
+          "value": 544.8258559704906,
+          "unit": "uA/um",
+          "minimum": 450,
+          "maximum": null,
+          "status": "PASS",
+          "condition": "300 K, VG=VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "Ioff",
+          "value": 0.014048086662097696,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 1,
+          "status": "PASS",
+          "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "SS",
+          "value": 65.98945315161062,
+          "unit": "mV/dec",
+          "minimum": null,
+          "maximum": 75,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+          "error": null
+        },
+        {
+          "name": "Ioff_398K",
+          "value": 21.546679047021122,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 100,
+          "status": "PASS",
+          "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "DIBL",
+          "value": 12.641530490607128,
+          "unit": "mV/V",
+          "minimum": null,
+          "maximum": 30,
+          "status": "PASS",
+          "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+          "error": null
+        },
+        {
+          "name": "Body_effect",
+          "value": 0.025630131595863304,
+          "unit": "V",
+          "minimum": null,
+          "maximum": 0.08,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+          "error": null
+        },
+        {
+          "name": "Eox",
+          "value": 4.444444444444445,
+          "unit": "MV/cm",
+          "minimum": null,
+          "maximum": 5,
+          "status": "PASS",
+          "condition": "VDD=2 V / tox",
+          "error": null
+        }
+      ],
+      "fine_metrics": [
+        {
+          "name": "Vth",
+          "value": 0.4793436879883737,
+          "unit": "V",
+          "minimum": 0.4,
+          "maximum": 0.5,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+          "error": null
+        },
+        {
+          "name": "Ion",
+          "value": 544.8258559704906,
+          "unit": "uA/um",
+          "minimum": 450,
+          "maximum": null,
+          "status": "PASS",
+          "condition": "300 K, VG=VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "Ioff",
+          "value": 0.014048086662097696,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 1,
+          "status": "PASS",
+          "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "SS",
+          "value": 65.97498085030881,
+          "unit": "mV/dec",
+          "minimum": null,
+          "maximum": 75,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+          "error": null
+        },
+        {
+          "name": "Ioff_398K",
+          "value": 21.546679047021122,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 100,
+          "status": "PASS",
+          "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "DIBL",
+          "value": 12.66400858972296,
+          "unit": "mV/V",
+          "minimum": null,
+          "maximum": 30,
+          "status": "PASS",
+          "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+          "error": null
+        },
+        {
+          "name": "Body_effect",
+          "value": 0.025537407450752614,
+          "unit": "V",
+          "minimum": null,
+          "maximum": 0.08,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+          "error": null
+        },
+        {
+          "name": "Eox",
+          "value": 4.444444444444445,
+          "unit": "MV/cm",
+          "minimum": null,
+          "maximum": 5,
+          "status": "PASS",
+          "condition": "VDD=2 V / tox",
+          "error": null
+        }
+      ],
+      "measurement_complete": true,
+      "all_specs_pass": true,
+      "extended_numerical_checks_pass": true,
+      "double_precision_complete": false,
+      "double_precision_checks_pass": false,
+      "all_numerical_checks_pass": false,
+      "double_failures": [
+        {
+          "case": "idvg_high",
+          "T_K": 300.0,
+          "target_VD_V": 2.0,
+          "target_VG_V": 0.0,
+          "status": "ERROR",
+          "error": "Convergence failure!\n",
+          "failed_biases_V": {
+            "gate": 0.0,
+            "source": 0.0,
+            "drain": 1.5,
+            "body": 0.0
+          },
+          "current_matches": null,
+          "conservation_passed": null,
+          "difference_from_sweep_A_per_um": null,
+          "current_balance_A_per_um": null,
+          "relative_current_balance": null
+        },
+        {
+          "case": "idvg_high",
+          "T_K": 300.0,
+          "target_VD_V": 2.0,
+          "target_VG_V": 2.0,
+          "status": "ERROR",
+          "error": "Convergence failure!\n",
+          "failed_biases_V": {
+            "gate": 0.0,
+            "source": 0.0,
+            "drain": 1.5,
+            "body": 0.0
+          },
+          "current_matches": null,
+          "conservation_passed": null,
+          "difference_from_sweep_A_per_um": null,
+          "current_balance_A_per_um": null,
+          "relative_current_balance": null
+        },
+        {
+          "case": "off_398K",
+          "T_K": 398.0,
+          "target_VD_V": 2.0,
+          "target_VG_V": 0.0,
+          "status": "OK",
+          "error": null,
+          "failed_biases_V": null,
+          "current_matches": false,
+          "conservation_passed": false,
+          "difference_from_sweep_A_per_um": -7.585273917742079e-16,
+          "current_balance_A_per_um": -7.370433097775121e-16,
+          "relative_current_balance": 3.4208021379547514e-05
+        }
+      ],
+      "numerical_artifact": "validation\\candidate_08\\numerical_validation.json",
+      "structure_artifact": "selected\\candidate_08_diagnostic.devsim",
+      "structure_sha256": "b1b840f61ccc384800c89daac9f97a8dfbf13379aa26accdd182753ceff378e0",
+      "fresh_structure_checker_pass": true,
+      "resolution_differences": [
+        {
+          "name": "Vth",
+          "coarse": 0.4793538870339957,
+          "fine": 0.4793436879883737,
+          "unit": "V",
+          "difference": 1.0199045621994696e-05,
+          "tolerance": 0.001,
+          "passed": true
+        },
+        {
+          "name": "Ion",
+          "coarse": 544.8258559704906,
+          "fine": 544.8258559704906,
+          "unit": "uA/um",
+          "difference": 0.0,
+          "tolerance": 0.0005448258559704905,
+          "passed": true
+        },
+        {
+          "name": "Ioff",
+          "coarse": 0.014048086662097696,
+          "fine": 0.014048086662097696,
+          "unit": "pA/um",
+          "difference": 0.0,
+          "tolerance": 1.4048086662097695e-08,
+          "passed": true
+        },
+        {
+          "name": "SS",
+          "coarse": 65.98945315161062,
+          "fine": 65.97498085030881,
+          "unit": "mV/dec",
+          "difference": 0.014472301301807988,
+          "tolerance": 0.2,
+          "passed": true
+        },
+        {
+          "name": "Ioff_398K",
+          "coarse": 21.546679047021122,
+          "fine": 21.546679047021122,
+          "unit": "pA/um",
+          "difference": 0.0,
+          "tolerance": 2.154667904702112e-05,
+          "passed": true
+        },
+        {
+          "name": "DIBL",
+          "coarse": 12.641530490607128,
+          "fine": 12.66400858972296,
+          "unit": "mV/V",
+          "difference": 0.02247809911583154,
+          "tolerance": 0.5,
+          "passed": true
+        },
+        {
+          "name": "Body_effect",
+          "coarse": 0.025630131595863304,
+          "fine": 0.025537407450752614,
+          "unit": "V",
+          "difference": 9.272414511068972e-05,
+          "tolerance": 0.001,
+          "passed": true
+        },
+        {
+          "name": "Eox",
+          "coarse": 4.444444444444445,
+          "fine": 4.444444444444445,
+          "unit": "MV/cm",
+          "difference": 0.0,
+          "tolerance": 4.444444444444444e-06,
+          "passed": true
+        }
+      ],
+      "fresh_replay_count": 15
+    }
+  ],
+  "local_extended_validation_pass": true,
+  "all_precision_validation_pass": false,
+  "legacy_regression": {
+    "iv_pass": true,
+    "initial_cv_strict_bit_exact_pass": false,
+    "current_cv_repeat_bit_exact_pass": true,
+    "original_cv_repeat_also_not_bit_exact": true,
+    "review_artifact": "legacy_regression_review.json"
+  },
+  "unit_tests": {
+    "passed": 20,
+    "command": ".conda/python.exe -B -m unittest discover -s project1/tests -v"
+  },
+  "limitations": [
+    "Double precision convergence must be read separately from extended checks; failures are retained.",
+    "Mesh convergence was not tested; mesh changes may change doping decay as well as numerics.",
+    "Constant mobility, Boltzmann/SRH/Varshni and ideal bottom ohmic body are existing model assumptions; surface p+ body tap differs.",
+    "Agreement with the teaching assistant physical model or real measurements has not been established.",
+    "Student ID is unknown; diagnostics do not use submission names. No report, commit, push or submission was performed.",
+    "Initial strict C-V last-bit comparison failed; exact original source also varies by last bits. Internal native operation was not isolated."
+  ],
+  "next": "Current requested steps complete with disclosed precision limitations; wait for user review before new design search or step 9."
+}

@@ -1,0 +1,10 @@
+{
+  "candidate": "11_W_cap096_bodytap",
+  "student_id": "2022142233",
+  "source": "project1/results/part2_optimization_20261004_202430/experiments/11_W_cap096_bodytap/screen/part2_diagnostic.devsim",
+  "destination": "project1/part2_2022142233.devsim",
+  "structure_sha256": "f2442ee257af6dfcb610db5928d0ff5d3b8e5bce1d2423d72e00c7fb099fe62e",
+  "config": "project1/part2_final.yaml",
+  "verification_status": "Local 전체 spec 및 수치 검증 PASS",
+  "verified_KST": "2026-10-04 21:18:40"
+}

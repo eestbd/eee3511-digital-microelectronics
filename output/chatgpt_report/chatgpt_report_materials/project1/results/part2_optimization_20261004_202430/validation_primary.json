@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "full_measurement_complete": true,
+  "verification_mode": "independent states; same official retention function and settings",
+  "all_specs_pass": true,
+  "fine_full_measurement_complete": true,
+  "retention_sensitivity": {
+    "0": {
+      "passed": true,
+      "Vcell_difference_V": 0.0006355884984386023,
+      "margin_difference_V": 8.962079376501064e-05
+    },
+    "1": {
+      "passed": true,
+      "Vcell_difference_V": 7.269144004506956e-05,
+      "margin_difference_V": 3.000325461896547e-06
+    }
+  },
+  "raw_checks": {
+    "final": {
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.1273195348396634,
+          "max_current_balance_A": 1.2953419809384896e-20,
+          "max_cell_update_error_V": 9.71445146547012e-17,
+          "max_charge_residual_C": 2.3518340962225303e-29
+        },
+        "0_5ps": {
+          "passed": true,
+          "margin_V": 0.126880973204902,
+          "max_current_balance_A": 1.4679900177856276e-20,
+          "max_cell_update_error_V": 9.367506770274758e-17,
+          "max_charge_residual_C": 4.90129315905753e-29
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.06730090541859313,
+          "max_current_balance_A": 5.927637421066293e-21,
+          "max_cell_update_error_V": 7.554720737878995e-16,
+          "max_charge_residual_C": 4.2540390426385387e-29
+        },
+        "1_5ps": {
+          "passed": true,
+          "margin_V": 0.06720917270229942,
+          "max_current_balance_A": 4.7024753154984164e-21,
+          "max_cell_update_error_V": 5.026361271642799e-16,
+          "max_charge_residual_C": 7.953845207978682e-29
+        }
+      },
+      "retention": {
+        "0": {
+          "passed": true,
+          "end_time_s": 0.064,
+          "end_Vcell_V": 0.0712528465704569,
+          "end_read_margin_V": 0.1172143821316265,
+          "observed_margin_monotonic": true
+        },
+        "1": {
+          "passed": true,
+          "end_time_s": 0.064,
+          "end_Vcell_V": 1.787177109379679,
+          "end_read_margin_V": 0.0604179683017853,
+          "observed_margin_monotonic": true
+        }
+      },
+      "passed": true
+    },
+    "fine": {
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.1273195348396634,
+          "max_current_balance_A": 1.2953419809384896e-20,
+          "max_cell_update_error_V": 9.71445146547012e-17,
+          "max_charge_residual_C": 2.3518340962225303e-29
+        },
+        "0_5ps": {
+          "passed": true,
+          "margin_V": 0.126880973204902,
+          "max_current_balance_A": 1.4679900177856276e-20,
+          "max_cell_update_error_V": 9.367506770274758e-17,
+          "max_charge_residual_C": 4.90129315905753e-29
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.06730090541859313,
+          "max_current_balance_A": 5.9276374066695814e-21,
+          "max_cell_update_error_V": 7.554720737878995e-16,
+          "max_charge_residual_C": 4.2540390428268014e-29
+        },
+        "1_5ps": {
+          "passed": true,
+          "margin_V": 0.06720917270229942,
+          "max_current_balance_A": 4.7024753190482905e-21,
+          "max_cell_update_error_V": 5.026361271642799e-16,
+          "max_charge_residual_C": 7.953845207969499e-29
+        }
+      },
+      "retention": {
+        "0": {
+          "passed": true,
+          "end_time_s": 0.064,
+          "end_Vcell_V": 0.0706172580720183,
+          "end_read_margin_V": 0.1173040029253915,
+          "observed_margin_monotonic": true
+        },
+        "1": {
+          "passed": true,
+          "end_time_s": 0.064,
+          "end_Vcell_V": 1.7872498008197242,
+          "end_read_margin_V": 0.0604209686272472,
+          "observed_margin_monotonic": true
+        }
+      },
+      "passed": true
+    }
+  },
+  "protected_files_unchanged": 402,
+  "old_log_prefix_preserved": true,
+  "staged_state_preserved": true,
+  "selected_export_hash_matches_measurement": true,
+  "fresh_structure_checker_passed": true,
+  "fresh_geometry_NetDoping_passed": true
+}

@@ -1,0 +1,104 @@
+{
+  "kind": "pre-change legacy baseline; not Part 1 spec evaluation",
+  "git_head": "8809257eb154ecdbeeacd55f4f0cbf6857302fbf",
+  "python": "3.11.16",
+  "devsim": {
+    "copyright": "Copyright © 2009-2025 DEVSIM LLC",
+    "direct_solver": [
+      "mkl_pardiso"
+    ],
+    "extended_precision": true,
+    "license": "Apache License, Version 2.0",
+    "math_libraries": [
+      "mkl_rt.2.dll"
+    ],
+    "mkl_version": "Intel(R) oneAPI Math Kernel Library Version 2025.0-Product Build 20241009 for Intel(R) 64 architecture applications",
+    "version": "2.10.0",
+    "website": "https://devsim.org"
+  },
+  "device": {
+    "gate_length_um": 1.0,
+    "source_length_um": 0.5,
+    "drain_length_um": 0.5,
+    "oxide_thickness_nm": 10.0,
+    "silicon_thickness_um": 0.5,
+    "junction_depth_um": 0.1,
+    "body_doping_cm3": 1e+16,
+    "sd_doping_cm3": 1e+19,
+    "temperature_k": 300.0,
+    "mu_n": 400.0,
+    "mu_p": 200.0
+  },
+  "sweeps": {
+    "idvg": {
+      "drain_v": 0.05,
+      "start_v": 0.0,
+      "stop_v": 2.0,
+      "step_v": 0.1
+    }
+  },
+  "commands": [
+    "python project1/mosfet.py idvg --config project1/config.yaml",
+    "python project1/mosfet.py idvd --config project1/config.yaml",
+    "python project1/mosfet.py cv --config project1/config.yaml"
+  ],
+  "curves": {
+    "idvg": {
+      "rows": 21,
+      "columns": [
+        "Vg_V",
+        "Id_A_per_um"
+      ],
+      "min": {
+        "Vg_V": 0.0,
+        "Id_A_per_um": 1.1984953055343857e-15
+      },
+      "max": {
+        "Vg_V": 2.0,
+        "Id_A_per_um": 9.13046317965806e-06
+      }
+    },
+    "idvd": {
+      "rows": 21,
+      "columns": [
+        "Vd_V",
+        "Id_A_per_um"
+      ],
+      "min": {
+        "Vd_V": 0.0,
+        "Id_A_per_um": -4.505174720887555e-20
+      },
+      "max": {
+        "Vd_V": 2.0,
+        "Id_A_per_um": 0.0001396249706774
+      }
+    },
+    "cv": {
+      "rows": 31,
+      "columns": [
+        "Vg_V",
+        "Cgg_F_per_um"
+      ],
+      "min": {
+        "Vg_V": -1.0,
+        "Cgg_F_per_um": 5.262319490339759e-16
+      },
+      "max": {
+        "Vg_V": 2.0,
+        "Cgg_F_per_um": 3.288496603941526e-15
+      }
+    }
+  },
+  "source_sha256": {
+    "project1/check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "project1/compare_models.py": "d094528162602d1329f4a5dbec56de37a365123eae33606ae406cd3f434ef4dd",
+    "project1/compare_tcad.py": "9a9696dc14654654e7e9ea5a6d808a6f58bbe2cac9e187ba7fb7c635b07d526b",
+    "project1/mosfet.py": "3d7e5dce2b6f08315fb1da78e0c5891bca3a8609143c92e87d12719fdce39cc7",
+    "project1/run_example.py": "b917130873069fe5523d65b1368754f9605e2ad4de582a154c39ac59befa8ee3",
+    "project1/mosfet_tool/config.py": "7e3ff9a0aeae14801870abff7b64316c4dd184fe850d3f7b69316fc15883f63c",
+    "project1/mosfet_tool/simulator.py": "049eb1a9b016451bcfdc1d0fe0d077d0f67e69a09f1d15a60e513b1f90195526",
+    "project1/mosfet_tool/workflows.py": "0e893214fbde23c970d6a3b645792632654616866f6167cab2b6c708c042d4c4",
+    "project1/mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277"
+  },
+  "helper_sha256": "c1f66b11df7d1b96f41f123b9c5841681655438fc17e13e60906274f7d99490f"
+}

@@ -1,0 +1,27 @@
+{
+  "created_KST": "2026-10-04T23:18:05.971910+09:00",
+  "student_id": "2022142233",
+  "files": {
+    "1": {
+      "path": "project1/part1_2022142233.devsim",
+      "sha256": "41c6f8f6ff5782c8ec3ecbc98d39bd264149ec076630f8bad0c9c98d6f06d07c",
+      "checker_exit_code": 0,
+      "checker_OK": true,
+      "singleton": true,
+      "equations_absent": true,
+      "hash_matches_final_measurement": true
+    },
+    "2": {
+      "path": "project1/part2_2022142233.devsim",
+      "sha256": "f2442ee257af6dfcb610db5928d0ff5d3b8e5bce1d2423d72e00c7fb099fe62e",
+      "checker_exit_code": 0,
+      "checker_OK": true,
+      "singleton": true,
+      "equations_absent": true,
+      "hash_matches_final_measurement": true
+    }
+  },
+  "actual_UI_screenshots_created": false,
+  "measurement_repeated": false,
+  "passed": true
+}

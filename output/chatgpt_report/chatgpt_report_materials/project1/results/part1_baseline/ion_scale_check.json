@@ -1,0 +1,10 @@
+{
+  "purpose": "Square-law dimensional and scale cross-check; measured Vth is an input, not an independent Vth validation",
+  "cox_F_per_cm2": 3.4515e-07,
+  "width_um": 1,
+  "vth_input_V": 0.5503073084678041,
+  "ion_square_law_uA_per_um": 145.07406235884494,
+  "ion_tcad_uA_per_um": 142.0526397419077,
+  "relative_difference": 0.021269739319359254,
+  "limitations": "Ideal long-channel approximation; no contact/mesh/TA accuracy guarantee"
+}

@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-04T05:20:18.885002+00:00",
+  "final_log_kst": "2026-10-04 14:20:18 KST",
+  "final_log_line": 723,
+  "initial_log_prefix_bytes": 25266,
+  "all_prior_log_bytes_preserved_at_final_append": 45082,
+  "log_headers_chronological": true,
+  "final_log_utf8_and_four_sections": true,
+  "protected_initial_file_count": 101,
+  "all_protected_hashes_match": true,
+  "allowed_initial_modified_files": [
+    "PLAN.md",
+    "PROGRESS_LOG.md",
+    "project1/part1.py"
+  ],
+  "design_trials": 10,
+  "final_candidates": 2,
+  "local_extended_validation_pass": true,
+  "all_precision_validation_pass": false,
+  "plan_required_sections_pass": true,
+  "result_json_parse_pass": true
+}

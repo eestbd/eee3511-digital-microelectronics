@@ -1,0 +1,56 @@
+{
+  "materials": {
+    "air": "Air",
+    "bulk": "Silicon",
+    "gate_metal": "TaN",
+    "hk_l": "ZrO2",
+    "hk_r": "ZrO2",
+    "metal_storage": "Metal",
+    "oxide": "Oxide"
+  },
+  "contacts": [
+    "body",
+    "drain",
+    "gate",
+    "plate_l",
+    "plate_r",
+    "source",
+    "storage_l",
+    "storage_r"
+  ],
+  "interfaces": [
+    "bulk_oxide"
+  ],
+  "bounds_um": {
+    "bulk": {
+      "xmin": 0.0,
+      "xmax": 0.7000000000000001,
+      "ymin": 0.0,
+      "ymax": 0.3
+    },
+    "oxide": {
+      "xmin": 0.2,
+      "xmax": 0.5,
+      "ymin": -0.005,
+      "ymax": 0.0
+    },
+    "hk_l": {
+      "xmin": 0.04700000000000001,
+      "xmax": 0.05,
+      "ymin": -0.9500000000000001,
+      "ymax": -0.05
+    },
+    "hk_r": {
+      "xmin": 0.15,
+      "xmax": 0.153,
+      "ymin": -0.9500000000000001,
+      "ymax": -0.05
+    },
+    "metal_storage": {
+      "xmin": 0.05,
+      "xmax": 0.15,
+      "ymin": -0.9500000000000001,
+      "ymax": 0.0
+    }
+  }
+}

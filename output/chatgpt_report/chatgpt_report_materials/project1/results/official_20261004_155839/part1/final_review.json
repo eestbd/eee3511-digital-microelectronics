@@ -1,0 +1,36 @@
+{
+  "scope": "Part 1 only",
+  "part1_all_specs_pass": true,
+  "official_numerical_validation_pass": true,
+  "selected_structure_fresh_checker_pass": true,
+  "tests_final": {
+    "count": 21,
+    "passed": true,
+    "log": "project1/tmp/official_20261004_155839/tests_part1_all_final.log"
+  },
+  "legacy_cli_regression_pass": true,
+  "double_executed_this_run": false,
+  "protected_existing_files_unchanged_count": 262,
+  "original_files_changed_within_scope": [
+    "project1/OFFICIAL_QA.md",
+    "AGENTS.md",
+    "PLAN.md",
+    "PROGRESS_LOG.md",
+    "project1/PART1_BASELINE.md",
+    "project1/README.md",
+    "project1/mosfet_tool/config.py",
+    "project1/mosfet_tool/physics.py",
+    "project1/mosfet_tool/simulator.py",
+    "project1/part1.py",
+    "project1/tests/test_part1.py",
+    "project1/validate_part1.py"
+  ],
+  "original_log_byte_prefix_preserved": true,
+  "part2_status": "USER_STOPPED_INCOMPLETE",
+  "student_id_confirmed": false,
+  "report_pdf": "output/pdf/part1_report_draft.pdf",
+  "report_pages": 7,
+  "report_status": "Part 1 draft; student ID and UI self-check screenshot pending",
+  "selected_source": "project1\\results\\official_20261004_155839\\part1\\candidate_10\\fine",
+  "selected_structure_sha256": "41c6f8f6ff5782c8ec3ecbc98d39bd264149ec076630f8bad0c9c98d6f06d07c"
+}

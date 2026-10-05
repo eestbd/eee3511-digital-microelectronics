@@ -1,0 +1,147 @@
+{
+  "passed": true,
+  "all_minimum_specs_pass": true,
+  "candidate": "19_balanced_ND20",
+  "structure_sha256": "376b392d2a81e9016f89c811f382a8f2d81e065dbeff9eef6072eab052753c11",
+  "numerical_checks": {
+    "verify0": {
+      "passed": true,
+      "initial": {
+        "passed": true,
+        "margin_V": 0.12780623944268166,
+        "max_charge_residual_C": 6.31777010759565e-29,
+        "max_current_balance_A": 1.2120086523927682e-20
+      },
+      "fine_read": {
+        "passed": true,
+        "margin_V": 0.12736406999935546,
+        "max_charge_residual_C": 2.855473403676455e-29,
+        "max_current_balance_A": 1.2290622954933259e-20
+      },
+      "degraded_read_count": 15,
+      "hold64": {
+        "passed": true,
+        "rows": 36,
+        "end_time_s": 0.064,
+        "end_cell_V": 0.1047680302777823,
+        "max_Euler_error_V": 6.093216209368535e-16,
+        "observed_margin_monotonic": true
+      },
+      "extension": {
+        "passed": true,
+        "rows": 10,
+        "end_time_s": 0.128,
+        "end_cell_V": 0.127761576099599,
+        "max_Euler_error_V": 5.594483210025203e-17,
+        "observed_margin_monotonic": true
+      }
+    },
+    "verify1": {
+      "passed": true,
+      "initial": {
+        "passed": true,
+        "margin_V": 0.06946326590457863,
+        "max_charge_residual_C": 6.072146921998601e-29,
+        "max_current_balance_A": 3.7468628896202595e-21
+      },
+      "fine_read": {
+        "passed": true,
+        "margin_V": 0.06936127280014848,
+        "max_charge_residual_C": 1.48769642051088e-28,
+        "max_current_balance_A": 5.513754388229374e-21
+      },
+      "degraded_read_count": 18,
+      "hold64": {
+        "passed": true,
+        "rows": 59,
+        "end_time_s": 0.064,
+        "end_cell_V": 1.8287935146818155,
+        "max_Euler_error_V": 6.4791921827733745e-16,
+        "observed_margin_monotonic": true
+      },
+      "extension": {
+        "passed": true,
+        "rows": 29,
+        "end_time_s": 0.0970184042910668,
+        "end_cell_V": 1.7447935146818183,
+        "max_Euler_error_V": 6.010816844259637e-16,
+        "observed_margin_monotonic": true
+      }
+    },
+    "fine0": {
+      "passed": true,
+      "initial": {
+        "passed": true,
+        "margin_V": 0.12780623944268166,
+        "max_charge_residual_C": 6.317770107591059e-29,
+        "max_current_balance_A": 1.2120086523927682e-20
+      },
+      "fine_read": {
+        "passed": true,
+        "margin_V": 0.12736406999935546,
+        "max_charge_residual_C": 2.855473403676455e-29,
+        "max_current_balance_A": 1.2290622954933259e-20
+      },
+      "degraded_read_count": 17,
+      "hold64": {
+        "passed": true,
+        "rows": 71,
+        "end_time_s": 0.064,
+        "end_cell_V": 0.1040498743091832,
+        "max_Euler_error_V": 7.958043946043603e-16,
+        "observed_margin_monotonic": true
+      },
+      "extension": {
+        "passed": true,
+        "rows": 17,
+        "end_time_s": 0.128,
+        "end_cell_V": 0.1271124319990167,
+        "max_Euler_error_V": 8.142358315366138e-17,
+        "observed_margin_monotonic": true
+      }
+    },
+    "fine1": {
+      "passed": true,
+      "initial": {
+        "passed": true,
+        "margin_V": 0.06946326590457863,
+        "max_charge_residual_C": 6.072146921994009e-29,
+        "max_current_balance_A": 3.746862886760639e-21
+      },
+      "fine_read": {
+        "passed": true,
+        "margin_V": 0.06936127280014848,
+        "max_charge_residual_C": 1.4876964205117983e-28,
+        "max_current_balance_A": 5.513754388032159e-21
+      },
+      "degraded_read_count": 18,
+      "hold64": {
+        "passed": true,
+        "rows": 116,
+        "end_time_s": 0.064,
+        "end_cell_V": 1.8288424828175005,
+        "max_Euler_error_V": 6.574601973952099e-16,
+        "observed_margin_monotonic": true
+      },
+      "extension": {
+        "passed": true,
+        "rows": 57,
+        "end_time_s": 0.0970275403518929,
+        "end_cell_V": 1.744842482817497,
+        "max_Euler_error_V": 5.804818431487391e-16,
+        "observed_margin_monotonic": true
+      }
+    }
+  },
+  "sensitivity": {
+    "0": {
+      "margin64_difference_V": 0.00010094594923160116,
+      "estimate_relative_difference": null
+    },
+    "1": {
+      "margin64_difference_V": 2.025763975455064e-06,
+      "estimate_relative_difference": 9.065637066725363e-05
+    }
+  },
+  "geometry_pass": true
+}

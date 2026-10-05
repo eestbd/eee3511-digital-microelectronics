@@ -1,0 +1,222 @@
+[
+  {
+    "label": "01_TaN",
+    "section": "device",
+    "changes": {
+      "gate_material": "TaN"
+    },
+    "strategy": "single knob from final #11"
+  },
+  {
+    "label": "02_tap010",
+    "section": "body_tap",
+    "changes": {
+      "thickness_um": 0.1
+    },
+    "strategy": "single knob from final #11"
+  },
+  {
+    "label": "03_NA17",
+    "section": "device",
+    "changes": {
+      "body_doping_cm3": 1e+17
+    },
+    "strategy": "single knob from final #11"
+  },
+  {
+    "label": "04_xj003",
+    "section": "device",
+    "changes": {
+      "junction_depth_um": 0.03
+    },
+    "strategy": "single knob from final #11"
+  },
+  {
+    "label": "05_profile_low",
+    "section": "doping_profile",
+    "changes": {
+      "source_side_na_cm3": 1000000000000000.0,
+      "drain_side_na_cm3": 7e+16,
+      "split_fraction": 0.5
+    },
+    "strategy": "single knob from final #11"
+  },
+  {
+    "label": "06_tox55",
+    "section": "device",
+    "changes": {
+      "oxide_thickness_nm": 5.5
+    },
+    "strategy": "single knob from final #11"
+  },
+  {
+    "label": "07_sourceND21",
+    "changes": {
+      "doping_profile": {
+        "source_side_na_cm3": 7e+16,
+        "drain_side_na_cm3": 7e+16,
+        "split_fraction": 0.5,
+        "source_nd_cm3": 1e+21,
+        "drain_nd_cm3": 1e+19
+      }
+    },
+    "strategy": "single physical knob from baseline; capacitor co-geometry maintains <=19 fF"
+  },
+  {
+    "label": "08_tap21",
+    "changes": {
+      "body_tap": {
+        "additional_acceptor_cm3": 1e+21
+      }
+    },
+    "strategy": "single physical knob from baseline; capacitor co-geometry maintains <=19 fF"
+  },
+  {
+    "label": "09_cap_margin",
+    "changes": {
+      "capacitor": {
+        "height_um": 1.22,
+        "dielectric_nm": 4.0
+      }
+    },
+    "strategy": "single physical knob from baseline; capacitor co-geometry maintains <=19 fF"
+  },
+  {
+    "label": "10_low_high",
+    "changes": {
+      "doping_profile": {
+        "source_side_na_cm3": 1000000000000000.0,
+        "drain_side_na_cm3": 1e+17,
+        "split_fraction": 0.5
+      }
+    },
+    "strategy": "asymmetric doping follow-up to initial READ/leak tradeoff"
+  },
+  {
+    "label": "11_low_short",
+    "changes": {
+      "doping_profile": {
+        "source_side_na_cm3": 1000000000000000.0,
+        "drain_side_na_cm3": 1e+17,
+        "split_fraction": 0.25
+      }
+    },
+    "strategy": "asymmetric doping follow-up to initial READ/leak tradeoff"
+  },
+  {
+    "label": "12_sourceND20",
+    "changes": {
+      "doping_profile": {
+        "source_side_na_cm3": 7e+16,
+        "drain_side_na_cm3": 7e+16,
+        "split_fraction": 0.5,
+        "source_nd_cm3": 1e+20,
+        "drain_nd_cm3": 1e+19
+      }
+    },
+    "strategy": "asymmetric doping follow-up to initial READ/leak tradeoff"
+  },
+  {
+    "label": "13_reverse_profile",
+    "changes": {
+      "doping_profile": {
+        "source_side_na_cm3": 1e+17,
+        "drain_side_na_cm3": 1000000000000000.0,
+        "split_fraction": 0.5
+      }
+    },
+    "strategy": "asymmetric doping follow-up to initial READ/leak tradeoff"
+  },
+  {
+    "label": "14_TaN_tox7",
+    "changes": {
+      "device": {
+        "gate_material": "TaN",
+        "oxide_thickness_nm": 7.0
+      }
+    },
+    "strategy": "combine READ gain with leakage suppression"
+  },
+  {
+    "label": "15_TaN_xj002",
+    "changes": {
+      "device": {
+        "gate_material": "TaN",
+        "junction_depth_um": 0.02
+      }
+    },
+    "strategy": "combine READ gain with leakage suppression"
+  },
+  {
+    "label": "16_ND21_xj003",
+    "changes": {
+      "device": {
+        "junction_depth_um": 0.03
+      },
+      "doping_profile": {
+        "source_side_na_cm3": 7e+16,
+        "drain_side_na_cm3": 7e+16,
+        "split_fraction": 0.5,
+        "source_nd_cm3": 1e+21,
+        "drain_nd_cm3": 1e+19
+      }
+    },
+    "strategy": "combine READ gain with leakage suppression"
+  },
+  {
+    "label": "17_ND_asym21_18",
+    "changes": {
+      "doping_profile": {
+        "source_side_na_cm3": 7e+16,
+        "drain_side_na_cm3": 7e+16,
+        "split_fraction": 0.5,
+        "source_nd_cm3": 1e+21,
+        "drain_nd_cm3": 1e+18
+      }
+    },
+    "strategy": "independent source READ and drain off-current profile"
+  },
+  {
+    "label": "18_ND_asym20_18",
+    "changes": {
+      "doping_profile": {
+        "source_side_na_cm3": 7e+16,
+        "drain_side_na_cm3": 7e+16,
+        "split_fraction": 0.5,
+        "source_nd_cm3": 1e+20,
+        "drain_nd_cm3": 1e+18
+      }
+    },
+    "strategy": "independent source READ and drain off-current profile"
+  },
+  {
+    "label": "19_balanced_ND20",
+    "parent": "10_low_high",
+    "changes": {
+      "source_nd_cm3": 1e+20,
+      "tox_nm": 5.3,
+      "cap_tdiel_nm": 4.0,
+      "cap_height_um": 1.245
+    },
+    "strategy": "practical margin in READ, leakage, capacitance and gate/cap field"
+  },
+  {
+    "label": "20_balanced_noND",
+    "parent": "10_low_high",
+    "changes": {
+      "source_nd_cm3": null,
+      "tox_nm": 5.2,
+      "cap_tdiel_nm": 4.0,
+      "cap_height_um": 1.245
+    },
+    "strategy": "practical margin in READ, leakage, capacitance and gate/cap field"
+  },
+  {
+    "label": "21_balanced_short",
+    "parent": "19_balanced_ND20",
+    "changes": {
+      "split_fraction": 0.3
+    },
+    "strategy": "local channel profile refinement to suppress leakage"
+  }
+]

@@ -1,0 +1,256 @@
+{
+  "passed": true,
+  "screened_candidates": 12,
+  "checks": {
+    "01_TaN": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": true,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.13287779626554475,
+          "max_charge_residual_C": 4.398752949306942e-29,
+          "max_current_balance_A": 1.1756933278532525e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.08456060159893397,
+          "max_charge_residual_C": 4.7658380366418075e-29,
+          "max_current_balance_A": 2.1520405441048512e-20
+        }
+      }
+    },
+    "02_tap010": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": true,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.12712605215792827,
+          "max_charge_residual_C": 2.3325700828626401e-29,
+          "max_current_balance_A": 1.1327044898878157e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.06617766838132688,
+          "max_charge_residual_C": 5.2030041672199e-29,
+          "max_current_balance_A": 5.936126930910774e-21
+        }
+      }
+    },
+    "03_NA17": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": false,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.12432695455853393,
+          "max_charge_residual_C": 2.551860607411202e-29,
+          "max_current_balance_A": 9.896191455963022e-21
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.05892894772272039,
+          "max_charge_residual_C": 6.841710137755731e-29,
+          "max_current_balance_A": 4.2529977634644285e-21
+        }
+      }
+    },
+    "04_xj003": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": true,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.12561722373474726,
+          "max_charge_residual_C": 2.620398518721175e-29,
+          "max_current_balance_A": 1.4788009873639425e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.06297358384975049,
+          "max_charge_residual_C": 6.471784194225289e-29,
+          "max_current_balance_A": 5.889993364224914e-21
+        }
+      }
+    },
+    "05_profile_low": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": true,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.13047718573583067,
+          "max_charge_residual_C": 2.390553867004831e-29,
+          "max_current_balance_A": 1.1648297621770949e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.07652250860343823,
+          "max_charge_residual_C": 1.0022030565988142e-28,
+          "max_current_balance_A": 9.22236923715035e-21
+        }
+      }
+    },
+    "06_tox55": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": false,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.1221742615101662,
+          "max_charge_residual_C": 2.4645609660775178e-29,
+          "max_current_balance_A": 1.0390149840581989e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.05989858039958551,
+          "max_charge_residual_C": 3.6892818421336766e-29,
+          "max_current_balance_A": 6.5817267283649426e-21
+        }
+      }
+    },
+    "07_sourceND21": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": true,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.1342971614506575,
+          "max_charge_residual_C": 2.6491620084677627e-29,
+          "max_current_balance_A": 1.6837009809451673e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.07376178294842561,
+          "max_charge_residual_C": 6.908319431580776e-29,
+          "max_current_balance_A": 5.0355639481618486e-21
+        }
+      }
+    },
+    "10_low_high": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": true,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.12882451608195022,
+          "max_charge_residual_C": 3.226265140967137e-29,
+          "max_current_balance_A": 1.6703539083886965e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.07195058800683007,
+          "max_charge_residual_C": 8.206229967313579e-29,
+          "max_current_balance_A": 7.938148451306915e-21
+        }
+      },
+      "endpoint": {
+        "hold": {
+          "passed": true,
+          "rows": 61,
+          "end_time_s": 0.064,
+          "end_cell_V": 1.8202320923454092,
+          "max_Euler_error_V": 7.992738415563139e-16,
+          "observed_margin_monotonic": null
+        },
+        "read": {
+          "passed": true,
+          "margin_V": 0.06527976253232803,
+          "max_charge_residual_C": 3.9096210491961097e-29,
+          "max_current_balance_A": 4.248225334552305e-21
+        },
+        "partial_only": true
+      }
+    },
+    "16_ND21_xj003": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": true,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.13291202382743317,
+          "max_charge_residual_C": 2.673489725328047e-29,
+          "max_current_balance_A": 1.2427358906834195e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.06908569189422464,
+          "max_charge_residual_C": 5.188809383595823e-29,
+          "max_current_balance_A": 5.0941020961039076e-21
+        }
+      }
+    },
+    "17_ND_asym21_18": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": false,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.12649361629946976,
+          "max_charge_residual_C": 3.4382174756224755e-29,
+          "max_current_balance_A": 1.0881276368674912e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.05116781264924475,
+          "max_charge_residual_C": 4.8882135453725837e-29,
+          "max_current_balance_A": 4.1396990105595335e-21
+        }
+      }
+    },
+    "19_balanced_ND20": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": true,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.1278062394426812,
+          "max_charge_residual_C": 4.386596147993869e-29,
+          "max_current_balance_A": 1.2030481332458085e-20
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.06946326590457863,
+          "max_charge_residual_C": 6.269342298621556e-29,
+          "max_current_balance_A": 4.742632247436787e-21
+        }
+      },
+      "endpoint": {
+        "hold": {
+          "passed": true,
+          "rows": 59,
+          "end_time_s": 0.064,
+          "end_cell_V": 1.8287935146818155,
+          "max_Euler_error_V": 6.4791921827733745e-16,
+          "observed_margin_monotonic": null
+        },
+        "read": {
+          "passed": true,
+          "margin_V": 0.06355720896602857,
+          "max_charge_residual_C": 8.761143466340193e-29,
+          "max_current_balance_A": 6.216716753087296e-21
+        },
+        "partial_only": true
+      }
+    },
+    "21_balanced_short": {
+      "screen_evidence_pass": true,
+      "initial_read_specs_pass": true,
+      "read": {
+        "0": {
+          "passed": true,
+          "margin_V": 0.12609903070281725,
+          "max_charge_residual_C": 3.763477306257567e-29,
+          "max_current_balance_A": 8.30462206954317e-21
+        },
+        "1": {
+          "passed": true,
+          "margin_V": 0.0631819930853903,
+          "max_charge_residual_C": 7.991469731873825e-29,
+          "max_current_balance_A": 7.086707932578271e-21
+        }
+      }
+    }
+  }
+}

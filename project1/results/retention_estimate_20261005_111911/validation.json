@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "cell_limiting_state": "data1",
+  "cell_estimate_s": 0.06720347876731442,
+  "fine_cell_failure_bracket_s": [
+    0.06717176115575685,
+    0.06723519637887199
+  ],
+  "primary_cell_failure_bracket_s": [
+    0.06715694877754166,
+    0.06722411790046809
+  ],
+  "primary_fine_estimate_difference_s": 1.294542830954093e-05,
+  "primary_fine_relative_difference": 0.00019263033025958715,
+  "combined_numerical_bracket_s": [
+    0.06715694877754166,
+    0.06723519637887199
+  ],
+  "data0_verified_lower_bound_s": 0.07259764773458156,
+  "data0_required_confirmation_time_s": 0.06723519637887199,
+  "data0_end_margins_V": {
+    "primary": 0.11667453302003694,
+    "fine": 0.11676331753449765
+  },
+  "raw_checks": {
+    "primary_bit1": {
+      "passed": true,
+      "read_count": 9,
+      "raw_rows": 10,
+      "seed_difference_V": 6.245004513516506e-17,
+      "max_Euler_residual_V": 3.0921445959286586e-16,
+      "read_checks": [
+        {
+          "index": 0,
+          "max_charge_residual_C": 6.392509132819947e-29
+        },
+        {
+          "index": 1,
+          "max_charge_residual_C": 7.682688979383055e-29
+        },
+        {
+          "index": 2,
+          "max_charge_residual_C": 5.403861955205242e-29
+        },
+        {
+          "index": 3,
+          "max_charge_residual_C": 7.001135298042296e-29
+        },
+        {
+          "index": 4,
+          "max_charge_residual_C": 4.133807539596539e-29
+        },
+        {
+          "index": 5,
+          "max_charge_residual_C": 4.946317051302447e-29
+        },
+        {
+          "index": 6,
+          "max_charge_residual_C": 7.133835373527118e-29
+        },
+        {
+          "index": 7,
+          "max_charge_residual_C": 3.830395582549461e-29
+        },
+        {
+          "index": 8,
+          "max_charge_residual_C": 1.1894415366618573e-28
+        }
+      ]
+    },
+    "primary_bit0": {
+      "passed": true,
+      "read_count": 2,
+      "raw_rows": 3,
+      "seed_difference_V": 0.0,
+      "max_Euler_residual_V": 2.6129272356900657e-17,
+      "read_checks": [
+        {
+          "index": 0,
+          "max_charge_residual_C": 3.024063149548863e-29
+        },
+        {
+          "index": 1,
+          "max_charge_residual_C": 1.7829718957239805e-29
+        }
+      ]
+    },
+    "fine_bit1": {
+      "passed": true,
+      "read_count": 9,
+      "raw_rows": 18,
+      "seed_difference_V": 2.0816681711721685e-17,
+      "max_Euler_residual_V": 3.629908873481469e-16,
+      "read_checks": [
+        {
+          "index": 0,
+          "max_charge_residual_C": 5.919895377843399e-29
+        },
+        {
+          "index": 1,
+          "max_charge_residual_C": 4.845186708417161e-29
+        },
+        {
+          "index": 2,
+          "max_charge_residual_C": 7.98852306999652e-29
+        },
+        {
+          "index": 3,
+          "max_charge_residual_C": 8.597449687708664e-29
+        },
+        {
+          "index": 4,
+          "max_charge_residual_C": 4.786664718318158e-29
+        },
+        {
+          "index": 5,
+          "max_charge_residual_C": 9.206699158034527e-29
+        },
+        {
+          "index": 6,
+          "max_charge_residual_C": 8.908976338955751e-29
+        },
+        {
+          "index": 7,
+          "max_charge_residual_C": 8.618357010827549e-29
+        },
+        {
+          "index": 8,
+          "max_charge_residual_C": 6.228104650972015e-29
+        }
+      ]
+    },
+    "fine_bit0": {
+      "passed": true,
+      "read_count": 2,
+      "raw_rows": 4,
+      "seed_difference_V": 5.551115123125783e-17,
+      "max_Euler_residual_V": 1.3227266504323154e-17,
+      "read_checks": [
+        {
+          "index": 0,
+          "max_charge_residual_C": 2.8200514800546e-29
+        },
+        {
+          "index": 1,
+          "max_charge_residual_C": 2.513954052492109e-29
+        }
+      ]
+    }
+  },
+  "protected_files_unchanged": 592,
+  "old_log_prefix_preserved": true,
+  "staged_state_preserved": true
+}

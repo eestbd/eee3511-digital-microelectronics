@@ -1,0 +1,77 @@
+{
+  "selected_trials": [
+    "trial_10_lg06_tox475_w_na2e16",
+    "trial_08_lg06_tox45_w_na2e16"
+  ],
+  "ranked_pass_candidates": [
+    {
+      "folder": "trial_10_lg06_tox475_w_na2e16",
+      "index": 10,
+      "margins": {
+        "Vth": 0.15928184130055092,
+        "Ion": 0.1482156839369663,
+        "Ioff": 0.9869887490685381,
+        "SS": 0.11692728638659389,
+        "Ioff_398K": 0.7914128662460029,
+        "DIBL": 0.564159909788583,
+        "Body_effect": 0.6661910639306252,
+        "Eox": 0.1578947368421053
+      },
+      "minimum_margin": 0.11692728638659389,
+      "mean_margin": 0.44888401718749577
+    },
+    {
+      "folder": "trial_08_lg06_tox45_w_na2e16",
+      "index": 8,
+      "margins": {
+        "Vth": 0.20646112966004332,
+        "Ion": 0.21072412437886795,
+        "Ioff": 0.9859519133379023,
+        "SS": 0.12014062464519175,
+        "Ioff_398K": 0.7845332095297889,
+        "DIBL": 0.5786156503130957,
+        "Body_effect": 0.6796233550517087,
+        "Eox": 0.11111111111111108
+      },
+      "minimum_margin": 0.11111111111111108,
+      "mean_margin": 0.45964513975346377
+    },
+    {
+      "folder": "trial_09_lg055_tox45_tin",
+      "index": 9,
+      "margins": {
+        "Vth": 0.15820120316392297,
+        "Ion": 0.32259065204946563,
+        "Ioff": 0.9623388713020476,
+        "SS": 0.11266973071561172,
+        "Ioff_398K": 0.21545114290771694,
+        "DIBL": 0.31267199856108274,
+        "Body_effect": 0.7671157087112563,
+        "Eox": 0.11111111111111108
+      },
+      "minimum_margin": 0.11111111111111108,
+      "mean_margin": 0.37026880231527687
+    },
+    {
+      "folder": "trial_07_lg06_tox45_tin",
+      "index": 7,
+      "margins": {
+        "Vth": 0.09416455242515556,
+        "Ion": 0.19668196622163073,
+        "Ioff": 0.9825247701925635,
+        "SS": 0.11896597149773488,
+        "Ioff_398K": 0.4630732660945291,
+        "DIBL": 0.4124337702452292,
+        "Body_effect": 0.7592540640146158,
+        "Eox": 0.11111111111111108
+      },
+      "minimum_margin": 0.09416455242515556,
+      "mean_margin": 0.39227618397532127
+    }
+  ],
+  "rule": "Require eight PASS and raw-current conservation; rank by minimum normalized spec margin, then mean margin. Heuristic selection, no changes to pass thresholds.",
+  "margin_definition": "Vth: min(v-0.4,0.5-v)/0.1; Ion: (v-450)/450; upper-bounded specs: (limit-v)/limit.",
+  "analysis_sha256": "08d68a9310c454aac52e4940283155987cb0462b590cb6e176a0fb52ed54a250",
+  "selected_at_utc": "2026-10-04T05:01:06.719015+00:00",
+  "validation_status_at_selection": "PENDING; final status is recorded in final_summary.json"
+}

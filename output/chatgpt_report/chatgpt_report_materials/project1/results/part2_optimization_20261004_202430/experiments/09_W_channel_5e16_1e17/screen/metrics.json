@@ -1,0 +1,177 @@
+{
+  "stage": "screen",
+  "device": {
+    "gate_length_um": 0.3,
+    "source_length_um": 0.2,
+    "drain_length_um": 0.2,
+    "oxide_thickness_nm": 5.0,
+    "silicon_thickness_um": 0.3,
+    "junction_depth_um": 0.05,
+    "body_doping_cm3": 7e+16,
+    "sd_doping_cm3": 1e+19,
+    "temperature_k": 398.0,
+    "mu_n": 400.0,
+    "mu_p": 200.0,
+    "gate_material": "W",
+    "silicon_temperature_model": "varshni",
+    "doping_decay_x_nm": 12.5,
+    "doping_decay_y_nm": 5.0
+  },
+  "capacitor": {
+    "material": "ZrO2",
+    "height_um": 0.96,
+    "dielectric_nm": 3.0,
+    "pillar_width_um": 0.1,
+    "bottom_clearance_um": 0.05
+  },
+  "doping_profile": {
+    "source_side_na_cm3": 5e+16,
+    "drain_side_na_cm3": 1e+17,
+    "split_fraction": 0.5
+  },
+  "measurement_complete": true,
+  "all_specs_pass": false,
+  "partial_characterization": true,
+  "physics_model_id": "qa_varshni_midgap_mobility_v1",
+  "physics_398K": {
+    "bandgap_eV": 1.0975385957446808,
+    "n_i_cm3": 4757304128886.964,
+    "Nc_cm3": 4.278590843135502e+19,
+    "V_t_V": 0.0343436762125,
+    "intrinsic_work_function_eV": 4.59876929787234,
+    "mu_n_cm2_Vs": 202.9698962276924,
+    "mu_p_cm2_Vs": 107.38756563544702
+  },
+  "source_sha256": {
+    "part2_experiment.py": "28e9b7cd37d54ff535cf72528ed454e18c1ebe095355ac96587eee59811e628d",
+    "part2_design.py": "ba0f3dbe7e255caa7f49e1df698c2b925a014997efc5422c90eec1d9842fe504",
+    "part2.py": "9377c67e3d31728e58d27868c774455c551d6876bd2eeaef1a1a307b5521e4f0",
+    "check_structure_file.py": "0458de12bb2b8d5d30053cfe31ee95b69c14b328042a26a064d2005f6fbfe510",
+    "mosfet_tool/__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277",
+    "mosfet_tool/cell.py": "b389a55ffca9fafd81743b46da8f68c542e5467bb27e9a7bf009ef27424668ff",
+    "mosfet_tool/config.py": "d276cd4199c2ba26dbb4cc5967c874ad10aea2801cacdd5ebbf792983a2ef1a1",
+    "mosfet_tool/materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "mosfet_tool/metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+    "mosfet_tool/physics.py": "367d606041ce12f1516c3e2390eb8594638451f5aa35917eee951f7e6b970bae",
+    "mosfet_tool/simulator.py": "25c4607629ea93380691f040c08c2aebb8fd04f7edcd5ced7e454990d5bf9d45",
+    "mosfet_tool/workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b"
+  },
+  "read": {
+    "0": {
+      "initial_cell_V": 0.0,
+      "dt_s": 1e-11,
+      "decision_time_s": 5e-10,
+      "margin_V": 0.12667565997106078,
+      "passed": true,
+      "max_charge_residual_C": 3.507572445201999e-29
+    },
+    "1": {
+      "initial_cell_V": 2.0,
+      "dt_s": 1e-11,
+      "decision_time_s": 5e-10,
+      "margin_V": 0.06616922344495624,
+      "passed": true,
+      "max_charge_residual_C": 3.9752519610112196e-29
+    }
+  },
+  "retention": {},
+  "off_currents": [
+    {
+      "bit": "1",
+      "Vcell_V": 2.0,
+      "BL_V": 0.0,
+      "terminal_currents_A_per_um": {
+        "source": 7.556095535595376e-13,
+        "drain": -2.1881118216892052e-13,
+        "body": -5.367983713906173e-13
+      },
+      "Istorage_A": 7.556095535595376e-14
+    },
+    {
+      "bit": "1",
+      "Vcell_V": 1.8,
+      "BL_V": 0.0,
+      "terminal_currents_A_per_um": {
+        "source": 6.743026120471135e-13,
+        "drain": -1.9626875693924728e-13,
+        "body": -4.780338551078663e-13
+      },
+      "Istorage_A": 6.743026120471135e-14
+    },
+    {
+      "bit": "0",
+      "Vcell_V": 0.0,
+      "BL_V": 2.0,
+      "terminal_currents_A_per_um": {
+        "source": -3.9894732191737337e-13,
+        "drain": 8.216875147311353e-13,
+        "body": -4.2274019281376194e-13
+      },
+      "Istorage_A": -3.989473219173734e-14
+    }
+  ],
+  "conditions": {
+    "T_K": 398,
+    "VB_V": -0.5,
+    "WL_high_V": 2.5,
+    "width_um": 0.1,
+    "CBL_F": 1e-13,
+    "READ_dt_s": 1e-11,
+    "READ_decision_s": 5e-10,
+    "retention_requirement_s": 0.064,
+    "retention_max_delta_V": 0.003,
+    "ramp_step_V": 0.1
+  },
+  "structure_file": "C:\\Users\\super\\DEVSIM_PROJECT\\project1\\results\\part2_optimization_20261004_202430\\experiments\\09_W_channel_5e16_1e17\\screen\\part2_diagnostic.devsim",
+  "structure_sha256": "e99e6b2016409fef675aad414252aa308070419ba885b954f959e2ec327e8ca4",
+  "structure_check_passed": true,
+  "capacitance": {
+    "CSTORE_F": 1.9823999999999984e-14,
+    "fine_delta_CSTORE_F": 1.982399999999967e-14,
+    "parallel_plate_reference_F": 1.9824000000000003e-14,
+    "plate_points": [
+      {
+        "plate_V": 0.99,
+        "plate_charge_C": 1.9625759999999997e-14
+      },
+      {
+        "plate_V": 1,
+        "plate_charge_C": 1.9823999999999994e-14
+      },
+      {
+        "plate_V": 1.01,
+        "plate_charge_C": 2.0022239999999997e-14
+      }
+    ],
+    "fine_plate_points": [
+      {
+        "plate_V": 0.995,
+        "plate_charge_C": 1.9724879999999996e-14
+      },
+      {
+        "plate_V": 1,
+        "plate_charge_C": 1.9823999999999994e-14
+      },
+      {
+        "plate_V": 1.005,
+        "plate_charge_C": 1.9923119999999992e-14
+      }
+    ],
+    "passed": true,
+    "perturbation_checks_pass": true,
+    "reference_check_pass": true
+  },
+  "fields": {
+    "gate_MV_cm": 5.0,
+    "capacitor_MV_cm": 3.3333333333333335
+  },
+  "reliability_pass": true,
+  "elapsed_s": 184.9059999999954,
+  "native_physics": {
+    "mu_n": 202.9698962276924,
+    "mu_p": 107.38756563544702,
+    "n_i": 4757304128886.964,
+    "n1": 4757304128886.964,
+    "p1": 4757304128886.964
+  }
+}

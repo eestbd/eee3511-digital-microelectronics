@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "structure_sha256": "376b392d2a81e9016f89c811f382a8f2d81e065dbeff9eef6072eab052753c11",
+  "regions": {
+    "air": "Air",
+    "bulk": "Silicon",
+    "gate_metal": "W",
+    "hk_l": "ZrO2",
+    "hk_r": "ZrO2",
+    "metal_storage": "Metal",
+    "oxide": "Oxide"
+  },
+  "contacts": [
+    "body",
+    "drain",
+    "gate",
+    "plate_l",
+    "plate_r",
+    "source",
+    "storage_l",
+    "storage_r"
+  ],
+  "bounds_um": {
+    "bulk": {
+      "xmin_um": 0.0,
+      "xmax_um": 0.7000000000000001,
+      "ymin_um": 0.0,
+      "ymax_um": 0.3
+    },
+    "oxide": {
+      "xmin_um": 0.2,
+      "xmax_um": 0.5,
+      "ymin_um": -0.0053,
+      "ymax_um": 0.0
+    },
+    "hk_l": {
+      "xmin_um": 0.046,
+      "xmax_um": 0.05,
+      "ymin_um": -1.295,
+      "ymax_um": -0.05
+    },
+    "hk_r": {
+      "xmin_um": 0.15,
+      "xmax_um": 0.15400000000000003,
+      "ymin_um": -1.295,
+      "ymax_um": -0.05
+    },
+    "metal_storage": {
+      "xmin_um": 0.05,
+      "xmax_um": 0.15,
+      "ymin_um": -1.295,
+      "ymax_um": 0.0
+    }
+  },
+  "doping_profile": {
+    "source_side_na_cm3": 1000000000000000.0,
+    "drain_side_na_cm3": 1e+17,
+    "split_fraction": 0.5,
+    "source_nd_cm3": 1e+20,
+    "drain_nd_cm3": 1e+19
+  },
+  "body_tap": {
+    "additional_acceptor_cm3": 1e+19,
+    "thickness_um": 0.05
+  },
+  "netdoping_points_checked": 1785,
+  "max_NetDoping_difference_cm3": 0.0,
+  "equations_absent": true,
+  "new_doping_node_names_absent": true
+}

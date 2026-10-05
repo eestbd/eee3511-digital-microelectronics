@@ -1,0 +1,2616 @@
+{
+  "purpose": "Report context derived from preserved real results; no new simulations",
+  "student_id": "2022142233",
+  "final_models": {
+    "part1": "qa_varshni_midgap_mobility_v1",
+    "part1_physics": {
+      "300.0": {
+        "bandgap_eV": 1.1245192307692307,
+        "n_i_cm3": 10000000000.0,
+        "Nc_cm3": 2.8e+19,
+        "V_t_V": 0.025887193125000003,
+        "intrinsic_work_function_eV": 4.612259615384615,
+        "mu_n_cm2_Vs": 400.0,
+        "mu_p_cm2_Vs": 200.0
+      },
+      "398.0": {
+        "bandgap_eV": 1.0975385957446808,
+        "n_i_cm3": 4757304128886.964,
+        "Nc_cm3": 4.278590843135502e+19,
+        "V_t_V": 0.0343436762125,
+        "intrinsic_work_function_eV": 4.59876929787234,
+        "mu_n_cm2_Vs": 202.9698962276924,
+        "mu_p_cm2_Vs": 107.38756563544702
+      }
+    }
+  },
+  "part1_final": {
+    "source": "project1/results/official_20261004_155839/part1/candidate_10/fine/metrics.json",
+    "device": {
+      "gate_length_um": 0.6,
+      "source_length_um": 0.5,
+      "drain_length_um": 0.5,
+      "oxide_thickness_nm": 4.75,
+      "silicon_thickness_um": 0.5,
+      "junction_depth_um": 0.1,
+      "body_doping_cm3": 2e+16,
+      "sd_doping_cm3": 1e+19,
+      "temperature_k": 300.0,
+      "mu_n": 400.0,
+      "mu_p": 200.0,
+      "gate_material": "W",
+      "silicon_temperature_model": "varshni",
+      "doping_decay_x_nm": 12.5,
+      "doping_decay_y_nm": 5.0
+    },
+    "sweep": {
+      "start_V": 0.0,
+      "stop_V": 2.0,
+      "step_V": 0.01,
+      "points": 201
+    },
+    "conditions": {
+      "idvg_low": {
+        "T_K": 300,
+        "VD_V": 0.05,
+        "VB_V": 0
+      },
+      "idvg_high": {
+        "T_K": 300,
+        "VD_V": 2,
+        "VB_V": 0
+      },
+      "idvg_body": {
+        "T_K": 300,
+        "VD_V": 0.05,
+        "VB_V": -0.5
+      },
+      "off_398K": {
+        "T_K": 398,
+        "VD_V": 2,
+        "VB_V": 0,
+        "VG_V": 0
+      }
+    },
+    "metrics": [
+      {
+        "name": "Vth",
+        "value": 0.48484826665779296,
+        "unit": "V",
+        "minimum": 0.4,
+        "maximum": 0.5,
+        "status": "PASS",
+        "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+        "error": null
+      },
+      {
+        "name": "Ion",
+        "value": 516.1376572589578,
+        "unit": "uA/um",
+        "minimum": 450,
+        "maximum": null,
+        "status": "PASS",
+        "condition": "300 K, VG=VD=2 V, VB=VS=0",
+        "error": null
+      },
+      {
+        "name": "Ioff",
+        "value": 0.012637363016685946,
+        "unit": "pA/um",
+        "minimum": null,
+        "maximum": 1,
+        "status": "PASS",
+        "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+        "error": null
+      },
+      {
+        "name": "SS",
+        "value": 66.22188272822382,
+        "unit": "mV/dec",
+        "minimum": null,
+        "maximum": 75,
+        "status": "PASS",
+        "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+        "error": null
+      },
+      {
+        "name": "Ioff_398K",
+        "value": 10.375525641108487,
+        "unit": "pA/um",
+        "minimum": null,
+        "maximum": 100,
+        "status": "PASS",
+        "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+        "error": null
+      },
+      {
+        "name": "DIBL",
+        "value": 13.042381341104653,
+        "unit": "mV/V",
+        "minimum": null,
+        "maximum": 30,
+        "status": "PASS",
+        "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+        "error": null
+      },
+      {
+        "name": "Body_effect",
+        "value": 0.026622484504610855,
+        "unit": "V",
+        "minimum": null,
+        "maximum": 0.08,
+        "status": "PASS",
+        "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+        "error": null
+      },
+      {
+        "name": "Eox",
+        "value": 4.2105263157894735,
+        "unit": "MV/cm",
+        "minimum": null,
+        "maximum": 5,
+        "status": "PASS",
+        "condition": "VDD=2 V / tox",
+        "error": null
+      }
+    ],
+    "structure_sha256": "41c6f8f6ff5782c8ec3ecbc98d39bd264149ec076630f8bad0c9c98d6f06d07c"
+  },
+  "part1_original_search_before_official_qa": [
+    {
+      "index": "1",
+      "label": "lg05",
+      "phase": "single",
+      "status": "MEASURED",
+      "duration_s": "279.625",
+      "gate": "W",
+      "Lg_um": "0.5",
+      "tox_nm": "10.0",
+      "NA_cm3": "1e+16",
+      "pass_count": "5",
+      "Vth": "0.4869064302601087",
+      "Vth_status": "PASS",
+      "Ion": "333.48516719243474",
+      "Ion_status": "FAIL",
+      "Ioff": "0.6849549441561762",
+      "Ioff_status": "PASS",
+      "SS": "72.66552290278256",
+      "SS_status": "PASS",
+      "Ioff_398K": "482.34353423626834",
+      "Ioff_398K_status": "FAIL",
+      "DIBL": "40.92424839539718",
+      "DIBL_status": "FAIL",
+      "Body_effect": "0.032910276648900894",
+      "Body_effect_status": "PASS",
+      "Eox": "2.0",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    },
+    {
+      "index": "2",
+      "label": "tox5",
+      "phase": "single",
+      "status": "MEASURED",
+      "duration_s": "373.15599999999995",
+      "gate": "W",
+      "Lg_um": "1.0",
+      "tox_nm": "5.0",
+      "NA_cm3": "1e+16",
+      "pass_count": "7",
+      "Vth": "0.4779416100093631",
+      "Vth_status": "PASS",
+      "Ion": "292.90821332181275",
+      "Ion_status": "FAIL",
+      "Ioff": "0.010662847311471876",
+      "Ioff_status": "PASS",
+      "SS": "65.31245991339868",
+      "SS_status": "PASS",
+      "Ioff_398K": "40.11734746740985",
+      "Ioff_398K_status": "PASS",
+      "DIBL": "9.418310981077255",
+      "DIBL_status": "PASS",
+      "Body_effect": "0.023733290673144114",
+      "Body_effect_status": "PASS",
+      "Eox": "4.0",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    },
+    {
+      "index": "3",
+      "label": "na3e15",
+      "phase": "single",
+      "status": "MEASURED",
+      "duration_s": "366.1399999999994",
+      "gate": "W",
+      "Lg_um": "1.0",
+      "tox_nm": "10.0",
+      "NA_cm3": "3000000000000000.0",
+      "pass_count": "6",
+      "Vth": "0.46988833993502443",
+      "Vth_status": "PASS",
+      "Ion": "156.77454204735915",
+      "Ion_status": "FAIL",
+      "Ioff": "0.05701758737357815",
+      "Ioff_status": "PASS",
+      "SS": "68.56794853666867",
+      "SS_status": "PASS",
+      "Ioff_398K": "225.83155189636054",
+      "Ioff_398K_status": "FAIL",
+      "DIBL": "17.36332702886474",
+      "DIBL_status": "PASS",
+      "Body_effect": "0.03457405992527918",
+      "Body_effect_status": "PASS",
+      "Eox": "2.0",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    },
+    {
+      "index": "4",
+      "label": "tan",
+      "phase": "single",
+      "status": "MEASURED",
+      "duration_s": "365.46900000000005",
+      "gate": "TaN",
+      "Lg_um": "1.0",
+      "tox_nm": "10.0",
+      "NA_cm3": "1e+16",
+      "pass_count": "5",
+      "Vth": "0.3999572112531067",
+      "Vth_status": "FAIL",
+      "Ion": "171.0999123956496",
+      "Ion_status": "FAIL",
+      "Ioff": "0.4241750485020098",
+      "Ioff_status": "PASS",
+      "SS": "69.00543533690725",
+      "SS_status": "PASS",
+      "Ioff_398K": "225.85827243161617",
+      "Ioff_398K_status": "FAIL",
+      "DIBL": "13.236083592423983",
+      "DIBL_status": "PASS",
+      "Body_effect": "0.0422512432022194",
+      "Body_effect_status": "PASS",
+      "Eox": "2.0",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    },
+    {
+      "index": "5",
+      "label": "lg05_tox5_w",
+      "phase": "combination",
+      "status": "MEASURED",
+      "duration_s": "330.82800000000043",
+      "gate": "W",
+      "Lg_um": "0.5",
+      "tox_nm": "5.0",
+      "NA_cm3": "1e+16",
+      "pass_count": "7",
+      "Vth": "0.4321203191104586",
+      "Vth_status": "PASS",
+      "Ion": "641.8376678617519",
+      "Ion_status": "PASS",
+      "Ioff": "0.5499835092891648",
+      "Ioff_status": "PASS",
+      "SS": "67.68765188310009",
+      "SS_status": "PASS",
+      "Ioff_398K": "397.19370807039013",
+      "Ioff_398K_status": "FAIL",
+      "DIBL": "26.339092892013092",
+      "DIBL_status": "PASS",
+      "Body_effect": "0.019373139740762102",
+      "Body_effect_status": "PASS",
+      "Eox": "4.0",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    },
+    {
+      "index": "6",
+      "label": "lg05_tox5_tin",
+      "phase": "combination",
+      "status": "MEASURED",
+      "duration_s": "298.75",
+      "gate": "TiN",
+      "Lg_um": "0.5",
+      "tox_nm": "5.0",
+      "NA_cm3": "1e+16",
+      "pass_count": "7",
+      "Vth": "0.48202572128599974",
+      "Vth_status": "PASS",
+      "Ion": "604.3114180882202",
+      "Ion_status": "PASS",
+      "Ioff": "0.12863945159867068",
+      "Ioff_status": "PASS",
+      "SS": "67.70107187027735",
+      "SS_status": "PASS",
+      "Ioff_398K": "169.23590251999565",
+      "Ioff_398K_status": "FAIL",
+      "DIBL": "26.25458516188917",
+      "DIBL_status": "PASS",
+      "Body_effect": "0.019347090287320512",
+      "Body_effect_status": "PASS",
+      "Eox": "4.0",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    },
+    {
+      "index": "7",
+      "label": "lg06_tox45_tin",
+      "phase": "combination",
+      "status": "MEASURED",
+      "duration_s": "299.0619999999999",
+      "gate": "TiN",
+      "Lg_um": "0.6",
+      "tox_nm": "4.5",
+      "NA_cm3": "1e+16",
+      "pass_count": "8",
+      "Vth": "0.49058354475748445",
+      "Vth_status": "PASS",
+      "Ion": "538.5068847997338",
+      "Ion_status": "PASS",
+      "Ioff": "0.017475229807436488",
+      "Ioff_status": "PASS",
+      "SS": "66.07755213766988",
+      "SS_status": "PASS",
+      "Ioff_398K": "53.69267339054709",
+      "Ioff_398K_status": "PASS",
+      "DIBL": "17.626986892643124",
+      "DIBL_status": "PASS",
+      "Body_effect": "0.019259674878830735",
+      "Body_effect_status": "PASS",
+      "Eox": "4.444444444444445",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    },
+    {
+      "index": "8",
+      "label": "lg06_tox45_w_na2e16",
+      "phase": "combination",
+      "status": "MEASURED",
+      "duration_s": "290.5619999999999",
+      "gate": "W",
+      "Lg_um": "0.6",
+      "tox_nm": "4.5",
+      "NA_cm3": "2e+16",
+      "pass_count": "8",
+      "Vth": "0.4793538870339957",
+      "Vth_status": "PASS",
+      "Ion": "544.8258559704906",
+      "Ion_status": "PASS",
+      "Ioff": "0.014048086662097696",
+      "Ioff_status": "PASS",
+      "SS": "65.98945315161062",
+      "SS_status": "PASS",
+      "Ioff_398K": "21.546679047021122",
+      "Ioff_398K_status": "PASS",
+      "DIBL": "12.641530490607128",
+      "DIBL_status": "PASS",
+      "Body_effect": "0.025630131595863304",
+      "Body_effect_status": "PASS",
+      "Eox": "4.444444444444445",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    },
+    {
+      "index": "9",
+      "label": "lg055_tox45_tin",
+      "phase": "local",
+      "status": "MEASURED",
+      "duration_s": "291.3590000000004",
+      "gate": "TiN",
+      "Lg_um": "0.55",
+      "tox_nm": "4.5",
+      "NA_cm3": "1e+16",
+      "pass_count": "8",
+      "Vth": "0.4841798796836077",
+      "Vth_status": "PASS",
+      "Ion": "595.1657934222595",
+      "Ion_status": "PASS",
+      "Ioff": "0.03766112869795235",
+      "Ioff_status": "PASS",
+      "SS": "66.54977019632912",
+      "SS_status": "PASS",
+      "Ioff_398K": "78.45488570922831",
+      "Ioff_398K_status": "PASS",
+      "DIBL": "20.619840043167518",
+      "DIBL_status": "PASS",
+      "Body_effect": "0.018630743303099495",
+      "Body_effect_status": "PASS",
+      "Eox": "4.444444444444445",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    },
+    {
+      "index": "10",
+      "label": "lg06_tox475_w_na2e16",
+      "phase": "local",
+      "status": "MEASURED",
+      "duration_s": "288.3909999999996",
+      "gate": "W",
+      "Lg_um": "0.6",
+      "tox_nm": "4.75",
+      "NA_cm3": "2e+16",
+      "pass_count": "8",
+      "Vth": "0.4840718158699449",
+      "Vth_status": "PASS",
+      "Ion": "516.6970577716348",
+      "Ion_status": "PASS",
+      "Ioff": "0.013011250931461892",
+      "Ioff_status": "PASS",
+      "SS": "66.23045352100546",
+      "SS_status": "PASS",
+      "Ioff_398K": "20.8587133753997",
+      "Ioff_398K_status": "PASS",
+      "DIBL": "13.075202706342509",
+      "DIBL_status": "PASS",
+      "Body_effect": "0.026704714885549985",
+      "Body_effect_status": "PASS",
+      "Eox": "4.2105263157894735",
+      "Eox_status": "PASS",
+      "all_current_conservation_pass": "True"
+    }
+  ],
+  "part1_official_remeasurement_and_ablation": {
+    "purpose": "Official physics remeasurement; old ten-trial search preserved",
+    "rows": [
+      {
+        "label": "baseline",
+        "folder": "baseline/primary",
+        "pass_count": 6,
+        "metrics": [
+          {
+            "name": "Vth",
+            "value": 0.551164166254724,
+            "unit": "V",
+            "minimum": 0.4,
+            "maximum": 0.5,
+            "status": "FAIL",
+            "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+            "error": null
+          },
+          {
+            "name": "Ion",
+            "value": 141.8926711940974,
+            "unit": "uA/um",
+            "minimum": 450,
+            "maximum": null,
+            "status": "FAIL",
+            "condition": "300 K, VG=VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "Ioff",
+            "value": 0.0032103435869180147,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 1,
+            "status": "PASS",
+            "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "SS",
+            "value": 69.03608444509659,
+            "unit": "mV/dec",
+            "minimum": null,
+            "maximum": 75,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+            "error": null
+          },
+          {
+            "name": "Ioff_398K",
+            "value": 17.394049972744885,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 100,
+            "status": "PASS",
+            "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "DIBL",
+            "value": 13.418440654667538,
+            "unit": "mV/V",
+            "minimum": null,
+            "maximum": 30,
+            "status": "PASS",
+            "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+            "error": null
+          },
+          {
+            "name": "Body_effect",
+            "value": 0.0420862991373544,
+            "unit": "V",
+            "minimum": null,
+            "maximum": 0.08,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+            "error": null
+          },
+          {
+            "name": "Eox",
+            "value": 2.0,
+            "unit": "MV/cm",
+            "minimum": null,
+            "maximum": 5,
+            "status": "PASS",
+            "condition": "VDD=2 V / tox",
+            "error": null
+          }
+        ]
+      },
+      {
+        "label": "candidate_10",
+        "folder": "candidate_10/fine",
+        "pass_count": 8,
+        "metrics": [
+          {
+            "name": "Vth",
+            "value": 0.48484826665779296,
+            "unit": "V",
+            "minimum": 0.4,
+            "maximum": 0.5,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+            "error": null
+          },
+          {
+            "name": "Ion",
+            "value": 516.1376572589578,
+            "unit": "uA/um",
+            "minimum": 450,
+            "maximum": null,
+            "status": "PASS",
+            "condition": "300 K, VG=VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "Ioff",
+            "value": 0.012637363016685946,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 1,
+            "status": "PASS",
+            "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "SS",
+            "value": 66.22188272822382,
+            "unit": "mV/dec",
+            "minimum": null,
+            "maximum": 75,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+            "error": null
+          },
+          {
+            "name": "Ioff_398K",
+            "value": 10.375525641108487,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 100,
+            "status": "PASS",
+            "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "DIBL",
+            "value": 13.042381341104653,
+            "unit": "mV/V",
+            "minimum": null,
+            "maximum": 30,
+            "status": "PASS",
+            "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+            "error": null
+          },
+          {
+            "name": "Body_effect",
+            "value": 0.026622484504610855,
+            "unit": "V",
+            "minimum": null,
+            "maximum": 0.08,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+            "error": null
+          },
+          {
+            "name": "Eox",
+            "value": 4.2105263157894735,
+            "unit": "MV/cm",
+            "minimum": null,
+            "maximum": 5,
+            "status": "PASS",
+            "condition": "VDD=2 V / tox",
+            "error": null
+          }
+        ],
+        "normalized_margins": {
+          "Vth": 0.1515173334220704,
+          "Ion": 0.1469725716865729,
+          "Ioff": 0.9873626369833141,
+          "SS": 0.11704156362368243,
+          "Ioff_398K": 0.8962447435889151,
+          "DIBL": 0.5652539552965117,
+          "Body_effect": 0.6672189436923643,
+          "Eox": 0.1578947368421053
+        },
+        "worst_normalized_margin": 0.11704156362368243
+      },
+      {
+        "label": "candidate_08",
+        "folder": "candidate_08/fine",
+        "pass_count": 8,
+        "metrics": [
+          {
+            "name": "Vth",
+            "value": 0.480198024255126,
+            "unit": "V",
+            "minimum": 0.4,
+            "maximum": 0.5,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+            "error": null
+          },
+          {
+            "name": "Ion",
+            "value": 544.2367715179143,
+            "unit": "uA/um",
+            "minimum": 450,
+            "maximum": null,
+            "status": "PASS",
+            "condition": "300 K, VG=VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "Ioff",
+            "value": 0.013642605451630095,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 1,
+            "status": "PASS",
+            "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "SS",
+            "value": 65.97465191285332,
+            "unit": "mV/dec",
+            "minimum": null,
+            "maximum": 75,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+            "error": null
+          },
+          {
+            "name": "Ioff_398K",
+            "value": 10.71402825249497,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 100,
+            "status": "PASS",
+            "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "DIBL",
+            "value": 12.660562372482179,
+            "unit": "mV/V",
+            "minimum": null,
+            "maximum": 30,
+            "status": "PASS",
+            "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+            "error": null
+          },
+          {
+            "name": "Body_effect",
+            "value": 0.025543130621004384,
+            "unit": "V",
+            "minimum": null,
+            "maximum": 0.08,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+            "error": null
+          },
+          {
+            "name": "Eox",
+            "value": 4.444444444444445,
+            "unit": "MV/cm",
+            "minimum": null,
+            "maximum": 5,
+            "status": "PASS",
+            "condition": "VDD=2 V / tox",
+            "error": null
+          }
+        ],
+        "normalized_margins": {
+          "Vth": 0.19801975744874023,
+          "Ion": 0.20941504781758744,
+          "Ioff": 0.9863573945483699,
+          "SS": 0.12033797449528909,
+          "Ioff_398K": 0.8928597174750503,
+          "DIBL": 0.577981254250594,
+          "Body_effect": 0.6807108672374452,
+          "Eox": 0.11111111111111108
+        },
+        "worst_normalized_margin": 0.11111111111111108
+      },
+      {
+        "label": "ablation_lg",
+        "folder": "ablation_lg/primary",
+        "pass_count": 8,
+        "metrics": [
+          {
+            "name": "Vth",
+            "value": 0.4902533421676159,
+            "unit": "V",
+            "minimum": 0.4,
+            "maximum": 0.5,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+            "error": null
+          },
+          {
+            "name": "Ion",
+            "value": 470.97454916440455,
+            "unit": "uA/um",
+            "minimum": 450,
+            "maximum": null,
+            "status": "PASS",
+            "condition": "300 K, VG=VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "Ioff",
+            "value": 0.009289210018782447,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 1,
+            "status": "PASS",
+            "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "SS",
+            "value": 66.07785040140193,
+            "unit": "mV/dec",
+            "minimum": null,
+            "maximum": 75,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+            "error": null
+          },
+          {
+            "name": "Ioff_398K",
+            "value": 8.583759060016671,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 100,
+            "status": "PASS",
+            "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "DIBL",
+            "value": 11.536142669512582,
+            "unit": "mV/V",
+            "minimum": null,
+            "maximum": 30,
+            "status": "PASS",
+            "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+            "error": null
+          },
+          {
+            "name": "Body_effect",
+            "value": 0.02731684613821389,
+            "unit": "V",
+            "minimum": null,
+            "maximum": 0.08,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+            "error": null
+          },
+          {
+            "name": "Eox",
+            "value": 4.2105263157894735,
+            "unit": "MV/cm",
+            "minimum": null,
+            "maximum": 5,
+            "status": "PASS",
+            "condition": "VDD=2 V / tox",
+            "error": null
+          }
+        ]
+      },
+      {
+        "label": "ablation_na",
+        "folder": "ablation_na/primary",
+        "pass_count": 7,
+        "metrics": [
+          {
+            "name": "Vth",
+            "value": 0.500344184102221,
+            "unit": "V",
+            "minimum": 0.4,
+            "maximum": 0.5,
+            "status": "FAIL",
+            "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+            "error": null
+          },
+          {
+            "name": "Ion",
+            "value": 504.6655180114175,
+            "unit": "uA/um",
+            "minimum": 450,
+            "maximum": null,
+            "status": "PASS",
+            "condition": "300 K, VG=VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "Ioff",
+            "value": 0.00716196538257474,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 1,
+            "status": "PASS",
+            "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "SS",
+            "value": 66.41302775804891,
+            "unit": "mV/dec",
+            "minimum": null,
+            "maximum": 75,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+            "error": null
+          },
+          {
+            "name": "Ioff_398K",
+            "value": 6.307885222787909,
+            "unit": "pA/um",
+            "minimum": null,
+            "maximum": 100,
+            "status": "PASS",
+            "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+            "error": null
+          },
+          {
+            "name": "DIBL",
+            "value": 11.685259205907931,
+            "unit": "mV/V",
+            "minimum": null,
+            "maximum": 30,
+            "status": "PASS",
+            "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+            "error": null
+          },
+          {
+            "name": "Body_effect",
+            "value": 0.029740047500931288,
+            "unit": "V",
+            "minimum": null,
+            "maximum": 0.08,
+            "status": "PASS",
+            "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+            "error": null
+          },
+          {
+            "name": "Eox",
+            "value": 4.2105263157894735,
+            "unit": "MV/cm",
+            "minimum": null,
+            "maximum": 5,
+            "status": "PASS",
+            "condition": "VDD=2 V / tox",
+            "error": null
+          }
+        ]
+      }
+    ],
+    "selected_candidate": "candidate_10",
+    "selection_reason": "Reuse the previous winner; larger worst normalized spec margin than candidate08. Ablations are explanatory, not candidate selection."
+  },
+  "part2_initial_baseline": {
+    "scope": "Existing initial Part 2 cell; no device optimization",
+    "measurement_complete": true,
+    "all_specs_pass": false,
+    "numerical_validation_pass": true,
+    "capacitance_fF": 18.585000000000125,
+    "fields_MV_cm": {
+      "gate_MV_cm": 5.0,
+      "capacitor_MV_cm": 3.3333333333333335
+    },
+    "read_margin_mV": {
+      "0": 128.26426855287153,
+      "1": 84.10155673301745
+    },
+    "retention": {
+      "0": {
+        "passed": true,
+        "lower_bound_ms": 64.0,
+        "failure_bracket_s": null,
+        "end_Vcell_V": 0.1862939552806604,
+        "endpoint_read_margin_mV": 102.5781927822472,
+        "last_sample_time_ms": 64.0
+      },
+      "1": {
+        "passed": false,
+        "lower_bound_ms": 2.627316720118263,
+        "failure_bracket_s": [
+          0.002627316720118263,
+          0.002642809433252009
+        ],
+        "end_Vcell_V": 1.6040000000000143,
+        "endpoint_read_margin_mV": 59.0950289092615,
+        "last_sample_time_ms": 2.7202729989207004
+      }
+    },
+    "retention_sensitivity": {
+      "0": {
+        "end_Vcell_difference_V": 0.0007164405684252917,
+        "end_read_margin_difference_V": 9.756132058420797e-05,
+        "spec_verdict_consistent": true,
+        "passed": true,
+        "endpoint_comparison_applies": true
+      },
+      "1": {
+        "end_Vcell_difference_V": 0.0059999999999709175,
+        "end_read_margin_difference_V": 0.0004730516320076983,
+        "spec_verdict_consistent": true,
+        "passed": true,
+        "failure_brackets_s": [
+          [
+            0.002627316720118263,
+            0.002642809433252009
+          ],
+          [
+            0.002633723900282023,
+            0.0026477814100548747
+          ]
+        ],
+        "endpoint_comparison_applies": false,
+        "failure_time_relative_difference": 0.002154529115847884
+      }
+    },
+    "remaining": [
+      "Part 1/2 student-ID filenames and actual checker OK screenshots",
+      "Final combined assignment report",
+      "Actual TA simulator and full mesh convergence remain unverified"
+    ]
+  },
+  "part2_first_search": [
+    {
+      "candidate": "B0 baseline",
+      "changes": "기존 검증 결과 재사용",
+      "read0_mV": "128.26426855287153",
+      "read1_mV": "84.10155673301745",
+      "retention0": "≥64 ms PASS",
+      "retention1": "2.627~2.643 ms FAIL",
+      "retention1_lower_ms": "2.627316720118263",
+      "CSTORE_fF": "18.585000000000125",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "2.987697227424777",
+      "status": "FAIL",
+      "error": "",
+      "gate": "TaN",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.9",
+      "evidence": "project1/results/part2_baseline_20261004_175214/primary",
+      "data1_at_64ms_margin_mV": "",
+      "doping_profile": "null",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "초기 READ는 충분하나 data1 누설/retention이 병목."
+    },
+    {
+      "candidate": "01_gate_W",
+      "changes": "{\"gate_material\": \"W\"}",
+      "read0_mV": "123.10947058513877",
+      "read1_mV": "67.39123078177722",
+      "retention0": "미측정",
+      "retention1": "40.11~40.51 ms FAIL",
+      "retention1_lower_ms": "40.10820156742332",
+      "CSTORE_fF": "18.585000000000125",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "0.1066856903270481",
+      "status": "DATA1 FAIL",
+      "error": "",
+      "gate": "W",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.9",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/01_gate_W",
+      "data1_at_64ms_margin_mV": "",
+      "doping_profile": "null",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "누설은 감소했지만 실제 retention 약40.3 ms로 부족."
+    },
+    {
+      "candidate": "02_gate_TiN",
+      "changes": "{\"gate_material\": \"TiN\"}",
+      "read0_mV": "121.17510988500246",
+      "read1_mV": "61.37340235582944",
+      "retention0": "미측정",
+      "retention1": "20.71~20.84 ms FAIL",
+      "retention1_lower_ms": "20.714711480595277",
+      "CSTORE_fF": "18.585000000000125",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "0.05659283961204015",
+      "status": "DATA1 FAIL",
+      "error": "",
+      "gate": "TiN",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.9",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/02_gate_TiN",
+      "data1_at_64ms_margin_mV": "",
+      "doping_profile": "null",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "누설 최저여도 초기 READ 여유가 작아 약20.8 ms에 실패."
+    },
+    {
+      "candidate": "03_body_1e17",
+      "changes": "{\"body_doping_cm3\": 1e+17}",
+      "read0_mV": "125.79844942743756",
+      "read1_mV": "76.40855196134311",
+      "retention0": "미측정",
+      "retention1": "미측정",
+      "retention1_lower_ms": "",
+      "CSTORE_fF": "18.585000000000125",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "0.6321499588231547",
+      "status": "SCREEN PASS/retention 미검증",
+      "error": "",
+      "gate": "TaN",
+      "NA_cm3": "1e+17",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.9",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/03_body_1e17",
+      "data1_at_64ms_margin_mV": "",
+      "doping_profile": "null",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "누설 감소는 gate 후보보다 작아 후속 retention을 생략."
+    },
+    {
+      "candidate": "04_junction_003",
+      "changes": "{\"junction_depth_um\": 0.03}",
+      "read0_mV": "126.8081658157183",
+      "read1_mV": "80.01096469773539",
+      "retention0": "미측정",
+      "retention1": "미측정",
+      "retention1_lower_ms": "",
+      "CSTORE_fF": "18.585000000000125",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "1.7247322224570043",
+      "status": "SCREEN PASS/retention 미검증",
+      "error": "",
+      "gate": "TaN",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.03",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.9",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/04_junction_003",
+      "data1_at_64ms_margin_mV": "",
+      "doping_profile": "null",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "누설 개선이 작아 후속 retention을 생략."
+    },
+    {
+      "candidate": "05_W_cap096",
+      "changes": "{\"gate_material\": \"W\", \"capacitor.height_um\": 0.96}",
+      "read0_mV": "127.37105970844975",
+      "read1_mV": "67.74956905102857",
+      "retention0": "미측정",
+      "retention1": "64ms 끝점 FAIL / 최초 실패 미측정",
+      "retention1_lower_ms": "",
+      "CSTORE_fF": "19.823999999999984",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "0.1066856903270481",
+      "status": "64ms ENDPOINT FAIL",
+      "error": "",
+      "gate": "W",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.96",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/05_W_cap096",
+      "data1_at_64ms_margin_mV": "55.937452618838975",
+      "doping_profile": "null",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "용량 증가만으로 64 ms READ 기준을 만족하지 못함."
+    },
+    {
+      "candidate": "06_W_channel_split",
+      "changes": "{\"gate_material\": \"07_TiN_channel_split\", \"doping_profile\": {\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5}}",
+      "read0_mV": "",
+      "read1_mV": "",
+      "retention0": "미측정",
+      "retention1": "미측정",
+      "retention1_lower_ms": "",
+      "CSTORE_fF": "",
+      "reliability": "미측정",
+      "initial_data1_leak_pA": "",
+      "status": "ERROR",
+      "error": "Candidate generation accidentally used the experiment name as gate material; no DEVSIM measurement started",
+      "gate": "07_TiN_channel_split",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.9",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/06_W_channel_split",
+      "data1_at_64ms_margin_mV": "",
+      "doping_profile": "{\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5}",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "입력 생성 오류로 native 측정 전 중단. 물리 후보 수에서 제외."
+    },
+    {
+      "candidate": "07_W_channel_split",
+      "changes": "{\"gate_material\": \"W\", \"doping_profile\": {\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5}}",
+      "read0_mV": "126.2502829823443",
+      "read1_mV": "77.30659769465187",
+      "retention0": "미측정",
+      "retention1": "미측정",
+      "retention1_lower_ms": "",
+      "CSTORE_fF": "18.585000000000125",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "2.3567739652507336",
+      "status": "SCREEN PASS/retention 미검증",
+      "error": "",
+      "gate": "W",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.9",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/07_W_channel_split",
+      "data1_at_64ms_margin_mV": "",
+      "doping_profile": "{\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5}",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "낮은 source-side NA가 body 누설을 증가시켜 제외."
+    },
+    {
+      "candidate": "08_TiN_channel_split",
+      "changes": "{\"gate_material\": \"TiN\", \"doping_profile\": {\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5}}",
+      "read0_mV": "124.45002956569951",
+      "read1_mV": "71.63975886993535",
+      "retention0": "미측정",
+      "retention1": "미측정",
+      "retention1_lower_ms": "",
+      "CSTORE_fF": "18.585000000000125",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "2.1341298041369394",
+      "status": "SCREEN PASS/retention 미검증",
+      "error": "",
+      "gate": "TiN",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.9",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/08_TiN_channel_split",
+      "data1_at_64ms_margin_mV": "",
+      "doping_profile": "{\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5}",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "READ는 개선되지만 body 누설 증가로 제외."
+    },
+    {
+      "candidate": "09_W_channel_5e16_1e17",
+      "changes": "{\"gate_material\": \"W\", \"capacitor.height_um\": 0.96, \"doping_profile\": {\"source_side_na_cm3\": 5e+16, \"drain_side_na_cm3\": 1e+17, \"split_fraction\": 0.5}}",
+      "read0_mV": "126.67565997106078",
+      "read1_mV": "66.16922344495623",
+      "retention0": "미측정",
+      "retention1": "64ms 끝점 FAIL / 최초 실패 미측정",
+      "retention1_lower_ms": "",
+      "CSTORE_fF": "19.823999999999984",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "0.07556095535595377",
+      "status": "64ms ENDPOINT FAIL",
+      "error": "",
+      "gate": "W",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.96",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/09_W_channel_5e16_1e17",
+      "data1_at_64ms_margin_mV": "58.79500192884879",
+      "doping_profile": "{\"source_side_na_cm3\": 5e+16, \"drain_side_na_cm3\": 1e+17, \"split_fraction\": 0.5}",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "국소 NA 조합도 64 ms 끝점 FAIL."
+    },
+    {
+      "candidate": "10_W_channel_3e16_1e17",
+      "changes": "{\"gate_material\": \"W\", \"capacitor.height_um\": 0.96, \"doping_profile\": {\"source_side_na_cm3\": 3e+16, \"drain_side_na_cm3\": 1e+17, \"split_fraction\": 0.5}}",
+      "read0_mV": "127.60274287419004",
+      "read1_mV": "68.91664722664225",
+      "retention0": "미측정",
+      "retention1": "64ms 끝점 FAIL / 최초 실패 미측정",
+      "retention1_lower_ms": "",
+      "CSTORE_fF": "19.823999999999984",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "0.11218101182598732",
+      "status": "64ms ENDPOINT FAIL",
+      "error": "",
+      "gate": "W",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.96",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/10_W_channel_3e16_1e17",
+      "data1_at_64ms_margin_mV": "55.836899889368574",
+      "doping_profile": "{\"source_side_na_cm3\": 3e+16, \"drain_side_na_cm3\": 1e+17, \"split_fraction\": 0.5}",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "국소 NA 조합도 64 ms 끝점 FAIL."
+    },
+    {
+      "candidate": "11_W_cap096_bodytap",
+      "changes": "{\"gate_material\": \"W\", \"capacitor.height_um\": 0.96, \"body_tap\": {\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}}",
+      "read0_mV": "127.3195348396634",
+      "read1_mV": "67.30090541859313",
+      "retention0": "≥64 ms PASS",
+      "retention1": "≥64 ms PASS",
+      "retention1_lower_ms": "64.0",
+      "CSTORE_fF": "19.824000000000144",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "0.06934308181499642",
+      "status": "PASS",
+      "error": "",
+      "gate": "W",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.96",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/11_W_cap096_bodytap",
+      "data1_at_64ms_margin_mV": "60.417968301785365",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "source_ND_cm3": "1e+19",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "공식 허용 p+ tap으로 body 누설 감소. 끝점 여유는 작음."
+    },
+    {
+      "candidate": "12_TiN_sourceND1e21",
+      "changes": "{\"gate_material\": \"TiN\", \"capacitor.height_um\": 0.96, \"doping_profile\": {\"source_side_na_cm3\": 7e+16, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5, \"source_nd_cm3\": 1e+21, \"drain_nd_cm3\": 1e+19}}",
+      "read0_mV": "132.3154676432766",
+      "read1_mV": "67.91401788982121",
+      "retention0": "미측정",
+      "retention1": "64ms 끝점 FAIL / 최초 실패 미측정",
+      "retention1_lower_ms": "",
+      "CSTORE_fF": "19.823999999999984",
+      "reliability": "PASS",
+      "initial_data1_leak_pA": "0.08844854427552772",
+      "status": "64ms ENDPOINT FAIL",
+      "error": "",
+      "gate": "TiN",
+      "NA_cm3": "7e+16",
+      "ND_cm3": "1e+19",
+      "xj_um": "0.05",
+      "tox_nm": "5.0",
+      "cap_height_um": "0.96",
+      "evidence": "project1/results/part2_optimization_20261004_202430/experiments/12_TiN_sourceND1e21",
+      "data1_at_64ms_margin_mV": "59.14450749026234",
+      "doping_profile": "{\"source_side_na_cm3\": 7e+16, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5, \"source_nd_cm3\": 1e+21, \"drain_nd_cm3\": 1e+19}",
+      "body_tap": "null",
+      "source_ND_cm3": "1e+21",
+      "drain_ND_cm3": "1e+19",
+      "interpretation": "공식 허용 S/D 비대칭이나 64 ms 마진59.145 mV로 FAIL."
+    }
+  ],
+  "part2_previous_winner_config": {
+    "device": {
+      "gate_length_um": 0.3,
+      "source_length_um": 0.2,
+      "drain_length_um": 0.2,
+      "oxide_thickness_nm": 5.0,
+      "silicon_thickness_um": 0.3,
+      "junction_depth_um": 0.05,
+      "body_doping_cm3": 7e+16,
+      "sd_doping_cm3": 1e+19,
+      "temperature_k": 398.0,
+      "mu_n": 400.0,
+      "mu_p": 200.0,
+      "gate_material": "W",
+      "silicon_temperature_model": "varshni",
+      "doping_decay_x_nm": 12.5,
+      "doping_decay_y_nm": 5.0
+    },
+    "capacitor": {
+      "material": "ZrO2",
+      "height_um": 0.96,
+      "dielectric_nm": 3.0,
+      "pillar_width_um": 0.1,
+      "bottom_clearance_um": 0.05
+    },
+    "body_tap": {
+      "additional_acceptor_cm3": 1e+19,
+      "thickness_um": 0.05
+    }
+  },
+  "part2_previous_winner_retention_validation": {
+    "passed": true,
+    "cell_limiting_state": "data1",
+    "cell_estimate_s": 0.06720347876731442,
+    "fine_cell_failure_bracket_s": [
+      0.06717176115575685,
+      0.06723519637887199
+    ],
+    "primary_cell_failure_bracket_s": [
+      0.06715694877754166,
+      0.06722411790046809
+    ],
+    "primary_fine_estimate_difference_s": 1.294542830954093e-05,
+    "primary_fine_relative_difference": 0.00019263033025958715,
+    "combined_numerical_bracket_s": [
+      0.06715694877754166,
+      0.06723519637887199
+    ],
+    "data0_verified_lower_bound_s": 0.07259764773458156,
+    "data0_required_confirmation_time_s": 0.06723519637887199,
+    "data0_end_margins_V": {
+      "primary": 0.11667453302003694,
+      "fine": 0.11676331753449765
+    },
+    "raw_checks": {
+      "primary_bit1": {
+        "passed": true,
+        "read_count": 9,
+        "raw_rows": 10,
+        "seed_difference_V": 6.245004513516506e-17,
+        "max_Euler_residual_V": 3.0921445959286586e-16,
+        "read_checks": [
+          {
+            "index": 0,
+            "max_charge_residual_C": 6.392509132819947e-29
+          },
+          {
+            "index": 1,
+            "max_charge_residual_C": 7.682688979383055e-29
+          },
+          {
+            "index": 2,
+            "max_charge_residual_C": 5.403861955205242e-29
+          },
+          {
+            "index": 3,
+            "max_charge_residual_C": 7.001135298042296e-29
+          },
+          {
+            "index": 4,
+            "max_charge_residual_C": 4.133807539596539e-29
+          },
+          {
+            "index": 5,
+            "max_charge_residual_C": 4.946317051302447e-29
+          },
+          {
+            "index": 6,
+            "max_charge_residual_C": 7.133835373527118e-29
+          },
+          {
+            "index": 7,
+            "max_charge_residual_C": 3.830395582549461e-29
+          },
+          {
+            "index": 8,
+            "max_charge_residual_C": 1.1894415366618573e-28
+          }
+        ]
+      },
+      "primary_bit0": {
+        "passed": true,
+        "read_count": 2,
+        "raw_rows": 3,
+        "seed_difference_V": 0.0,
+        "max_Euler_residual_V": 2.6129272356900657e-17,
+        "read_checks": [
+          {
+            "index": 0,
+            "max_charge_residual_C": 3.024063149548863e-29
+          },
+          {
+            "index": 1,
+            "max_charge_residual_C": 1.7829718957239805e-29
+          }
+        ]
+      },
+      "fine_bit1": {
+        "passed": true,
+        "read_count": 9,
+        "raw_rows": 18,
+        "seed_difference_V": 2.0816681711721685e-17,
+        "max_Euler_residual_V": 3.629908873481469e-16,
+        "read_checks": [
+          {
+            "index": 0,
+            "max_charge_residual_C": 5.919895377843399e-29
+          },
+          {
+            "index": 1,
+            "max_charge_residual_C": 4.845186708417161e-29
+          },
+          {
+            "index": 2,
+            "max_charge_residual_C": 7.98852306999652e-29
+          },
+          {
+            "index": 3,
+            "max_charge_residual_C": 8.597449687708664e-29
+          },
+          {
+            "index": 4,
+            "max_charge_residual_C": 4.786664718318158e-29
+          },
+          {
+            "index": 5,
+            "max_charge_residual_C": 9.206699158034527e-29
+          },
+          {
+            "index": 6,
+            "max_charge_residual_C": 8.908976338955751e-29
+          },
+          {
+            "index": 7,
+            "max_charge_residual_C": 8.618357010827549e-29
+          },
+          {
+            "index": 8,
+            "max_charge_residual_C": 6.228104650972015e-29
+          }
+        ]
+      },
+      "fine_bit0": {
+        "passed": true,
+        "read_count": 2,
+        "raw_rows": 4,
+        "seed_difference_V": 5.551115123125783e-17,
+        "max_Euler_residual_V": 1.3227266504323154e-17,
+        "read_checks": [
+          {
+            "index": 0,
+            "max_charge_residual_C": 2.8200514800546e-29
+          },
+          {
+            "index": 1,
+            "max_charge_residual_C": 2.513954052492109e-29
+          }
+        ]
+      }
+    },
+    "protected_files_unchanged": 592,
+    "old_log_prefix_preserved": true,
+    "staged_state_preserved": true
+  },
+  "part2_current_final_config": {
+    "device": {
+      "gate_length_um": 0.3,
+      "source_length_um": 0.2,
+      "drain_length_um": 0.2,
+      "oxide_thickness_nm": 5.3,
+      "silicon_thickness_um": 0.3,
+      "junction_depth_um": 0.05,
+      "body_doping_cm3": 7e+16,
+      "sd_doping_cm3": 1e+19,
+      "temperature_k": 398.0,
+      "mu_n": 400.0,
+      "mu_p": 200.0,
+      "gate_material": "W",
+      "silicon_temperature_model": "varshni",
+      "doping_decay_x_nm": 12.5,
+      "doping_decay_y_nm": 5.0
+    },
+    "capacitor": {
+      "material": "ZrO2",
+      "height_um": 1.245,
+      "dielectric_nm": 4.0,
+      "pillar_width_um": 0.1,
+      "bottom_clearance_um": 0.05
+    },
+    "body_tap": {
+      "additional_acceptor_cm3": 1e+19,
+      "thickness_um": 0.05
+    },
+    "doping_profile": {
+      "source_side_na_cm3": 1000000000000000.0,
+      "drain_side_na_cm3": 1e+17,
+      "split_fraction": 0.5,
+      "source_nd_cm3": 1e+20,
+      "drain_nd_cm3": 1e+19
+    }
+  },
+  "part2_current_final": {
+    "candidate": "19_balanced_ND20",
+    "completed_KST": "2026-10-05 13:15:26 KST",
+    "elapsed_min": 77.3229901,
+    "all_minimum_specs_pass": true,
+    "cell_limiting_state": "data1",
+    "cell_estimate_s": 0.09519883693041921,
+    "cell_failure_bracket_s": [
+      0.09493759358449438,
+      0.09546008027634403
+    ],
+    "primary_cell_estimate_s": 0.09519020654937135,
+    "primary_failure_bracket_s": [
+      0.09492903544341486,
+      0.09545137765532785
+    ],
+    "baseline_cell_estimate_s": 0.06720347876731442,
+    "cell_estimate_improvement_fraction": 0.4165760266672507,
+    "data0_retention_verified_lower_bound_s": 0.128,
+    "data0_128ms_margins_V": {
+      "verify": 0.10973013663819542,
+      "fine": 0.10982102647874592
+    },
+    "initial_read_margins_V": {
+      "verify": {
+        "0": 0.12780623944268166,
+        "1": 0.06946326590457863
+      },
+      "fine": {
+        "0": 0.12780623944268166,
+        "1": 0.06946326590457863
+      }
+    },
+    "margin64_V": {
+      "verify": {
+        "0": 0.11295570989831016,
+        "1": 0.06355720896602857
+      },
+      "fine": {
+        "0": 0.11305665584754176,
+        "1": 0.06355923473000402
+      }
+    },
+    "CSTORE_F": 1.9281937500000154e-14,
+    "fields": {
+      "gate_MV_cm": 4.716981132075472,
+      "capacitor_MV_cm": 2.5
+    },
+    "structure_sha256": "376b392d2a81e9016f89c811f382a8f2d81e065dbeff9eef6072eab052753c11",
+    "screened_candidates": 12,
+    "endpoint_compared_candidates": 2,
+    "extra_parameter_search_stopped": true,
+    "limitations": [
+      "local official model; grader and independent mesh unverified",
+      "data0 maximum retention not measured",
+      "finite failure bracket, not a statistical confidence interval",
+      "aspirational 75mV/64mV/96ms goals not all achieved",
+      "final submission report/screenshots remain separate"
+    ]
+  },
+  "part2_second_search_with_explicit_not_run": [
+    {
+      "candidate": "01_TaN",
+      "screen_status": "complete",
+      "READ0_mV": "132.87779626554476",
+      "READ1_mV": "84.56060159893397",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "5.0",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "2.877891616164374",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "TaN",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "02_tap010",
+      "screen_status": "complete",
+      "READ0_mV": "127.12605215792827",
+      "READ1_mV": "66.17766838132665",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "5.0",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "0.06503162291698866",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.1}",
+      "error": ""
+    },
+    {
+      "candidate": "03_NA17",
+      "screen_status": "Initial READ margin below 60 mV",
+      "READ0_mV": "124.32695455853393",
+      "READ1_mV": "58.928947722720395",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "5.0",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "1e+17",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "04_xj003",
+      "screen_status": "complete",
+      "READ0_mV": "125.61722373474726",
+      "READ1_mV": "62.97358384975049",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "5.0",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "0.040868477829732096",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.03",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "05_profile_low",
+      "screen_status": "complete",
+      "READ0_mV": "130.47718573583066",
+      "READ1_mV": "76.52250860343824",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "5.0",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "0.22662083531866206",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "{\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "06_tox55",
+      "screen_status": "Initial READ margin below 60 mV",
+      "READ0_mV": "122.17426151016619",
+      "READ1_mV": "59.89858039958573",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "4.545454545454545",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.5",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "07_sourceND21",
+      "screen_status": "complete",
+      "READ0_mV": "134.2971614506575",
+      "READ1_mV": "73.76178294842562",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "5.0",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "0.13104874575819267",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "{\"source_side_na_cm3\": 7e+16, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5, \"source_nd_cm3\": 1e+21, \"drain_nd_cm3\": 1e+19}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "08_tap21",
+      "screen_status": "not_run",
+      "READ0_mV": "",
+      "READ1_mV": "",
+      "CSTORE_fF": "",
+      "Egate_MV_cm": "",
+      "Ecap_MV_cm": "",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+21, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "09_cap_margin",
+      "screen_status": "not_run",
+      "READ0_mV": "",
+      "READ1_mV": "",
+      "CSTORE_fF": "",
+      "Egate_MV_cm": "",
+      "Ecap_MV_cm": "",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "1.22",
+      "cap_tdiel_nm": "4.0",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "10_low_high",
+      "screen_status": "complete",
+      "READ0_mV": "128.82451608195024",
+      "READ1_mV": "71.95058800682985",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "5.0",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "0.05750697874405979",
+      "endpoint1_64ms_mV": "65.27976253232804",
+      "endpoint1_pass": "True",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "{\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 1e+17, \"split_fraction\": 0.5}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "11_low_short",
+      "screen_status": "not_run",
+      "READ0_mV": "",
+      "READ1_mV": "",
+      "CSTORE_fF": "",
+      "Egate_MV_cm": "",
+      "Ecap_MV_cm": "",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "{\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 1e+17, \"split_fraction\": 0.25}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "12_sourceND20",
+      "screen_status": "not_run",
+      "READ0_mV": "",
+      "READ1_mV": "",
+      "CSTORE_fF": "",
+      "Egate_MV_cm": "",
+      "Ecap_MV_cm": "",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "{\"source_side_na_cm3\": 7e+16, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5, \"source_nd_cm3\": 1e+20, \"drain_nd_cm3\": 1e+19}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "13_reverse_profile",
+      "screen_status": "not_run",
+      "READ0_mV": "",
+      "READ1_mV": "",
+      "CSTORE_fF": "",
+      "Egate_MV_cm": "",
+      "Ecap_MV_cm": "",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "{\"source_side_na_cm3\": 1e+17, \"drain_side_na_cm3\": 1000000000000000.0, \"split_fraction\": 0.5}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "14_TaN_tox7",
+      "screen_status": "not_run",
+      "READ0_mV": "",
+      "READ1_mV": "",
+      "CSTORE_fF": "",
+      "Egate_MV_cm": "",
+      "Ecap_MV_cm": "",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "TaN",
+      "tox_nm": "7.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "15_TaN_xj002",
+      "screen_status": "not_run",
+      "READ0_mV": "",
+      "READ1_mV": "",
+      "CSTORE_fF": "",
+      "Egate_MV_cm": "",
+      "Ecap_MV_cm": "",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "TaN",
+      "tox_nm": "5.0",
+      "xj_um": "0.02",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "null",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "16_ND21_xj003",
+      "screen_status": "complete",
+      "READ0_mV": "132.91202382743316",
+      "READ1_mV": "69.08569189422464",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "5.0",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "0.06057709327706775",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.03",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "{\"source_side_na_cm3\": 7e+16, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5, \"source_nd_cm3\": 1e+21, \"drain_nd_cm3\": 1e+19}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "17_ND_asym21_18",
+      "screen_status": "Initial READ margin below 60 mV",
+      "READ0_mV": "126.49361629946976",
+      "READ1_mV": "51.16781264924475",
+      "CSTORE_fF": "19.823999999999984",
+      "Egate_MV_cm": "5.0",
+      "Ecap_MV_cm": "3.3333333333333335",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "{\"source_side_na_cm3\": 7e+16, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5, \"source_nd_cm3\": 1e+21, \"drain_nd_cm3\": 1e+18}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "18_ND_asym20_18",
+      "screen_status": "not_run",
+      "READ0_mV": "",
+      "READ1_mV": "",
+      "CSTORE_fF": "",
+      "Egate_MV_cm": "",
+      "Ecap_MV_cm": "",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.0",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "0.96",
+      "cap_tdiel_nm": "3.0",
+      "doping_profile": "{\"source_side_na_cm3\": 7e+16, \"drain_side_na_cm3\": 7e+16, \"split_fraction\": 0.5, \"source_nd_cm3\": 1e+20, \"drain_nd_cm3\": 1e+18}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "19_balanced_ND20",
+      "screen_status": "complete",
+      "READ0_mV": "127.80623944268122",
+      "READ1_mV": "69.46326590457863",
+      "CSTORE_fF": "19.281937499999994",
+      "Egate_MV_cm": "4.716981132075472",
+      "Ecap_MV_cm": "2.5",
+      "Istorage1_pA": "0.053333833982257106",
+      "endpoint1_64ms_mV": "63.55720896602857",
+      "endpoint1_pass": "True",
+      "full_verification_status": "verify0:complete; verify1:complete; fine0:complete; fine1:complete",
+      "gate": "W",
+      "tox_nm": "5.3",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "1.245",
+      "cap_tdiel_nm": "4.0",
+      "doping_profile": "{\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 1e+17, \"split_fraction\": 0.5, \"source_nd_cm3\": 1e+20, \"drain_nd_cm3\": 1e+19}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "20_balanced_noND",
+      "screen_status": "not_run",
+      "READ0_mV": "",
+      "READ1_mV": "",
+      "CSTORE_fF": "",
+      "Egate_MV_cm": "",
+      "Ecap_MV_cm": "",
+      "Istorage1_pA": "",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.2",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "1.245",
+      "cap_tdiel_nm": "4.0",
+      "doping_profile": "{\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 1e+17, \"split_fraction\": 0.5}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    },
+    {
+      "candidate": "21_balanced_short",
+      "screen_status": "complete",
+      "READ0_mV": "126.09903070281725",
+      "READ1_mV": "63.181993085390516",
+      "CSTORE_fF": "19.281937499999994",
+      "Egate_MV_cm": "4.716981132075472",
+      "Ecap_MV_cm": "2.5",
+      "Istorage1_pA": "0.023551895036175195",
+      "endpoint1_64ms_mV": "",
+      "endpoint1_pass": "",
+      "full_verification_status": "not_run",
+      "gate": "W",
+      "tox_nm": "5.3",
+      "xj_um": "0.05",
+      "NA_cm3": "7e+16",
+      "cap_height_um": "1.245",
+      "cap_tdiel_nm": "4.0",
+      "doping_profile": "{\"source_side_na_cm3\": 1000000000000000.0, \"drain_side_na_cm3\": 1e+17, \"split_fraction\": 0.3, \"source_nd_cm3\": 1e+20, \"drain_nd_cm3\": 1e+19}",
+      "body_tap": "{\"additional_acceptor_cm3\": 1e+19, \"thickness_um\": 0.05}",
+      "error": ""
+    }
+  ],
+  "part2_final_verification_states": {
+    "verify0": {
+      "source": "project1/results/part2_robust_search_20261005_115807/experiments/19_balanced_ND20/verify0/metrics.json",
+      "bit": 0,
+      "max_delta_V": 0.003,
+      "initial_read": {
+        "initial_cell_V": 0.0,
+        "dt_s": 1e-11,
+        "decision_time_s": 5e-10,
+        "margin_V": 0.12780623944268166,
+        "passed": true,
+        "max_charge_residual_C": 6.578518374004288e-29,
+        "fine_5ps_margin_V": 0.12736406999935546,
+        "step_sensitivity_V": 0.00044216944332620134,
+        "step_validation_pass": true
+      },
+      "margin_at_64ms_V": 0.11295570989831016,
+      "capacitance": {
+        "CSTORE_F": 1.9281937500000154e-14,
+        "fine_CSTORE_F": 1.9281937499999523e-14,
+        "reference_F": 1.928193750000001e-14,
+        "plate_points": [
+          {
+            "plate_V": 0.99,
+            "plate_charge_C": 1.908911812499996e-14
+          },
+          {
+            "plate_V": 1,
+            "plate_charge_C": 1.928193749999996e-14
+          },
+          {
+            "plate_V": 1.01,
+            "plate_charge_C": 1.9474756874999963e-14
+          }
+        ],
+        "fine_plate_points": [
+          {
+            "plate_V": 0.995,
+            "plate_charge_C": 1.9185527812499964e-14
+          },
+          {
+            "plate_V": 1,
+            "plate_charge_C": 1.928193749999996e-14
+          },
+          {
+            "plate_V": 1.005,
+            "plate_charge_C": 1.937834718749996e-14
+          }
+        ],
+        "passed": true
+      },
+      "native_physics": {
+        "mu_n": 202.9698962276924,
+        "mu_p": 107.38756563544702,
+        "n_i": 4757304128886.964,
+        "n1": 4757304128886.964,
+        "p1": 4757304128886.964
+      },
+      "extended_retention": {
+        "failure_bracket_s": null,
+        "retention_lower_bound_s": 0.128,
+        "end_Vcell_V": 0.12776157609959904,
+        "end_margin_V": 0.10973013663819542,
+        "refinement_trace": []
+      }
+    },
+    "verify1": {
+      "source": "project1/results/part2_robust_search_20261005_115807/experiments/19_balanced_ND20/verify1/metrics.json",
+      "bit": 1,
+      "max_delta_V": 0.003,
+      "initial_read": {
+        "initial_cell_V": 2.0,
+        "dt_s": 1e-11,
+        "decision_time_s": 5e-10,
+        "margin_V": 0.06946326590457863,
+        "passed": true,
+        "max_charge_residual_C": 6.349167108396921e-29,
+        "fine_5ps_margin_V": 0.06936127280014848,
+        "step_sensitivity_V": 0.00010199310443015364,
+        "step_validation_pass": true
+      },
+      "margin_at_64ms_V": 0.06355720896602857,
+      "capacitance": {
+        "CSTORE_F": 1.9281937500000154e-14,
+        "fine_CSTORE_F": 1.9281937499999523e-14,
+        "reference_F": 1.928193750000001e-14,
+        "plate_points": [
+          {
+            "plate_V": 0.99,
+            "plate_charge_C": 1.908911812499996e-14
+          },
+          {
+            "plate_V": 1,
+            "plate_charge_C": 1.928193749999996e-14
+          },
+          {
+            "plate_V": 1.01,
+            "plate_charge_C": 1.9474756874999963e-14
+          }
+        ],
+        "fine_plate_points": [
+          {
+            "plate_V": 0.995,
+            "plate_charge_C": 1.9185527812499964e-14
+          },
+          {
+            "plate_V": 1,
+            "plate_charge_C": 1.928193749999996e-14
+          },
+          {
+            "plate_V": 1.005,
+            "plate_charge_C": 1.937834718749996e-14
+          }
+        ],
+        "passed": true
+      },
+      "native_physics": {
+        "mu_n": 202.9698962276924,
+        "mu_p": 107.38756563544702,
+        "n_i": 4757304128886.964,
+        "n1": 4757304128886.964,
+        "p1": 4757304128886.964
+      },
+      "extended_retention": {
+        "failure_bracket_s": [
+          0.09492903544341486,
+          0.09545137765532785
+        ],
+        "coarse_failure_bracket_s": [
+          0.0886609289004589,
+          0.09701840429106683
+        ],
+        "bracket_READ_margins_V": [
+          0.060027768143214644,
+          0.059964458530243236
+        ],
+        "bracket_Vcell_V": [
+          1.7500280067668268,
+          1.7487190009949525
+        ],
+        "retention_lower_bound_s": 0.09492903544341486,
+        "estimate_s": 0.09519020654937135,
+        "relative_bracket_width": 0.005472338113328847,
+        "refinement_trace": [
+          {
+            "time_s": 0.09283966659576287,
+            "Vcell_V": 1.7552722144482187,
+            "read_margin_V": 0.06027985680380188,
+            "starts_at_time_s": 0.0886609289004589,
+            "starts_at_Vcell_V": 1.7657935146818176,
+            "integration_steps": [
+              {
+                "time_s": 0.0898506195373162,
+                "Vcell_V": 1.7627935146818177,
+                "initial_Vcell_V": 1.7657935146818176,
+                "dt_s": 0.00118969063685729,
+                "Istorage_A": 4.862256683200188e-14
+              },
+              {
+                "time_s": 0.09104171894802664,
+                "Vcell_V": 1.7597935146818178,
+                "initial_Vcell_V": 1.7627935146818177,
+                "dt_s": 0.0011910994107104359,
+                "Istorage_A": 4.856505844923398e-14
+              },
+              {
+                "time_s": 0.0922342287507798,
+                "Vcell_V": 1.7567935146818179,
+                "initial_Vcell_V": 1.7597935146818178,
+                "dt_s": 0.0011925098027531689,
+                "Istorage_A": 4.8507620118887737e-14
+              },
+              {
+                "time_s": 0.09283966659576287,
+                "Vcell_V": 1.7552722144482187,
+                "initial_Vcell_V": 1.7567935146818179,
+                "dt_s": 0.00060543784498307,
+                "Istorage_A": 4.8450251774093496e-14
+              }
+            ]
+          },
+          {
+            "time_s": 0.09492903544341486,
+            "Vcell_V": 1.7500280067668268,
+            "read_margin_V": 0.060027768143214644,
+            "starts_at_time_s": 0.09283966659576287,
+            "starts_at_Vcell_V": 1.7552722144482187,
+            "integration_steps": [
+              {
+                "time_s": 0.09403430506043779,
+                "Vcell_V": 1.7522722144482188,
+                "initial_Vcell_V": 1.7552722144482187,
+                "dt_s": 0.0011946384646749147,
+                "Istorage_A": 4.8421187003836746e-14
+              },
+              {
+                "time_s": 0.09492903544341486,
+                "Vcell_V": 1.7500280067668268,
+                "initial_Vcell_V": 1.7522722144482188,
+                "dt_s": 0.0008947303829770631,
+                "Istorage_A": 4.8363924007629574e-14
+              }
+            ]
+          },
+          {
+            "time_s": 0.09597371986724085,
+            "Vcell_V": 1.7474099952230782,
+            "read_margin_V": 0.059900994619808356,
+            "starts_at_time_s": 0.09492903544341486,
+            "starts_at_Vcell_V": 1.7500280067668268,
+            "integration_steps": [
+              {
+                "time_s": 0.09597371986724085,
+                "Vcell_V": 1.7474099952230782,
+                "initial_Vcell_V": 1.7500280067668268,
+                "dt_s": 0.0010446844238259922,
+                "Istorage_A": 4.832113297522379e-14
+              }
+            ]
+          },
+          {
+            "time_s": 0.09545137765532785,
+            "Vcell_V": 1.7487190009949525,
+            "read_margin_V": 0.059964458530243236,
+            "starts_at_time_s": 0.09492903544341486,
+            "starts_at_Vcell_V": 1.7500280067668268,
+            "integration_steps": [
+              {
+                "time_s": 0.09545137765532785,
+                "Vcell_V": 1.7487190009949525,
+                "initial_Vcell_V": 1.7500280067668268,
+                "dt_s": 0.0005223422119129961,
+                "Istorage_A": 4.832113297522379e-14
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "fine0": {
+      "source": "project1/results/part2_robust_search_20261005_115807/experiments/19_balanced_ND20/fine0/metrics.json",
+      "bit": 0,
+      "max_delta_V": 0.0015,
+      "initial_read": {
+        "initial_cell_V": 0.0,
+        "dt_s": 1e-11,
+        "decision_time_s": 5e-10,
+        "margin_V": 0.12780623944268166,
+        "passed": true,
+        "max_charge_residual_C": 6.578518373995104e-29,
+        "fine_5ps_margin_V": 0.12736406999935546,
+        "step_sensitivity_V": 0.00044216944332620134,
+        "step_validation_pass": true
+      },
+      "margin_at_64ms_V": 0.11305665584754176,
+      "capacitance": {
+        "CSTORE_F": 1.9281937500000154e-14,
+        "fine_CSTORE_F": 1.9281937499999523e-14,
+        "reference_F": 1.928193750000001e-14,
+        "plate_points": [
+          {
+            "plate_V": 0.99,
+            "plate_charge_C": 1.908911812499996e-14
+          },
+          {
+            "plate_V": 1,
+            "plate_charge_C": 1.928193749999996e-14
+          },
+          {
+            "plate_V": 1.01,
+            "plate_charge_C": 1.9474756874999963e-14
+          }
+        ],
+        "fine_plate_points": [
+          {
+            "plate_V": 0.995,
+            "plate_charge_C": 1.9185527812499964e-14
+          },
+          {
+            "plate_V": 1,
+            "plate_charge_C": 1.928193749999996e-14
+          },
+          {
+            "plate_V": 1.005,
+            "plate_charge_C": 1.937834718749996e-14
+          }
+        ],
+        "passed": true
+      },
+      "native_physics": {
+        "mu_n": 202.9698962276924,
+        "mu_p": 107.38756563544702,
+        "n_i": 4757304128886.964,
+        "n1": 4757304128886.964,
+        "p1": 4757304128886.964
+      },
+      "extended_retention": {
+        "failure_bracket_s": null,
+        "retention_lower_bound_s": 0.128,
+        "end_Vcell_V": 0.12711243199901678,
+        "end_margin_V": 0.10982102647874592,
+        "refinement_trace": []
+      }
+    },
+    "fine1": {
+      "source": "project1/results/part2_robust_search_20261005_115807/experiments/19_balanced_ND20/fine1/metrics.json",
+      "bit": 1,
+      "max_delta_V": 0.0015,
+      "initial_read": {
+        "initial_cell_V": 2.0,
+        "dt_s": 1e-11,
+        "decision_time_s": 5e-10,
+        "margin_V": 0.06946326590457863,
+        "passed": true,
+        "max_charge_residual_C": 6.349167108373962e-29,
+        "fine_5ps_margin_V": 0.06936127280014848,
+        "step_sensitivity_V": 0.00010199310443015364,
+        "step_validation_pass": true
+      },
+      "margin_at_64ms_V": 0.06355923473000402,
+      "capacitance": {
+        "CSTORE_F": 1.9281937500000154e-14,
+        "fine_CSTORE_F": 1.9281937499999523e-14,
+        "reference_F": 1.928193750000001e-14,
+        "plate_points": [
+          {
+            "plate_V": 0.99,
+            "plate_charge_C": 1.908911812499996e-14
+          },
+          {
+            "plate_V": 1,
+            "plate_charge_C": 1.928193749999996e-14
+          },
+          {
+            "plate_V": 1.01,
+            "plate_charge_C": 1.9474756874999963e-14
+          }
+        ],
+        "fine_plate_points": [
+          {
+            "plate_V": 0.995,
+            "plate_charge_C": 1.9185527812499964e-14
+          },
+          {
+            "plate_V": 1,
+            "plate_charge_C": 1.928193749999996e-14
+          },
+          {
+            "plate_V": 1.005,
+            "plate_charge_C": 1.937834718749996e-14
+          }
+        ],
+        "passed": true
+      },
+      "native_physics": {
+        "mu_n": 202.9698962276924,
+        "mu_p": 107.38756563544702,
+        "n_i": 4757304128886.964,
+        "n1": 4757304128886.964,
+        "p1": 4757304128886.964
+      },
+      "extended_retention": {
+        "failure_bracket_s": [
+          0.09493759358449438,
+          0.09546008027634403
+        ],
+        "coarse_failure_bracket_s": [
+          0.08866775328229856,
+          0.09702754035189298
+        ],
+        "bracket_READ_margins_V": [
+          0.060030101608322894,
+          0.059966778948866706
+        ],
+        "bracket_Vcell_V": [
+          1.750076315107667,
+          1.7487669223162077
+        ],
+        "retention_lower_bound_s": 0.09493759358449438,
+        "estimate_s": 0.09519883693041921,
+        "relative_bracket_width": 0.005473352739041505,
+        "refinement_trace": [
+          {
+            "time_s": 0.09284764681709577,
+            "Vcell_V": 1.755320745444352,
+            "read_margin_V": 0.06028217814346948,
+            "starts_at_time_s": 0.08866775328229856,
+            "starts_at_Vcell_V": 1.7658424828174981,
+            "integration_steps": [
+              {
+                "time_s": 0.08926258710992986,
+                "Vcell_V": 1.764342482817498,
+                "initial_Vcell_V": 1.7658424828174981,
+                "dt_s": 0.0005948338276312996,
+                "Istorage_A": 4.86235061061923e-14
+              },
+              {
+                "time_s": 0.08985777302332836,
+                "Vcell_V": 1.762842482817498,
+                "initial_Vcell_V": 1.764342482817498,
+                "dt_s": 0.0005951859133984976,
+                "Istorage_A": 4.859474258194572e-14
+              },
+              {
+                "time_s": 0.09045331122468493,
+                "Vcell_V": 1.761342482817498,
+                "initial_Vcell_V": 1.762842482817498,
+                "dt_s": 0.000595538201356573,
+                "Istorage_A": 4.856599657942499e-14
+              },
+              {
+                "time_s": 0.09104920191627064,
+                "Vcell_V": 1.7598424828174979,
+                "initial_Vcell_V": 1.761342482817498,
+                "dt_s": 0.0005958906915857032,
+                "Istorage_A": 4.853726809028436e-14
+              },
+              {
+                "time_s": 0.0916454453004368,
+                "Vcell_V": 1.7583424828174978,
+                "initial_Vcell_V": 1.7598424828174979,
+                "dt_s": 0.0005962433841661635,
+                "Istorage_A": 4.8508557106169717e-14
+              },
+              {
+                "time_s": 0.09224204157961513,
+                "Vcell_V": 1.7568424828174978,
+                "initial_Vcell_V": 1.7583424828174978,
+                "dt_s": 0.0005965962791783287,
+                "Istorage_A": 4.847986361871842e-14
+              },
+              {
+                "time_s": 0.09283899095631781,
+                "Vcell_V": 1.7553424828174977,
+                "initial_Vcell_V": 1.7568424828174978,
+                "dt_s": 0.000596949376702677,
+                "Istorage_A": 4.845118761955904e-14
+              },
+              {
+                "time_s": 0.09284764681709577,
+                "Vcell_V": 1.755320745444352,
+                "initial_Vcell_V": 1.7553424828174977,
+                "dt_s": 8.655860777959101e-06,
+                "Istorage_A": 4.84225291003112e-14
+              }
+            ]
+          },
+          {
+            "time_s": 0.09493759358449438,
+            "Vcell_V": 1.750076315107667,
+            "read_margin_V": 0.060030101608322894,
+            "starts_at_time_s": 0.09284764681709577,
+            "starts_at_Vcell_V": 1.755320745444352,
+            "integration_steps": [
+              {
+                "time_s": 0.09344495461528284,
+                "Vcell_V": 1.753820745444352,
+                "initial_Vcell_V": 1.755320745444352,
+                "dt_s": 0.0005973077981870617,
+                "Istorage_A": 4.842211392147656e-14
+              },
+              {
+                "time_s": 0.09404261591919813,
+                "Vcell_V": 1.752320745444352,
+                "initial_Vcell_V": 1.753820745444352,
+                "dt_s": 0.0005976613039152948,
+                "Istorage_A": 4.8393473126878913e-14
+              },
+              {
+                "time_s": 0.09464063093159711,
+                "Vcell_V": 1.7508207454443518,
+                "initial_Vcell_V": 1.752320745444352,
+                "dt_s": 0.0005980150123989715,
+                "Istorage_A": 4.8364849795282453e-14
+              },
+              {
+                "time_s": 0.09493759358449438,
+                "Vcell_V": 1.750076315107667,
+                "initial_Vcell_V": 1.7508207454443518,
+                "dt_s": 0.00029696265289727575,
+                "Istorage_A": 4.8336243918278384e-14
+              }
+            ]
+          },
+          {
+            "time_s": 0.09598256696819368,
+            "Vcell_V": 1.747458191223466,
+            "read_margin_V": 0.05990333402068604,
+            "starts_at_time_s": 0.09493759358449438,
+            "starts_at_Vcell_V": 1.750076315107667,
+            "integration_steps": [
+              {
+                "time_s": 0.09553613822509908,
+                "Vcell_V": 1.748576315107667,
+                "initial_Vcell_V": 1.750076315107667,
+                "dt_s": 0.0005985446406046979,
+                "Istorage_A": 4.832205367469332e-14
+              },
+              {
+                "time_s": 0.09598256696819368,
+                "Vcell_V": 1.747458191223466,
+                "initial_Vcell_V": 1.748576315107667,
+                "dt_s": 0.00044642874309459846,
+                "Istorage_A": 4.829347389904164e-14
+              }
+            ]
+          },
+          {
+            "time_s": 0.09546008027634403,
+            "Vcell_V": 1.7487669223162077,
+            "read_margin_V": 0.059966778948866706,
+            "starts_at_time_s": 0.09493759358449438,
+            "starts_at_Vcell_V": 1.750076315107667,
+            "integration_steps": [
+              {
+                "time_s": 0.09546008027634403,
+                "Vcell_V": 1.7487669223162077,
+                "initial_Vcell_V": 1.750076315107667,
+                "dt_s": 0.0005224866918496496,
+                "Istorage_A": 4.832205367469332e-14
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "unverified": [
+    "grader full evaluator",
+    "independent mesh convergence",
+    "data0 maximum retention",
+    "actual checker screenshots",
+    "student name and class section",
+    "physical fabricated-device accuracy"
+  ]
+}

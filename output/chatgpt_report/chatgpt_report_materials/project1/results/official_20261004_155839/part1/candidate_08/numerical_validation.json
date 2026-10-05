@@ -1,0 +1,512 @@
+{
+  "purpose": "Same-device numerical validation; no design-variable search",
+  "primary": "project1\\results\\official_20261004_155839\\part1\\candidate_08\\primary",
+  "fine": "project1\\results\\official_20261004_155839\\part1\\candidate_08\\fine",
+  "current_tolerances": {
+    "absolute_A_per_um": 1e-17,
+    "relative": 1e-06
+  },
+  "resolution": [
+    {
+      "name": "Vth",
+      "coarse": 0.48020253440765126,
+      "fine": 0.480198024255126,
+      "unit": "V",
+      "difference": 4.510152525283306e-06,
+      "tolerance": 0.001,
+      "passed": true
+    },
+    {
+      "name": "Ion",
+      "coarse": 544.2367715179143,
+      "fine": 544.2367715179143,
+      "unit": "uA/um",
+      "difference": 0.0,
+      "tolerance": 0.0005442367715179144,
+      "passed": true
+    },
+    {
+      "name": "Ioff",
+      "coarse": 0.013642605451630095,
+      "fine": 0.013642605451630095,
+      "unit": "pA/um",
+      "difference": 0.0,
+      "tolerance": 1.3642605451630094e-08,
+      "passed": true
+    },
+    {
+      "name": "SS",
+      "coarse": 65.98907457753347,
+      "fine": 65.97465191285332,
+      "unit": "mV/dec",
+      "difference": 0.014422664680154185,
+      "tolerance": 0.2,
+      "passed": true
+    },
+    {
+      "name": "Ioff_398K",
+      "coarse": 10.71402825249497,
+      "fine": 10.71402825249497,
+      "unit": "pA/um",
+      "difference": 0.0,
+      "tolerance": 1.071402825249497e-05,
+      "passed": true
+    },
+    {
+      "name": "DIBL",
+      "coarse": 12.640083642263544,
+      "fine": 12.660562372482179,
+      "unit": "mV/V",
+      "difference": 0.020478730218634666,
+      "tolerance": 0.5,
+      "passed": true
+    },
+    {
+      "name": "Body_effect",
+      "coarse": 0.025657685998004,
+      "fine": 0.025543130621004384,
+      "unit": "V",
+      "difference": 0.00011455537699961438,
+      "tolerance": 0.001,
+      "passed": true
+    },
+    {
+      "name": "Eox",
+      "coarse": 4.444444444444445,
+      "fine": 4.444444444444445,
+      "unit": "MV/cm",
+      "difference": 0.0,
+      "tolerance": 4.444444444444444e-06,
+      "passed": true
+    }
+  ],
+  "common_points": {
+    "idvg_low": {
+      "points_compared": 101,
+      "passed": true,
+      "max_absolute_difference_A_per_um": 8.470329472543003e-21
+    },
+    "idvg_high": {
+      "points_compared": 101,
+      "passed": true,
+      "max_absolute_difference_A_per_um": 0.0
+    },
+    "idvg_body": {
+      "points_compared": 101,
+      "passed": true,
+      "max_absolute_difference_A_per_um": 3.3881317890172014e-21
+    },
+    "off_398K": {
+      "points_compared": 1,
+      "passed": true,
+      "max_absolute_difference_A_per_um": 0.0
+    }
+  },
+  "current_conservation": {
+    "primary/idvg_low": {
+      "passed": true,
+      "max_relative_residual": 8.778458323088443e-16,
+      "max_absolute_residual_A_per_um": 1.2120643075720218e-20
+    },
+    "primary/idvg_high": {
+      "passed": true,
+      "max_relative_residual": 2.5762153657925363e-16,
+      "max_absolute_residual_A_per_um": 8.295991231543232e-20
+    },
+    "primary/idvg_body": {
+      "passed": true,
+      "max_relative_residual": 3.6653200753713686e-16,
+      "max_absolute_residual_A_per_um": 5.758251685023424e-21
+    },
+    "primary/off_398K": {
+      "passed": true,
+      "max_relative_residual": 7.539587799371404e-17,
+      "max_absolute_residual_A_per_um": 8.077935669463161e-28
+    },
+    "fine/idvg_low": {
+      "passed": true,
+      "max_relative_residual": 3.419773806927784e-16,
+      "max_absolute_residual_A_per_um": 5.062828598751944e-21
+    },
+    "fine/idvg_high": {
+      "passed": true,
+      "max_relative_residual": 3.2343413298672743e-16,
+      "max_absolute_residual_A_per_um": 9.237621479979e-20
+    },
+    "fine/idvg_body": {
+      "passed": true,
+      "max_relative_residual": 3.6653200753713686e-16,
+      "max_absolute_residual_A_per_um": 6.732119943263744e-21
+    },
+    "fine/off_398K": {
+      "passed": true,
+      "max_relative_residual": 7.539587799371404e-17,
+      "max_absolute_residual_A_per_um": 8.077935669463161e-28
+    }
+  },
+  "critical_point_replays": [
+    {
+      "case": "idvg_low",
+      "T_K": 300.0,
+      "VD_V": 0.05,
+      "VB_V": 0.0,
+      "VG_V": 0.48,
+      "reference_Id_A_per_um": 9.941292374362281e-08,
+      "replays": {
+        "reload_extended": {
+          "status": "OK",
+          "Vg_V": 0.48,
+          "Id_A_per_um": 9.941292374362277e-08,
+          "Is_A_per_um": -9.941292373952553e-08,
+          "Ib_A_per_um": -4.097238894452821e-18,
+          "current_balance_A_per_um": 5.055204039201785e-24,
+          "relative_current_balance": 5.085057202661812e-17,
+          "difference_from_sweep_A_per_um": -3.970466940254533e-23,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        },
+        "live_extended": {
+          "status": "OK",
+          "Vg_V": 0.48,
+          "Id_A_per_um": 9.941292374362279e-08,
+          "Is_A_per_um": -9.941292373952554e-08,
+          "Ib_A_per_um": -4.097238894452924e-18,
+          "current_balance_A_per_um": 5.05520393597194e-24,
+          "relative_current_balance": 5.08505709882235e-17,
+          "difference_from_sweep_A_per_um": -2.6469779601696886e-23,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        }
+      }
+    },
+    {
+      "case": "idvg_high",
+      "T_K": 300.0,
+      "VD_V": 2.0,
+      "VB_V": 0.0,
+      "VG_V": 0.0,
+      "reference_Id_A_per_um": 1.3642605451630096e-14,
+      "replays": {
+        "reload_extended": {
+          "status": "OK",
+          "Vg_V": 0.0,
+          "Id_A_per_um": 1.3642605451630095e-14,
+          "Is_A_per_um": -1.3609154514718749e-14,
+          "Ib_A_per_um": -3.345093691134594e-17,
+          "current_balance_A_per_um": -2.465190328815662e-31,
+          "relative_current_balance": 1.8069791269387675e-17,
+          "difference_from_sweep_A_per_um": -1.5777218104420236e-30,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        },
+        "live_extended": {
+          "status": "OK",
+          "Vg_V": 0.0,
+          "Id_A_per_um": 1.3642605451630096e-14,
+          "Is_A_per_um": -1.3609154514718749e-14,
+          "Ib_A_per_um": -3.345093691134594e-17,
+          "current_balance_A_per_um": 1.3312027775604574e-30,
+          "relative_current_balance": 9.757687285469344e-17,
+          "difference_from_sweep_A_per_um": 0.0,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        }
+      }
+    },
+    {
+      "case": "idvg_high",
+      "T_K": 300.0,
+      "VD_V": 2.0,
+      "VB_V": 0.0,
+      "VG_V": 2.0,
+      "reference_Id_A_per_um": 0.0005442367715179,
+      "replays": {
+        "reload_extended": {
+          "status": "OK",
+          "Vg_V": 2.0,
+          "Id_A_per_um": 0.0005442367715179144,
+          "Is_A_per_um": -0.0005442367715178763,
+          "Ib_A_per_um": -3.801236694548741e-17,
+          "current_balance_A_per_um": 4.312930875379723e-20,
+          "relative_current_balance": 7.92473258164945e-17,
+          "difference_from_sweep_A_per_um": 1.431146867680866e-17,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        },
+        "live_extended": {
+          "status": "OK",
+          "Vg_V": 2.0,
+          "Id_A_per_um": 0.0005442367715179144,
+          "Is_A_per_um": -0.0005442367715178763,
+          "Ib_A_per_um": -3.80123669454874e-17,
+          "current_balance_A_per_um": 4.3129308753803393e-20,
+          "relative_current_balance": 7.924732581650582e-17,
+          "difference_from_sweep_A_per_um": 1.431146867680866e-17,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        }
+      }
+    },
+    {
+      "case": "idvg_body",
+      "T_K": 300.0,
+      "VD_V": 0.05,
+      "VB_V": -0.5,
+      "VG_V": 0.48,
+      "reference_Id_A_per_um": 4.3703025358324784e-08,
+      "replays": {
+        "reload_extended": {
+          "status": "OK",
+          "Vg_V": 0.48,
+          "Id_A_per_um": 4.370302535832478e-08,
+          "Is_A_per_um": -4.370302533583743e-08,
+          "Ib_A_per_um": -2.2487348705018614e-17,
+          "current_balance_A_per_um": -3.839562286819175e-25,
+          "relative_current_balance": 8.78557549583417e-18,
+          "difference_from_sweep_A_per_um": -6.617444900424222e-24,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        },
+        "live_extended": {
+          "status": "OK",
+          "Vg_V": 0.48,
+          "Id_A_per_um": 4.3703025358324784e-08,
+          "Is_A_per_um": -4.3703025335837435e-08,
+          "Ib_A_per_um": -2.2487348705018614e-17,
+          "current_balance_A_per_um": -3.839562286819175e-25,
+          "relative_current_balance": 8.785575495834168e-18,
+          "difference_from_sweep_A_per_um": 0.0,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        }
+      }
+    },
+    {
+      "case": "off_398K",
+      "T_K": 398.0,
+      "VD_V": 2.0,
+      "VB_V": 0.0,
+      "VG_V": 0.0,
+      "reference_Id_A_per_um": 1.0714028252494969e-11,
+      "replays": {
+        "reload_extended": {
+          "status": "OK",
+          "Vg_V": 0.0,
+          "Id_A_per_um": 1.071402825249497e-11,
+          "Is_A_per_um": -8.28407837485487e-12,
+          "Ib_A_per_um": -2.4299498776401005e-12,
+          "current_balance_A_per_um": 8.077935669463161e-28,
+          "relative_current_balance": 7.539587799371404e-17,
+          "difference_from_sweep_A_per_um": 1.6155871338926322e-27,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        },
+        "live_extended": {
+          "status": "OK",
+          "Vg_V": 0.0,
+          "Id_A_per_um": 1.071402825249497e-11,
+          "Is_A_per_um": -8.284078374854871e-12,
+          "Ib_A_per_um": -2.4299498776401005e-12,
+          "current_balance_A_per_um": -8.077935669463161e-28,
+          "relative_current_balance": 7.539587799371404e-17,
+          "difference_from_sweep_A_per_um": 1.6155871338926322e-27,
+          "current_matches": true,
+          "conservation_passed": true,
+          "passed": true
+        }
+      }
+    }
+  ],
+  "final_extractor_recheck": {
+    "primary": {
+      "passed": true,
+      "metrics": [
+        {
+          "name": "Vth",
+          "value": 0.48020253440765126,
+          "unit": "V",
+          "minimum": 0.4,
+          "maximum": 0.5,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+          "error": null
+        },
+        {
+          "name": "Ion",
+          "value": 544.2367715179,
+          "unit": "uA/um",
+          "minimum": 450,
+          "maximum": null,
+          "status": "PASS",
+          "condition": "300 K, VG=VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "Ioff",
+          "value": 0.013642605451630097,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 1,
+          "status": "PASS",
+          "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "SS",
+          "value": 65.98907457753347,
+          "unit": "mV/dec",
+          "minimum": null,
+          "maximum": 75,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+          "error": null
+        },
+        {
+          "name": "Ioff_398K",
+          "value": 10.71402825249497,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 100,
+          "status": "PASS",
+          "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "DIBL",
+          "value": 12.640083642263544,
+          "unit": "mV/V",
+          "minimum": null,
+          "maximum": 30,
+          "status": "PASS",
+          "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+          "error": null
+        },
+        {
+          "name": "Body_effect",
+          "value": 0.025657685998004,
+          "unit": "V",
+          "minimum": null,
+          "maximum": 0.08,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+          "error": null
+        },
+        {
+          "name": "Eox",
+          "value": 4.444444444444445,
+          "unit": "MV/cm",
+          "minimum": null,
+          "maximum": 5,
+          "status": "PASS",
+          "condition": "VDD=2 V / tox",
+          "error": null
+        }
+      ]
+    },
+    "fine": {
+      "passed": true,
+      "metrics": [
+        {
+          "name": "Vth",
+          "value": 0.480198024255126,
+          "unit": "V",
+          "minimum": 0.4,
+          "maximum": 0.5,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, VB=VS=0, ID=1e-7 A/um",
+          "error": null
+        },
+        {
+          "name": "Ion",
+          "value": 544.2367715179,
+          "unit": "uA/um",
+          "minimum": 450,
+          "maximum": null,
+          "status": "PASS",
+          "condition": "300 K, VG=VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "Ioff",
+          "value": 0.013642605451630097,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 1,
+          "status": "PASS",
+          "condition": "300 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "SS",
+          "value": 65.97465191285332,
+          "unit": "mV/dec",
+          "minimum": null,
+          "maximum": 75,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, ID=1e-10..1e-8 A/um",
+          "error": null
+        },
+        {
+          "name": "Ioff_398K",
+          "value": 10.71402825249497,
+          "unit": "pA/um",
+          "minimum": null,
+          "maximum": 100,
+          "status": "PASS",
+          "condition": "398 K, VG=0, VD=2 V, VB=VS=0",
+          "error": null
+        },
+        {
+          "name": "DIBL",
+          "value": 12.660562372482179,
+          "unit": "mV/V",
+          "minimum": null,
+          "maximum": 30,
+          "status": "PASS",
+          "condition": "300 K, [Vth(VD=0.05)-Vth(VD=2)]/1.95",
+          "error": null
+        },
+        {
+          "name": "Body_effect",
+          "value": 0.025543130621004384,
+          "unit": "V",
+          "minimum": null,
+          "maximum": 0.08,
+          "status": "PASS",
+          "condition": "300 K, VD=0.05 V, Vth(VB=-0.5)-Vth(VB=0)",
+          "error": null
+        },
+        {
+          "name": "Eox",
+          "value": 4.444444444444445,
+          "unit": "MV/cm",
+          "minimum": null,
+          "maximum": 5,
+          "status": "PASS",
+          "condition": "VDD=2 V / tox",
+          "error": null
+        }
+      ]
+    }
+  },
+  "final_extractor_sha256": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+  "validation_source_sha256": "f88ca6d1c6fba5cc1fbd62480ec217285c33b328a36ed02227a9e8b8e6005b7b",
+  "probe_isolation": "Fresh Python process for each precision and point",
+  "probe_log_dir": "project1\\results\\official_20261004_155839\\part1\\candidate_08\\probes",
+  "extended_baseline_checks_pass": true,
+  "grading_conditions_match": true,
+  "grading_condition_checks_pass": true,
+  "double_precision_executed": false,
+  "double_precision_complete": null,
+  "double_precision_checks_pass": null,
+  "all_checks_pass": false
+}

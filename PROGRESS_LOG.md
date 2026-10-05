@@ -479,3 +479,214 @@
 ### 다음 작업
 
 - 이번 파일 준비·자가검사 요청 완료. 사용자는 두 OK 화면을 캡처해 최종 보고서에 삽입한다. 통합 보고서 완성·최종 제출은 남아 있으며 이번에는 commit/push·업로드를 하지 않았다.
+
+## 2026-10-05 11:26:06 KST
+
+### 수행한 작업
+
+- 최종 Part 2 구조의64 ms checkpoint를 재로딩하고 기본/미세3/1.5 mV로 누설 적분을 이어가 최초 sampled READ 실패를 확인했다.
+
+### 현재 상태
+
+- Data1 기본72.597648 ms/59.269445 mV, 미세72.119709 ms/59.338223 mV에서 실패. 64 ms는 양쪽 모두 이전 마진을 재현해 PASS이며 두 시각 사이의 실패 구간을 좁히는 중이다.
+
+### 발견 / 이슈
+
+- 독립 상수 누설 기대값3건·source/config/최종 구조 hash·CSTORE 및 seed READ 재현 PASS. 이 실패는64 ms 이후 보존 한계를 찾는 정상 측정이며 기존 최소조건 PASS를 취소하는 결과가 아니다.
+
+### 다음 작업
+
+- Data1 실패 구간폭≤0.1%를 측정하고 data0가 그 상단까지 유지되는지 확인한 뒤 원시 적분/READ·민감도·보호 검증과 최종 기록을 남긴다. 원 결과는 보존한다.
+
+## 2026-10-05 11:39:08 KST
+
+### 수행한 작업
+
+- 최종 Part 2 구조를 유지한 채64 ms 이후 실제 누설 적분·재읽기·bisection을 기본/미세 간격으로 측정하고 data0 보존을 추가 확인했다.
+
+### 현재 상태
+
+- Cell retention estimate 약67.2 ms, 제한 상태data1. 미세 구간67.171761~67.235196 ms, 중간값67.203479 ms. Data0는72.5976 ms까지 실제 PASS, 그때 미세 READ 마진116.763318 mV다.
+- 기존≥64 ms 최소조건 PASS는 유지된다. 상세 결과는 project1/PART2_RETENTION_ESTIMATE.md, raw/검증은 results/retention_estimate_20261005_111911에 보존했다.
+
+### 발견 / 이슈
+
+- Analytic continuation3건·64 ms fresh 재현·실제READ/전류/전하/Euler·failure bracket≤0.1%·source/구조/CSTORE·기본/미세 민감도 검사 PASS. 두 estimate 차이0.012945 ms(0.0193%). 기존592개 보호 파일·staged/log prefix도 보존했다.
+- 유한 간격/모델에서의 추정값이며 수학적으로 정확한 시간은 아니다. Data0 단독 최대 retention·mesh 민감도·조교 evaluator는 미검증이다. 기존 코드/설계/과거 결과/PDF와 Part1/HW1은 변경하지 않았다.
+
+### 다음 작업
+
+- 이번 추가 측정 요청 완료·다음 요청 대기. 최종 제출 보고서에는 기존≥64 ms 확인과 새cell estimate를 구분해 반영할 수 있다. 이번에는 commit/push·업로드를 하지 않았다.
+
+## 2026-10-05 12:07:10 KST
+
+### 수행한 작업
+
+- Part2 여유 개선: 최신 PDF50~57쪽·공식 Q&A·기존 측정 코드와 결과를 대조하고2시간 예산/633개 파일 보호 snapshot을 준비했다.
+
+### 현재 상태
+
+- 신규 run은 `project1/results/part2_robust_search_20261005_115807/`. 단일 변수 후보 측정 중이며 기존 Part1/HW1/최종 Part2·직전67.2 ms 결과는 보존했다.
+
+### 발견 / 이슈
+
+- Gate TaN/tap 유지 후보와 낮은 source-side NA 후보의 초기data1 READ는84.561/76.523 mV로 개선됐지만 저장 누설은2.878/0.227 pA로 기준0.069 pA보다 커졌다. 구조/C/초기READ 검증은 완료했으나 retention PASS로 해석하지 않는다.
+- 초기READ만으로 선택하지 않고64 ms 열화 후 READ를 확인한다. Mobility/precision/ramp 등 공식 physics와 판정은 변경하지 않는다.
+
+### 다음 작업
+
+- Tap/NA/xj/tox/ND의 영향을 비교하고 유망 조합→endpoint→최종 두 상태·미세 간격 검증을 진행한다. 종료 시각13:58:07 KST를 지킨다.
+
+## 2026-10-05 12:19:01 KST
+
+### 수행한 작업
+
+- Part2 단일 변수·초기 조합의 구조/plate C/READ/누설을 비교하고 유망 비균일 채널 후보의64 ms 실제 endpoint 검증을 시작했다.
+
+### 현재 상태
+
+- #10의 초기data1 READ71.951 mV·저장누설0.057507 pA로 기준67.301 mV·0.069343 pA보다 개선됐다. 용량·전계 여유를 더한 #19도 측정 중이며 아직 최종 PASS로 선언하지 않는다.
+
+### 발견 / 이슈
+
+- NA1e17·tox5.5 nm 단독 후보는 초기READ FAIL. TaN/높은 sourceND의 READ 이득에도 누설 증가가 있어 두 목적을 함께 봐야 한다. 상세 결과·미측정 구분은 새 run의 results_matrix.csv/JSON에 유지한다.
+- 사용자가2시간을 채우거나 극한 최적화를 할 필요가 없다고 지시했다. 충분히 개선된 후보를 검증하면 조기 종료하도록 PLAN을 수정했다. 기본 목표는64 ms data1 마진≥64 mV·보존≥96 ms이며 과제 필수 조건과 구분한다.
+
+### 다음 작업
+
+- 유망 후보의 두 상태·READ5 ps·retention1.5 mV·fresh 구조/NetDoping을 검증하고 실제 연장 보존 결과 또는 하한을 보고한다. 검증된 충분한 후보가 나오면 추가 탐색을 멈춘다.
+
+## 2026-10-05 12:25:10 KST
+
+### 수행한 작업
+
+- 12개 후보 screening와 #10/#19의64 ms data1 endpoint를 비교하고 #19를 최종 검증 후보로 선택했다. 사용자 지시에 따라 추가 parameter 탐색을 종료했다.
+
+### 현재 상태
+
+- #19: 초기data1 READ69.463 mV/64 ms63.557 mV, C19.281938 fF/Eox4.716981/Ecap2.5 MV/cm. Source-side NA1e15/drain-side NA1e17, sourceND1e20/drainND1e19, tox5.3 nm/cap4 nm·h1.245 µm다.
+
+### 발견 / 이슈
+
+- 기존64 ms 마진60.418 mV 대비 기준60 mV 초과분이 약8.5배로 늘고 용량·전계도 개선됐다. #10은65.280 mV지만 기존 C/Eox 경계값을 유지해 #19를 균형 후보로 골랐다.
+- 초기≥75 mV/64 ms≥64 mV 희망 목표는 미충족이며 필수 기준과 구분한다. #19의 구조/NetDoping fresh 검증은 PASS, 두 상태·미세 간격·연장 retention은 진행 중이다. 기존 소자와 과거 결과는 보존한다.
+
+### 다음 작업
+
+- 두 상태의64 ms 및 최대128 ms 실제 READ 판정과 미세 간격을 검증한다. 충분히 개선되면 최초 failure를 더 찾지 않고 확인한 보존 하한을 명시해 종료한다.
+
+## 2026-10-05 12:37:35 KST
+
+### 수행한 작업
+
+- 선택 #19의 저장 구조를 두 fresh process에서 재측정해 READ10/5 ps와64 ms adaptive retention·재읽기를 검증했다.
+
+### 현재 상태
+
+- 기본64 ms 두 상태 PASS: data0=112.955710 mV/data1=63.557209 mV. 초기READ5 ps 민감도·source/구조/C 일치·signed Euler·전류/전하 검증 PASS. 상세 raw는 신규 run의 experiments/19_balanced_ND20/verify0·verify1에 보존했다.
+
+### 발견 / 이슈
+
+- Data1은 endpoint 결과를 재현했고 기준60 mV 여유가 기존0.418→3.557 mV다. Data0도64 ms에서 충분한 마진을 유지했다. 연장 retention과 미세1.5 mV는 진행/대기 중이므로 최종 전체 검증 완료로 선언하지 않는다.
+
+### 다음 작업
+
+- 최초 READ 실패 구간 또는128 ms 실제 통과 하한을 확인하고 미세 간격·전체 raw audit 뒤 새 추천 구조와 간결한 비교 결과를 저장한다. 추가 후보 탐색은 종료한 상태다.
+
+## 2026-10-05 12:47:46 KST
+
+### 수행한 작업
+
+- #19 기본3 mV 적분의64 ms 이후 실제 재READ·bisection을 완료하고 미세1.5 mV 두 상태 검증을 시작했다.
+
+### 현재 상태
+
+- Data1 bracket94.929035~95.451378 ms, midpoint95.190207 ms. Data0는128 ms/109.730137 mV PASS여서 셀 한계는data1이다. 두 상태의 기본64 ms 조건과 초기READ10/5 ps는 PASS다.
+
+### 발견 / 이슈
+
+- 기존67.203479 ms 대비 약42% 증가했고64 ms 보존 여유는약3.2→31.2 ms로 커졌다. 96 ms 희망값은 약0.8% 미달이며64 ms 필수 조건과 구분한다. 64 ms 이후 실패 관측은 정상적인 한계 측정이며 과제 탈락을 뜻하지 않는다.
+- Raw bracket 양끝 margin60.027768/59.964459 mV로 실제 통과·실패를 구분한다. 사용자가 극한 탐색을 원하지 않아 후보를 더 늘리지 않고 이 균형 설계를 검증한다.
+
+### 다음 작업
+
+- 미세 간격·raw 전류/전하/Euler·source/구조·보호 및 final review를 완료하고 새 추천 파일·간결한 비교 결과를 저장한다. 기존 파일은 보존한다.
+
+## 2026-10-05 13:17:07 KST
+
+### 수행한 작업
+
+- Part2 여유 개선 완료:12개 후보 비교 후 #19의 두 상태·기본/미세·구조 및 전체 raw 검증을 마치고 새 추천 설정/학번 파일을 별도 저장했다. 탐색·수치 검증 약77분으로 조기 종료했다.
+
+### 현재 상태
+
+- Data1/cell estimate95.198837 ms(미세 bracket94.937594~95.460080 ms), 기존67.203479 ms 대비41.66% 개선. 64 ms data1 마진63.559235 mV, data0는128 ms/109.821026 mV까지 실제 PASS다.
+- C19.281938 fF/Eox4.716981/Ecap2.5 MV/cm. 소자 필수 조건 로컬 PASS. 상세는 `project1/PART2_ROBUST_SEARCH.md`; 새 구조는run의 `selected/part2_2022142233.devsim`, 설정은 `project1/part2_robust.yaml`이다.
+
+### 발견 / 이슈
+
+- READ10/5 ps·retention3/1.5 mV·전류/전하/Euler·실패 양끝·fresh checker/NetDoping·범위·source/hash 검증 PASS. 두 estimate 차이0.008630 ms(0.009066%). 기존631개 파일·staged/log prefix를 보존했다.
+- 희망75 mV/64 mV/96 ms 등은 일부 미달이지만 과제60 mV/64 ms와 구분했다. 독립 mesh·조교 evaluator/data0 최대 시간·제출 보고서/OK 화면은 남았다. Part1/HW1/core·기존 root Part2/과거 결과는 변경하지 않았다.
+
+### 다음 작업
+
+- 현재 최적화 요청 완료·다음 요청 대기. 새 추천은 별도 경로이며 재현은구조 reload를 사용한다. Commit/push·제출·추가 극한 탐색은 하지 않았다.
+
+## 2026-10-05 14:29:19 KST
+
+### 수행한 작업
+
+- Part1·2 완료와 제출 준비를 PDF 제출 페이지·최종 metrics/validation·학번 파일 hash·현재 PDF 초안으로 재확인했다. 새 실험과 소자 변경은 하지 않았다.
+
+### 현재 상태
+
+- Part1 8/8 및 Part2 새 #19 필수 조건 로컬 PASS. Part1 학번 파일도 존재·기존 checker OK 구조와 동일하다. 구현·설계는 완료됐고 제출 준비는 미완료다.
+
+### 발견 / 이슈
+
+- 보고서 외 두 실제 OK 화면과 정확한 학번 파일 묶음이 필요하다. 루트 Part2는 이전 #11이며 새 #19는 robust run/selected에 있다. 7쪽 Part1 초안의 학번 미확인·Part2 미완료 문구는 최종 PDF에서 갱신해야 한다.
+- 기존 검증과 실제 파일 hash 일치·8개 PASS/Part2 all_minimum_specs_pass 확인. 조교 evaluator·독립 mesh 검증은 미확인이며 채점 PASS를 보장하지 않는다.
+
+### 다음 작업
+
+- 현재 확인 요청 완료·다음 요청 대기. 남은 필수 준비는 통합 PDF·두 OK 화면·새 추천 파일을 포함한 제출 묶음이며, 추가 최적화는 필수로 편입하지 않는다.
+
+## 2026-10-05 14:57:55 KST
+
+### 수행한 작업
+
+- 보고서 준비 완료: 전체 코드·PDF/Q&A·Part1/2 설계/검증 기록을 대조해 루트 `REPORT_CONTEXT.md`, 짧은 GPT 프롬프트, 원시 근거 ZIP을 작성했다.
+
+### 현재 상태
+
+- 요청한 11항목·구현 이유·보고서 7절/약12쪽·최종 값·실패 이력·그림/결과 경로를 정리했다. Part1 공식8 PASS/Part2 #19 로컬 PASS는 기존 검증 결과이며 새 실험은 없다.
+
+### 발견 / 이슈
+
+- 후속 요청에 따라 프롬프트 중심 계획을 단일 컨텍스트 문서로 확장했다. SRH는 HW1에서 재사용한 모델이며, 현재95.2 ms 소자는 robust run/selected에 있고 루트 Part2는 이전#11이다.
+- 문서 수치·55개 경로·ZIP612파일 CRC/SHA256·UTF-8/한글·diff 검사 PASS. 기존900파일·staged 상태·이전 log prefix를 보존했다. 검증은 `project1/tmp/report_prompt_20261005/validation.json`에 기록했다.
+- 최종 보고서·실제 두 OK 화면은 아직 없다. 기존 HTML은 초기/이전 후보 그래프다. 조교 재평가·독립 mesh·Data0 최대 retention·개인별 직접 작성 기여율은 확인 불가로 명시했다.
+
+### 다음 작업
+
+- 현재 요청 완료·다음 요청 대기. GPT에는 컨텍스트와 자료 묶음을 전달하고 최종 보고서 작성 시 실제 OK 화면·이름/분반을 보완한다. 코드/소자/과거 결과 변경·commit/push·제출은 하지 않았다.
+
+## 2026-10-06 02:53:58 KST
+
+### 수행한 작업
+
+- 추가 공식 Q&A 대조 완료: 최종 Part1/Part2 구조·코드·helper·실제 등록 parameter·raw를 확인하고 `project1/OFFICIAL_QA.md`에 답변과 근거를 추가했다.
+
+### 현재 상태
+
+- Ohmic 접점·τn=τp=10 µs·세밀한 Vg sweep·총 길이 변경에 부합한다. Part2는 separation50 nm/dielectric4 nm/storage=source, 전체 길이0.7 µm이며 Lg0.3/폭0.1은 유지됐다. 소자·코드 변경은 필요하지 않았다.
+
+### 발견 / 이슈
+
+- Part1 기존 fine raw의0.1 V 표본21점 재추출도8 PASS(Vth0.486363 V/SS66.683007 mV/dec). 새 DC sweep·조교 evaluator 실행이 아니며 원래 fine 정본을 보존했다.
+- 초기 감사의 Part2 300 K 등록은 기존398 K 제한에 거절됐다. 공식 조건으로 감사 범위를 바로잡고 Part1 300/398·Part2 398 K의 수명을 확인했다. 보호1518파일·staged/log prefix·UTF-8/diff 검사 PASS; 근거는 `project1/tmp/qa_audit_20261006/validation.json`이다.
+- 질문자의20 nm는 의무 separation이 아니다. 우리50 nm 구조는 기존 source-contact 위 배치 허용 및 이번 설명과 충돌하지 않지만, 해당 구조의 조교 직접 재평가를 받은 것은 아니다.
+
+### 다음 작업
+
+- 현재 확인 요청 완료·다음 요청 대기. Numerical solve·새 READ/retention·최적화·commit/push·제출은 하지 않았다. 기존 보고서 컨텍스트/자료 ZIP도 보존했다.

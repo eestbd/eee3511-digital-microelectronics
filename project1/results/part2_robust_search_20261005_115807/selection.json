@@ -1,0 +1,16 @@
+{
+  "candidate": "19_balanced_ND20",
+  "status": "verified_recommendation",
+  "selected_utc": "2026-10-05T03:25:09.409882+00:00",
+  "reason": "64 ms data1 margin improved 60.418 -> 63.557 mV; capacitance and gate/cap fields gain headroom; stop searching per user practical-improvement instruction",
+  "screened_candidates": 12,
+  "endpoint_compared_candidates": [
+    "10_low_high",
+    "19_balanced_ND20"
+  ],
+  "initial_margin_goal_met": false,
+  "aspirational_margin64_64mV_met": false,
+  "minimum_specs_not_yet_fully_verified": false,
+  "planned_retention_stop_s": 0.128,
+  "completed_KST": "2026-10-05 13:15:26 KST"
+}

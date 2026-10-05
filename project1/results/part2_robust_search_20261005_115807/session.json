@@ -1,0 +1,10 @@
+{
+  "start_utc": "2026-10-05T02:58:07+00:00",
+  "deadline_utc": "2026-10-05T04:58:07+00:00",
+  "budget_s": 7200,
+  "max_native_processes": 2,
+  "baseline": "project1/part2_final.yaml",
+  "baseline_structure": "project1/part2_2022142233.devsim",
+  "search_scope": "Part 2 parameters only; preserve Part 1 and existing results",
+  "protected_file_count": 633
+}

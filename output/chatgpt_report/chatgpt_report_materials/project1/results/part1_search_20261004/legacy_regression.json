@@ -1,0 +1,63 @@
+{
+  "purpose": "Existing three CLI regression, original config and scratch outputs only",
+  "checked_at_utc": "2026-10-04T05:05:52.723693+00:00",
+  "reference": "project1\\results\\part1_baseline\\legacy",
+  "current": "project1\\tmp\\search_20261004\\legacy_after",
+  "IV_rtol": 1e-09,
+  "IV_atol_A_per_um": 1e-17,
+  "CV_comparison": "exact",
+  "checks": {
+    "idvg": {
+      "points": 21,
+      "expected_points": 21,
+      "columns": [
+        "Vg_V",
+        "Id_A_per_um"
+      ],
+      "same_columns": true,
+      "finite": true,
+      "voltage_exact": true,
+      "value_exact": false,
+      "max_absolute_difference": 8.470329472543003e-21,
+      "passed": true
+    },
+    "idvd": {
+      "points": 21,
+      "expected_points": 21,
+      "columns": [
+        "Vd_V",
+        "Id_A_per_um"
+      ],
+      "same_columns": true,
+      "finite": true,
+      "voltage_exact": true,
+      "value_exact": false,
+      "max_absolute_difference": 2.710505431213761e-20,
+      "passed": true
+    },
+    "cv": {
+      "points": 31,
+      "expected_points": 31,
+      "columns": [
+        "Vg_V",
+        "Cgg_F_per_um"
+      ],
+      "same_columns": true,
+      "finite": true,
+      "voltage_exact": true,
+      "value_exact": false,
+      "max_absolute_difference": 2.9582283945787943e-31,
+      "passed": false
+    }
+  },
+  "all_passed": false,
+  "source_sha256": {
+    "project1\\mosfet_tool\\config.py": "641ded0ba7a80fdc628f2565d829fa7727feb2aebed73fdeb83b11681860367f",
+    "project1\\mosfet_tool\\materials.py": "6b20ead46c19f29d8c1253bad0422afd9d20a8a73c7ccf59eec3bc0de66188d2",
+    "project1\\mosfet_tool\\metrics.py": "10503fa18a0b9ef174bc8cd554b0ebebf73edb0f5e9e2f018e7e9db744bfbc30",
+    "project1\\mosfet_tool\\physics.py": "3cc36b146174601124e6fb0cbd5b2e16ec607a256dec4e90877e55fcf597e8e4",
+    "project1\\mosfet_tool\\simulator.py": "47cdf4da2d3f2400d3fa1f841ddb36b7c1896d2eb88b1126d8450f5660de3d53",
+    "project1\\mosfet_tool\\workflows.py": "678f894b07956458ac04899d8344bb7c24c444cb6859e7ed852759fa4ca9e72b",
+    "project1\\mosfet_tool\\__init__.py": "999f7a085c83f16466d018ed69190c133a491726fe08f47c8e2cfe1a18d27277"
+  }
+}

@@ -1,0 +1,24 @@
+Adding 660 nodes
+Adding 1560 edges with 0 duplicates removed
+Adding 900 triangles  with 0 duplicate removed
+Adding 2268 nodes
+Adding 6607 edges with 0 duplicates removed
+Adding 4340 triangles  with 0 duplicate removed
+Adding 115 nodes
+Adding 290 edges with 0 duplicates removed
+Adding 176 triangles  with 0 duplicate removed
+Adding 69 nodes
+Adding 156 edges with 0 duplicates removed
+Adding 88 triangles  with 0 duplicate removed
+Contact body in region bulk with 63 nodes
+Contact drain in region bulk with 21 nodes
+Contact gate in region oxide with 23 nodes
+Contact source in region bulk with 21 nodes
+Adding interface bulk_oxide with 21, 21 nodes
+Replacing Node Model DrainDoping in region bulk of material Silicon
+Replacing Node Model NetDoping in region bulk of material Silicon
+Replacing Node Model SourceDoping in region bulk of material Silicon
+OK: C:\Users\super\DEVSIM_PROJECT\project1\results\part1_search_20261004\trial_09_lg055_tox45_tin\primary\part1_baseline_diagnostic.devsim
+  regions/materials: {'air': 'Air', 'bulk': 'Silicon', 'gate_metal': 'TiN', 'oxide': 'Oxide'}
+  contacts: ['body', 'drain', 'gate', 'source']
+  interfaces: ['bulk_oxide']

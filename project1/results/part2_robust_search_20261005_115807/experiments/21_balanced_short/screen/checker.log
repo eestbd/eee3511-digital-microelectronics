@@ -1,0 +1,38 @@
+Adding 1505 nodes
+Adding 3937 edges with 0 duplicates removed
+Adding 2432 triangles  with 0 duplicate removed
+Adding 1785 nodes
+Adding 5144 edges with 0 duplicates removed
+Adding 3360 triangles  with 0 duplicate removed
+Adding 65 nodes
+Adding 160 edges with 0 duplicates removed
+Adding 96 triangles  with 0 duplicate removed
+Adding 78 nodes
+Adding 177 edges with 0 duplicates removed
+Adding 100 triangles  with 0 duplicate removed
+Adding 78 nodes
+Adding 177 edges with 0 duplicates removed
+Adding 100 triangles  with 0 duplicate removed
+Adding 1734 nodes
+Adding 5033 edges with 0 duplicates removed
+Adding 3300 triangles  with 0 duplicate removed
+Adding 52 nodes
+Adding 123 edges with 0 duplicates removed
+Adding 72 triangles  with 0 duplicate removed
+Contact body in region bulk with 85 nodes
+Contact drain in region bulk with 9 nodes
+Contact gate in region oxide with 13 nodes
+Contact plate_l in region hk_l with 26 nodes
+Contact plate_r in region hk_r with 26 nodes
+Contact source in region bulk with 65 nodes
+Contact storage_l in region hk_l with 26 nodes
+Contact storage_r in region hk_r with 26 nodes
+Adding interface bulk_oxide with 11, 11 nodes
+Replacing Node Model DrainDoping in region bulk of material Silicon
+Replacing Node Model NetDoping in region bulk of material Silicon
+Replacing Node Model SourceDoping in region bulk of material Silicon
+Replacing Node Model TapDoping in region bulk of material Silicon
+OK: C:\Users\super\DEVSIM_PROJECT\project1\results\part2_robust_search_20261005_115807\experiments\21_balanced_short\screen\part2_diagnostic.devsim
+  regions/materials: {'air': 'Air', 'bulk': 'Silicon', 'gate_metal': 'W', 'hk_l': 'ZrO2', 'hk_r': 'ZrO2', 'metal_storage': 'Metal', 'oxide': 'Oxide'}
+  contacts: ['body', 'drain', 'gate', 'plate_l', 'plate_r', 'source', 'storage_l', 'storage_r']
+  interfaces: ['bulk_oxide']
